@@ -14,7 +14,7 @@
     "**/CVS": true
   },
   "files.autoSave": "afterDelay",
-  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorTheme": "GitHub Dark Default",
   "terminal.integrated.gpuAcceleration": "canvas",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[php]": {
