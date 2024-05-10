@@ -1,4 +1,7 @@
 {% load static %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +36,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"
+          <a class="navbar-brand" href="{% url 'home' %}"
             ><img
               src="/static/images/logo_only.webp"
               alt="logo top"
@@ -48,12 +51,12 @@
             aria-expanded="false"
             aria-label="Toggle Profile"
           >
-            <i class="fa-solid fa-bars bi bi-list"></i>
+            <i class="fa-solid fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarProfile">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" title="Home"
+                <a class="nav-link" aria-current="page" href="{% url 'home' %}" title="Home"
                   ><i class="fa-solid fa-house px-1"></i>Home</a
                 >
               </li>
@@ -69,8 +72,9 @@
               </li>
             </ul>
             <ul class="navbar-nav">
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="#" title="Sign Out"
+                <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}" title="Sign Out"
                   ><i class="fa-solid fa-arrow-right-from-bracket px-1"></i>Sign
                   Out</a
                 >
@@ -80,16 +84,18 @@
                   ><i class="fa-solid fa-user px-1"></i>Profile</a
                 >
               </li>
+              {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="#" title="Sign Up"
+                <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}" title="Sign Up"
                   ><i class="fa-solid fa-user-plus px-1"></i>Sign Up</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" title="Sign In"
+                <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}" title="Sign In"
                   ><i class="fa-solid fa-sign-in px-1"></i>Sign In</a
                 >
               </li>
+              {% endif %}
             </ul>
           </div>
         </div>
@@ -101,10 +107,10 @@
       {% endblock %}
     </main>
 
-    <footer class="d-flex footer mt-auto py-3 dark-bg">
+    <footer class="d-flex footer mt-auto py-3">
       <div class="container">
         <p class="m-0 text-center">
-          {% block copyright %}© 2024 Tech Corner{% endblock copyright %}
+          {% block copyright %}© 2024 Tech Corner{% endblock %}
           <a href="https://www.facebook.com" target="_blank" rel="noopener">
             <i class="fa-brands fa-facebook-f ms-2"></i>
           </a>
