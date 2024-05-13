@@ -24,4 +24,7 @@
     "--line-length",
     "79"
   ],
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
 }
