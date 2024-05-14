@@ -36,7 +36,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}"
+          <a class="navbar-brand" href="{% url 'index' %}"
             ><img
               src="/static/images/logo_only.webp"
               alt="logo top"
@@ -56,8 +56,8 @@
           <div class="collapse navbar-collapse" id="navbarProfile">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{% url 'home' %}" title="Home"
-                  ><i class="fa-solid fa-house px-1"></i>Home</a
+                <a class="nav-link" aria-current="page" href="{% url 'index' %}" title="Home"
+                  >|<i class="fa-solid fa-house px-1"></i>Home</a
                 >
               </li>
               <li class="nav-item">
@@ -75,7 +75,7 @@
               {% if user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}" title="Sign Out"
-                  ><i class="fa-solid fa-arrow-right-from-bracket px-1"></i>Sign
+                  >|<i class="fa-solid fa-arrow-right-from-bracket px-1"></i>Sign
                   Out</a
                 >
               </li>
@@ -87,7 +87,7 @@
               {% else %}
               <li class="nav-item">
                 <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}" title="Sign Up"
-                  ><i class="fa-solid fa-user-plus px-1"></i>Sign Up</a
+                  >|<i class="fa-solid fa-user-plus px-1"></i>Sign Up</a
                 >
               </li>
               <li class="nav-item">
@@ -101,7 +101,7 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="pt-5">
       {% block content %}
       <!-- Default content goes here if not overridden -->
       {% endblock %}
