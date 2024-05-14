@@ -62,12 +62,12 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" title="About Us"
-                  ><i class="fa-solid fa-circle-info px-1"></i>About</a
+                  >|<i class="fa-solid fa-circle-info px-1"></i>About</a
                 >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" title="Submit Feedback"
-                  ><i class="fa-solid fa-message px-1"></i>Feedback</a
+                  >|<i class="fa-solid fa-message px-1"></i>Feedback</a
                 >
               </li>
             </ul>
@@ -80,8 +80,8 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" title="View Profile"
-                  ><i class="fa-solid fa-user px-1"></i>Profile</a
+                <a class="nav-link pl-1" href="#" title="View Profile"
+                  >|<i class="fa-solid fa-user px-1"></i>Profile</a
                 >
               </li>
               {% else %}
@@ -92,7 +92,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}" title="Sign In"
-                  ><i class="fa-solid fa-sign-in px-1"></i>Sign In</a
+                  >|<i class="fa-solid fa-sign-in px-1"></i>Sign In</a
                 >
               </li>
               {% endif %}
