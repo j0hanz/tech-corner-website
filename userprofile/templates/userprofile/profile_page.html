@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="text-center">
+    <div class="profile-info">
+      {% if user_profile.profile_image %}
+      <img
+        src="{{ user_profile.profile_image.url }}"
+        alt="Profile Image"
+        class="profile-img"
+      />
+      {% else %}
+      <img
+        class="card-img-center img-fluid img-post-page"
+        src="/static/images/nobody.webp"
+        alt="Placeholder Image"
+        class="profile-img"
+      />
+      {% endif %}
+      <h3>{{ request.user.username }}</h3>
+      <div class="pt-3">
+        <a href="{% url 'edit_profile' %}" class="mx-3"
+        >Edit Profile</a
+      >
+      <span>|</span>
+      <a href="#" class="mx-3 "
+        >Your Posts</a
+      >
+      <span>|</span>
+      <a href="#" class="mx-3 "
+        >Avatar</a
+      >
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

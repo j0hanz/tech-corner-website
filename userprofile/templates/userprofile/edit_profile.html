@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %} {% load allauth i18n %}
+{% url 'account_change_password' as action_url %}
+<div class="container">
+    <img class="img-main img-fluid" src="/static/images/logo.webp" />
+    <div class="text-center">
+        <h2>Edit Profile</h2>
+    </div>
+</div>
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <form method="POST">
+            {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
+            <button type="submit" class="btn btn-dark mb-3">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
