@@ -32,6 +32,9 @@ a {
   color: #ffffff;
 }
 
+.helptext {
+  display: none;
+}
 
 .custom-card {
   background-color: transparent;
@@ -83,6 +86,20 @@ a {
 
 nav {
   box-shadow: 0px 2px 0px #9b9a9a;
+}
+
+#id_oldpassword,
+#id_password1,
+#id_password2,
+#id_login,
+#id_password,
+#id_username,
+#id_email,
+#id_first_name,
+#id_last_name,
+#id_favorite_tech,
+#id_profile_image {
+  display: block;
 }
 
 @media (max-width: 575px) {
