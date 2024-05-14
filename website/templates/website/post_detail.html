@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<div class="masthead">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card flex-row custom-card">
+          {% if post.banner %}
+          <img
+            class="card-img-left img-fluid img-post-page"
+            src="/static/images/nobody.webp"
+            alt="{{ post.title }}"
+          />
+          {% endif %}
+          <div class="card-body">
+            <h1 class="text-center">{{ post.title }}</h1>
+            <p>{{ post.body }}</p>
+            <p>Written by {{ post.author }}</p>
+            <p>Published on {{ post.date }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %} {% comment %}
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.body }}</p>
+  <p>Written by {{ post.author }}</p>
+  <p>Published on {{ post.date }}</p>
+  {% endcomment %}
+</div>
