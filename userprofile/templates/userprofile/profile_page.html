@@ -4,33 +4,23 @@
     <div class="profile-info">
       {% if user_profile.profile_image %}
       <img
+        class="rounded-circle img-fluid img-profile-page"
         src="{{ user_profile.profile_image.url }}"
         alt="Profile Image"
-        class="profile-img"
       />
       {% else %}
       <img
-        class="card-img-center img-fluid img-post-page"
+        class="rounded-circle img-fluid img-profile-page"
         src="/static/images/nobody.webp"
         alt="Placeholder Image"
-        class="profile-img"
       />
       {% endif %}
       <h3>{{ request.user.username }}</h3>
       <div class="pt-3">
-        <a href="{% url 'edit_profile' %}" class="mx-3"
-        >Edit Profile</a
-      >
-      <span>|</span>
-      <a href="#" class="mx-3 "
-        >Your Posts</a
-      >
-      <span>|</span>
-      <a href="#" class="mx-3 "
-        >Avatar</a
-      >
+        <a href="{% url 'edit_profile' %}" class="mx-3">Edit Profile</a>
+        <span>|</span>
+        <a href="#" class="mx-3">Your Posts</a>
       </div>
-      
     </div>
   </div>
 </div>
