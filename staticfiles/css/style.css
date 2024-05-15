@@ -45,7 +45,7 @@ a {
 .img-post {
   width: 150px;
   height: 150px;
-  margin-top: 30px;
+  margin-top: 20px;
   border-style: solid;
   border-color: #171515;
 }
@@ -118,6 +118,7 @@ form {
   text-align: center;
 }
 
+textarea,
 input,
 select {
   background-color: transparent;
