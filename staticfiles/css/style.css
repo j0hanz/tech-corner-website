@@ -58,6 +58,15 @@ a {
   border-color: #171515;
 }
 
+.img-profile-page {
+  width: 100px;
+  height: 100px;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-color: #171515;
+}
+
 .img-main {
   width: 320px;
   display: block;
