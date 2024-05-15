@@ -11,12 +11,13 @@
                 <a class="h4" href="#">New Post<i class="fa-solid fa-plus px-2"></i></a>
             </div>
           </div>
+          
         <div class="event-list">
           {% for post in posts %}
           <div class="card flex-row mb-3 custom-card">
             {% if post.banner %}
             <img
-              class="card-img-left img-fluid img-post"
+              class="rounded-circle card-img-left img-fluid img-post"
               src="/static/images/nobody.webp"
               alt="{{ post.title }}"
             />
