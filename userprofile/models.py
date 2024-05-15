@@ -73,7 +73,7 @@ class UserProfile(models.Model):
         verbose_name_plural = _("User Profiles")
 
     def __str__(self):
-        return self.email
+        return self.user.username
 
 
 @receiver(post_save, sender=User)
