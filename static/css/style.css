@@ -109,6 +109,29 @@ nav {
 #id_favorite_tech,
 #id_profile_image {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form {
+  display: block;
+  text-align: center;
+}
+
+input,
+select {
+  background-color: transparent;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 2px;
+  border-color: #9b9a9a;
+  color: #ffffff;
+}
+
+li {
+  list-style-type: none;
+  padding: 5px;
+  color: #9b9a9a;
 }
 
 @media (max-width: 575px) {
