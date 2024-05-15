@@ -34,7 +34,7 @@ class FavoriteTech(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Favorite Technology")
+        verbose_name = _("Favorite Tech")
         verbose_name_plural = _("Favorite Technologies")
         ordering = ["type"]
 
@@ -64,7 +64,7 @@ class UserProfile(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        verbose_name=_("Favorite Technology"),
+        verbose_name=_("Favorite Tech"),
     )
     profile_image = CloudinaryField(_("Profile Image"), null=True, blank=True)
 
