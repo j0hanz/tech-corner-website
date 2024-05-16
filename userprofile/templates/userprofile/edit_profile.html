@@ -1,11 +1,13 @@
 {% extends "base.html" %} {% load allauth i18n %}
-{% url 'account_change_password' as action_url %}
-{% block content %}
+{% url 'account_change_password' as action_url %} {% block content %}
 <div class="container">
-  <h2>Edit Profile</h2>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
-    <button type="submit" class="btn btn-dark">Update</button>
-  </form>
+  <img class="img-main img-fluid" src="/static/images/logo.webp" />
+  <div class="text-center">
+    <h2>Edit Profile</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
+      <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+  </div>
 </div>
 {% endblock %}
