@@ -129,6 +129,14 @@ select {
   color: #ffffff;
 }
 
+/* Credit: 
+https://stackoverflow.com/questions/23719520/css-for-select-option-to-be-transparent-background
+*/
+
+select option {
+  background-color: #171515;
+}
+
 li {
   list-style-type: none;
   padding: 5px;
