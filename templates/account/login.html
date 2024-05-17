@@ -1,6 +1,12 @@
-{% extends "base.html" %} {% load i18n %} {% load crispy_forms_filters %}
-{% load crispy_forms_tags %} {% load account socialaccount %} {% block head_title %}
-{% trans "Sign In" %} {% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load account socialaccount %}
+{% block head_title %}
+{% trans "Sign In" %}
+{% endblock %}
+{% block content %}
 
 <div class="container">
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
@@ -11,12 +17,15 @@
       <a class="text-link" href="{{ signup_url }}">Sign up here</a>
       {% endblocktrans %}
     </p>
+    <a class="text-link m-3" href="{% url 'account_reset_password' %}">Forgot Password?</a>
   </div>
 </div>
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center pt-3">
   <div class="row">
     <form class="login" method="POST" action="{% url 'account_login' %}">
-      {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
       <input
         type="hidden"
         name="{{ redirect_field_name }}"
