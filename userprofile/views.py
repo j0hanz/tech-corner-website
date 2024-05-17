@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserProfileForm, UserForm
 from .models import UserProfile
-
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 @login_required
 def edit_profile(request):
@@ -44,3 +45,13 @@ def profile_page(request):
         "userprofile/profile_page.html",
         {"user_profile": user_profile},
     )
+
+
+@login_required
+def delete_account(request):
+    if request.method == "POST":
+        user = request.user
+        user.delete()
+        messages.success(request, 'Your account has been deleted successfully.')
+        return redirect('index')
+    return render(request, 'userprofile/delete_account_confirm.html')
