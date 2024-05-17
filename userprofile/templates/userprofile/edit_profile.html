@@ -1,18 +1,25 @@
-{% extends "base.html" %} {% load allauth i18n %}
-{% url 'account_change_password' as action_url %} {% block content %}
+{% extends "base.html" %} 
+{% load allauth i18n %}
+{% url 'account_change_password' as change_password_url %}
+
+{% block content %}
 <div class="container">
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
   <div class="text-center">
     <h2>Edit Profile</h2>
     <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
+      {% csrf_token %} 
+      {{ user_form.as_p }} 
+      {{ profile_form.as_p }}
       <button type="submit" class="btn btn-dark">Update</button>
     </form>
+    <h2 class="mt-3 mb-3">Change Password</h2>
+    <a href="{% url 'account_change_password' %}" class="btn btn-warning">Change Password</a>
     <form action="{% url 'delete_account' %}" method="GET">
       {% csrf_token %}
       <h2 class="mt-3 mb-3">Delete Account</h2>
       <button type="submit" class="btn btn-danger">Delete Account</button>
-  </form>
+    </form>
   </div>
 </div>
 {% endblock %}
