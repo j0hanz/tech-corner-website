@@ -8,7 +8,7 @@
                 <h4>Latest Posts</h4>
             </div>
             <div class="col-4">
-                <a class="h4" href="#">New Post<i class="fa-solid fa-plus px-2"></i></a>
+                <a class="h4" href="{% url 'create_post' %}">New Post<i class="fa-solid fa-plus px-2"></i></a>
             </div>
           </div>
           
@@ -18,7 +18,7 @@
             {% if post.banner %}
             <img
               class="rounded-circle card-img-left img-fluid img-post"
-              src="/static/images/nobody.webp"
+              src="{{ post.author.profile.profile_image.url }}"
               alt="{{ post.title }}"
             />
             {% endif %}
