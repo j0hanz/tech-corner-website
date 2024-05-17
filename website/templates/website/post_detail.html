@@ -7,7 +7,7 @@
           {% if post.banner %}
           <img
             class="rounded-circle card-img-left img-fluid img-post-page"
-            src="/static/images/nobody.webp"
+            src="{{ post.author.profile.profile_image.url }}"
             alt="{{ post.title }}"
           />
           {% endif %}
