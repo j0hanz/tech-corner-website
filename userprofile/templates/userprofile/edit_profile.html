@@ -8,6 +8,11 @@
       {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
       <button type="submit" class="btn btn-dark">Update</button>
     </form>
+    <form action="{% url 'delete_account' %}" method="GET">
+      {% csrf_token %}
+      <h2 class="mt-3 mb-3">Delete Account</h2>
+      <button type="submit" class="btn btn-danger">Delete Account</button>
+  </form>
   </div>
 </div>
 {% endblock %}

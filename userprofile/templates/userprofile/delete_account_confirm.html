@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <img class="img-main img-fluid" src="/static/images/logo.webp" />
+  <div class="text-center">
+    <h4 class="mb-5">Are you sure you want to delete your account?</h4>
+    <form action="{% url 'delete_account' %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger m-3 px-3">
+        YES
+      </button>
+      <a href="{% url 'profile_page' %}" class="m-3 btn btn-success px-4">NO</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
