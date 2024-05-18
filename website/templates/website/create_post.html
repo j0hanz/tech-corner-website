@@ -6,7 +6,7 @@
   <h2 class="mb-3">Create New Post</h2>
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-dark">Submit</button>
+    <button type="submit" class="btn btn-dark mx-3">Submit</button><a class="btn btn-dark mx-3" href="{% url 'index' %}">Cancel</a>
   </form>
 </div>
 {% endblock %}
