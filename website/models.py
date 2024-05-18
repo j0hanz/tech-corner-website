@@ -17,7 +17,7 @@ class Post(models.Model):
     banner = CloudinaryField("image", default="logo.webp", blank=True)
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
 
