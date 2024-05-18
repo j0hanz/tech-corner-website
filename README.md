@@ -1,4 +1,7 @@
-# Tech Corner
+
+![tech-corner-high-resolution-logo-white-transparent](https://github.com/j0hanz/tech-corner-website/assets/159924955/7a15d4d7-c904-43f9-9769-4e9ba7d57fc7)
+
+Tech Corner is a Reddit-style news site where users can share tech news. Users can interact with posts by creating their own posts and commenting on existing posts.
 
 ## Wireframes
 
@@ -36,3 +39,12 @@ ________________________________________________________________________________
 __________________________________________________________________________________________________________
 #### Your Post Page
 ![Your_Post_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/8a186954-25b3-4a96-9fcb-90b2c6d4b1b9)
+
+## Usage
+
+To use Tech Corner:
+
+1. Navigate to the home page to view the latest tech news posts.
+2. Sign up or sign in to your account.
+3. Create new posts or interact with existing posts by commenting.
+4. Visit your profile page to view and edit your information and posts.
