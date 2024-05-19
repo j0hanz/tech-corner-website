@@ -62,13 +62,6 @@ a {
   width: 150px;
   height: 150px;
   margin-top: 2rem;
-}
-
-.img-profile-page {
-  width: 100px;
-  height: 100px;
-  margin-top: 70px;
-  margin-bottom: 20px;
   border-style: solid;
   border-color: #171515;
 }
@@ -167,5 +160,9 @@ li {
   }
   .img-main {
     width: 220px;
+  }
+  .img-view-profile {
+    width: 120px;
+    height: 120px;
   }
 }
