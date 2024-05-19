@@ -4,18 +4,18 @@
     <div class="profile-info">
       {% if user_profile.profile_image %}
       <img
-        class="rounded-circle img-fluid img-profile-page"
+        class="rounded img-fluid img-view-profile"
         src="{{ user_profile.profile_image.url }}"
         alt="Profile Image"
       />
       {% else %}
       <img
-        class="rounded-circle img-fluid img-profile-page"
+        class="rounded img-fluid img-view-profile"
         src="/static/images/nobody.webp"
         alt="Placeholder Image"
       />
       {% endif %}
-      <h3>{{ request.user.username }}</h3>
+      <h3 class="mb-3">{{ request.user.username }}</h3>
       <div class="pt-3">
         <a href="{% url 'edit_profile' %}" class="mx-3">Edit Profile</a>
         <span>|</span>
