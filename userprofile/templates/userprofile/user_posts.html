@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center right-bck">
+      <div class="registration-right">
+        <div class="row justify-content-evenly">
+            <div class="col-4">
+                <h4>Your Posts</h4>
+            </div>
+            <div class="col-4">
+                <a class="h4" href="{% url 'create_post' %}">New Post<i class="fa-solid fa-plus px-2"></i></a>
+            </div>
+          </div>
+          
+        <div class="event-list">
+          {% for post in posts %}
+          <div class="card flex-row mb-3 custom-card">
+            {% if post.banner %}
+            <img
+              class="rounded-circle card-img-left img-fluid img-post"
+              src="{{ post.author.profile.profile_image.url }}"
+              alt="{{ post.title }}"
+            />
+            {% endif %}
+            <div class="card-body">
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.body|truncatewords:15 }}</p>
+              <p class="card-text">{{ post.excerpt|truncatewords:15 }}</p>
+              <a
+                href="{% url 'post_detail' post.slug %}"
+                class="btn btn-dark"
+                >Go to post</a
+              >
+              <span class="post-author mx-4">{{ post.author }} </span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
