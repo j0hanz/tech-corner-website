@@ -22,6 +22,13 @@
         <a href="{% url 'user_posts' %}" class="mx-3">Your Posts</a>
       </div>
     </div>
+    <div class="bio-form mt-4">
+      <form method="post">
+        {% csrf_token %}
+        {{ bio_form.as_p }}
+        <button type="submit" class="btn btn-dark">Update</button>
+      </form>
+    </div>
   </div>
 </div>
 {% endblock %}
