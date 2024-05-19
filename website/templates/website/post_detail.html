@@ -5,11 +5,13 @@
       <div class="col-md-12">
         <div class="card flex-row custom-card">
           {% if post.banner %}
+          <a href="{% url 'view_profile' %}">
           <img
             class="rounded-circle card-img-left img-fluid img-post-page"
             src="{{ post.author.profile.profile_image.url }}"
             alt="{{ post.title }}"
           />
+        </a>
           {% endif %}
           <div class="card-body">
             <h1 class="text-center">{{ post.title }}</h1>
@@ -21,10 +23,5 @@
       </div>
     </div>
   </div>
-  {% endblock %} {% comment %}
-  <h1>{{ post.title }}</h1>
-  <p>{{ post.body }}</p>
-  <p>Written by {{ post.author }}</p>
-  <p>Published on {{ post.date }}</p>
-  {% endcomment %}
+  {% endblock %}
 </div>
