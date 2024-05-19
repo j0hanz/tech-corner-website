@@ -67,6 +67,7 @@ class UserProfile(models.Model):
         verbose_name=_("Favorite Tech"),
     )
     profile_image = CloudinaryField(_("Profile Image"), null=True, blank=True)
+    bio = models.TextField(_("Bio"), max_length=500, null=True, blank=True)
 
     class Meta:
         verbose_name = _("User Profile")
