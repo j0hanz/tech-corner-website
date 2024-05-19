@@ -58,6 +58,12 @@ a {
   border-color: #171515;
 }
 
+.img-view-profile {
+  width: 150px;
+  height: 150px;
+  margin-top: 2rem;
+}
+
 .img-profile-page {
   width: 100px;
   height: 100px;
