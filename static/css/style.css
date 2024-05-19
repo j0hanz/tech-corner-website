@@ -42,6 +42,12 @@ a {
   color: white;
 }
 
+.user-bio {
+  margin-left: auto;
+  margin-right: auto;
+  width: 18rem
+}
+
 .img-post {
   width: 150px;
   height: 150px;
@@ -96,6 +102,7 @@ nav {
   box-shadow: 0px 2px 0px #9b9a9a;
 }
 
+#id_bio,
 #id_oldpassword,
 #id_password1,
 #id_password2,
