@@ -26,8 +26,8 @@
             {% endif %}
             <div class="card-body">
                 <h4>{{ post.title }}</h4>
-                <p>{{ post.body|truncatewords:15 }}</p>
-              <p class="card-text">{{ post.excerpt|truncatewords:15 }}</p>
+                <p>{{ post.body|truncatechars:25 }}</p>
+              <p class="card-text">{{ post.excerpt|truncatechars:30 }}</p>
               <a
                 href="{% url 'post_detail' post.slug %}"
                 class="btn btn-dark"
