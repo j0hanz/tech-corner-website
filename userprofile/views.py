@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import UserProfileForm, UserForm
+from .forms import UserProfileForm, UserForm, UserProfileBioForm
 from .models import UserProfile
 from django.contrib.auth.models import User
 from website.models import Post
@@ -48,15 +48,21 @@ def user_posts(request):
     return render(request, "userprofile/user_posts.html", {"posts": posts})
 
 
-@login_required
 def profile_page(request):
-    user_profile, created = UserProfile.objects.get_or_create(
-        user=request.user
-    )
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+
+    if request.method == "POST":
+        bio_form = UserProfileBioForm(request.POST, instance=user_profile)
+        if bio_form.is_valid():
+            bio_form.save()
+            return redirect("profile_page")
+    else:
+        bio_form = UserProfileBioForm(instance=user_profile)
+
     return render(
         request,
         "userprofile/profile_page.html",
-        {"user_profile": user_profile},
+        {"user_profile": user_profile, "bio_form": bio_form},
     )
 
 
