@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}{{ user.username }}
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="text-center">
+    {% if user.profile.profile_image %}
+    <img
+      class="rounded img-fluid img-view-profile"
+      src="{{ user.profile.profile_image.url }}"
+      alt="{{ user.username }}"
+    />
+    {% else %}
+    <img
+      class="rounded img-fluid img-view-profile"
+      src="/static/images/nobody.webp"
+      alt="{{ user.username }}"
+    />
+    {% endif %}
+    <h1 class="mb-5">{{ user.username }}</h1>
+    <h4 class="fw-bold">Name:</h4>
+    <p>{{ user.profile.first_name }} {{ user.profile.last_name }}</p>
+    <h4 class="fw-bold">Email:</h4>
+    <p>{{ user.profile.email }}</p>
+    <h4 class="fw-bold">Favorite Tech:</h4>
+    <p>{{ user.profile.favorite_tech }}</p>
+  </div>
+</div>
+{% endblock %}
