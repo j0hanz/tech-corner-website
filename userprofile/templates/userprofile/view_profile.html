@@ -4,13 +4,13 @@
   <div class="text-center">
     {% if user.profile.profile_image %}
     <img
-      class="rounded img-fluid img-view-profile"
+      class="rounded img-view-profile"
       src="{{ user.profile.profile_image.url }}"
       alt="{{ user.username }}"
     />
     {% else %}
     <img
-      class="rounded img-fluid img-view-profile"
+      class="rounded img-view-profile"
       src="/static/images/nobody.webp"
       alt="{{ user.username }}"
     />
