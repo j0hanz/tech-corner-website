@@ -5,6 +5,9 @@ from django.contrib import messages
 from .forms import PostForm
 
 
+def about(request):
+    return render(request, 'website/about.html')
+
 @login_required
 def create_post(request):
     """
