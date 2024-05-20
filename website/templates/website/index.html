@@ -1,4 +1,16 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<div class="container">
+  {% if messages %}
+  <div id="message-container" class="text-center">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 d-flex justify-content-center right-bck">
@@ -26,8 +38,8 @@
             {% endif %}
             <div class="card-body">
                 <h4>{{ post.title }}</h4>
-                <p>{{ post.body|truncatechars:25 }}</p>
-              <p class="card-text">{{ post.excerpt|truncatechars:30 }}</p>
+                <p>{{ post.body|truncatechars:50 }}</p>
+              <p class="card-text">{{ post.excerpt|truncatechars:50 }}</p>
               <a
                 href="{% url 'post_detail' post.slug %}"
                 class="btn btn-dark"
