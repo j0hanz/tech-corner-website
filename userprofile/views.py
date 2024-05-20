@@ -9,12 +9,18 @@ from django.contrib import messages
 
 @login_required
 def view_profile(request, username):
+    """
+    Display the profile page of a user.
+    """
     user = get_object_or_404(User, username=username)
     return render(request, "userprofile/view_profile.html", {"user": user})
 
 
 @login_required
 def edit_profile(request):
+    """
+    Handle editing of the user's profile.
+    """
     user_profile, created = UserProfile.objects.get_or_create(
         user=request.user
     )
@@ -42,19 +48,24 @@ def edit_profile(request):
     return render(
         request,
         "userprofile/edit_profile.html",
-        {
-            "user_form": user_form,
-            "profile_form": profile_form,
-        },
+        {"user_form": user_form, "profile_form": profile_form},
     )
 
 
+@login_required
 def user_posts(request):
+    """
+    Display the posts created by the logged-in user.
+    """
     posts = Post.objects.filter(author=request.user)
     return render(request, "userprofile/user_posts.html", {"posts": posts})
 
 
+@login_required
 def profile_page(request):
+    """
+    Display the profile page of the logged-in user, including a form to edit the bio.
+    """
     user_profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == "POST":
@@ -80,6 +91,9 @@ def profile_page(request):
 
 @login_required
 def delete_account(request):
+    """
+    Makes it possible for users to delete their account.
+    """
     if request.method == "POST":
         user = request.user
         user.delete()
