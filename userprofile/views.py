@@ -89,6 +89,15 @@ def profile_page(request):
     )
 
 
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+    if request.method == "POST":
+        post.delete()
+        messages.success(request, "Your post has been deleted successfully.")
+        return redirect("user_posts")
+    return render(request, "userprofile/delete_post.html", {"post": post})
+
+
 @login_required
 def delete_account(request):
     """
