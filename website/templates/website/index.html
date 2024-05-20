@@ -48,13 +48,13 @@
                 alt="Placeholder Image"
               />
               {% endif %}
+              <div class="text-center"><em><span class="user-author">{{ post.author }}</span></em></div>
               </a>           
               <div class="card-body">
                 <h4>{{ post.title }}</h4>
                 <p>{{ post.body|truncatechars:50 }}</p>
-                <p class="card-text">{{ post.excerpt|truncatechars:50 }}</p>
+                <p class="card-text mb-4">{{ post.excerpt|truncatechars:50 }}</p>
                 <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark">Go to post</a>
-                <span class="post-author mx-4">{{ post.author }}</span>
               </div>
             </div>
           {% endfor %}
