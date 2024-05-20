@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Post
 
+"""
+Define a custom admin class to manage the Post model in the Django admin interface
+"""
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status', 'date', 'author')
     list_filter = ('status', 'date')
