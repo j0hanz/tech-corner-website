@@ -1,12 +1,20 @@
-{% extends "base.html" %} {% block title %}Create New Post{% endblock %}
+{% extends "base.html" %}
+{% block title %}Create New Post{% endblock %}
 {% block content %}
+
 <div class="container">
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
   <div class="text-center">
-  <h2 class="mb-3">Create New Post</h2>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-dark mx-3">Submit</button><a class="btn btn-dark mx-3" href="{% url 'index' %}">Cancel</a>
-  </form>
+    <h2 class="mb-3">Create New Post</h2>
+
+    <!-- Form for creating a new post -->
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-dark mx-3">Submit</button>
+      <a class="btn btn-dark mx-3" href="{% url 'index' %}">Cancel</a>
+    </form>
+  </div>
 </div>
+
 {% endblock %}

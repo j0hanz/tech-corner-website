@@ -1,32 +1,38 @@
-{% extends "base.html" %} {% block title %}{{ user.username }}
-{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}{{ user.username }}{% endblock %}
+
 {% block content %}
 <div class="container">
   <div class="text-center">
+    <!-- Checks if the user has a profile image -->
     {% if user.profile.profile_image %}
-    <img
-      class="rounded img-view-profile"
-      src="{{ user.profile.profile_image.url }}"
-      alt="{{ user.username }}"
-    />
+      <img
+        class="rounded img-view-profile"
+        src="{{ user.profile.profile_image.url }}"
+        alt="{{ user.username }}"
+      />
     {% else %}
-    <img
-      class="rounded card-img-center img-view-profile"
-      src="/static/images/nobody.webp"
-      alt="{{ user.username }}"
-    />
+      <img
+        class="rounded card-img-center img-view-profile"
+        src="/static/images/nobody.webp"
+        alt="{{ user.username }}"
+      />
     {% endif %}
-      <h1 class="mb-5">{{ user.username }}</h1>
-      <div class="card custom-card user-bio">
-        <h4 class="fw-bold">About Me:</h4>
-        <p>{{ user.profile.bio|default:"" }}</p>
-      </div>
-      <h4 class="fw-bold">Name:</h4>
-      <p>{{ user.profile.first_name|default:"" }} {{ user.profile.last_name|default:"" }}</p>
-      <h4 class="fw-bold">Email:</h4>
-      <p>{{ user.profile.email|default:"" }}</p>
-      <h4 class="fw-bold">Favorite Tech:</h4>
-      <p>{{ user.profile.favorite_tech|default:"" }}</p>
+    <!-- Displays the user's username as a heading -->
+    <h1 class="mb-5">{{ user.username }}</h1>
+    <div class="card custom-card user-bio">
+      <!-- Bio heading -->
+      <h4 class="fw-bold">About Me:</h4>
+      <p>{{ user.profile.bio|default:"" }}</p>
+    </div>
+    <h4 class="fw-bold">Name:</h4>
+    <p>{{ user.profile.first_name|default:"" }} {{ user.profile.last_name|default:"" }}</p>
+    <h4 class="fw-bold">Email:</h4>
+    <p>{{ user.profile.email|default:"" }}</p>
+    <!-- Favorite Tech heading -->
+    <h4 class="fw-bold">Favorite Tech:</h4>
+    <p>{{ user.profile.favorite_tech|default:"" }}</p>
   </div>
 </div>
 {% endblock %}
