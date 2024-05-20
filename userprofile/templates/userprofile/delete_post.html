@@ -36,8 +36,8 @@
       <p class="h4 mb-5"><strong>{{ post.title }}</strong></p>
     <form method="POST" action="{% url 'delete_post' post.id %}">
       {% csrf_token %}
-      <button type="submit" class="btn btn-danger">Yes, Delete</button>
-      <a href="{% url 'user_posts' %}" class="btn btn-secondary">Cancel</a>
+      <button type="submit" class="btn btn-danger m-3 px-3">Yes, Delete</button>
+      <a href="{% url 'user_posts' %}" class="m-3 btn btn-success px-4">Cancel</a>
     </form>
   </div>
 </div>
