@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block title %}Home{% endblock %}
+{% load static %}
+{% block title %}Your Posts{% endblock %}
 
 {% block content %}
 
@@ -38,20 +38,22 @@
               <div class="card flex-row mb-3 custom-card">
                 <!-- Checks if the user has a profile image -->
                 {% if post.author.profile.profile_image %}
+                <a href="{% url 'profile_page' %}">
+                  <img
+                    class="rounded-circle card-img-left img-post"
+                    src="{{ post.author.profile.profile_image.url }}"
+                    alt="{{ post.title }}"
+                  />
+                  {% else %}
                   <a href="{% url 'profile_page' %}">
                     <img
                       class="rounded-circle card-img-left img-post"
-                      src="{{ post.author.profile.profile_image.url }}"
+                      src="{% static '/images/nobody.webp' %}"
                       alt="{{ post.title }}"
                     />
-                  {% else %}
-                    <img
-                      class="rounded-circle card-img-left img-post"
-                      src="/static/images/nobody.webp"
-                      alt="Placeholder Image"
-                    />
+                  </a>
                 {% endif %}
-                <div class="text-center"><em><span class="user-author">{{ post.author }}</span></em></div>  
+                <div class="text-center"><em>{{ post.author }}</em></div>  
                 </a>    
                 <div class="card-body">
                   <h4>{{ post.title }}</h4>
