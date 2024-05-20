@@ -24,16 +24,22 @@
             <!-- Loop through each post -->
             {% for post in posts %}
               <div class="card flex-row mb-3 custom-card">
-                <!-- Checks if the post has a banner image -->
-                {% if post.banner %}
-                  <a href="{% url 'profile_page' %}">
-                    <img
-                      class="rounded-circle card-img-left img-post"
-                      src="{{ post.author.profile.profile_image.url }}"
-                      alt="{{ post.title }}"
-                    />
-                  </a>
-                {% endif %}
+                <!-- Checks if the user has a profile image -->
+                {% if post.author.profile.profile_image %}
+              <a href="{% url 'profile_page' %}">
+                <img
+                class="rounded-circle card-img-left img-post"
+                src="{{ post.author.profile.profile_image.url }}"
+                alt="{{ post.title }}"
+              />
+            {% else %}
+              <img
+                class="rounded-circle card-img-left img-post"
+                src="/static/images/nobody.webp"
+                alt="Placeholder Image"
+              />
+              {% endif %}
+              </a>           
                 <div class="card-body">
                   <h4>{{ post.title }}</h4>
                   <p>{{ post.body|truncatechars:50 }}</p>

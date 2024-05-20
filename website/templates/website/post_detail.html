@@ -4,17 +4,22 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card flex-row custom-card">
-          <!-- Checks if the post has a banner image -->
-          {% if post.banner %}
-          <!-- Link to the author's profile page -->
-          <a href="{% url 'view_profile' post.author.username %}">
-          <img
-            class="rounded-circle card-img-left img-post-page"
-            src="{{ post.author.profile.profile_image.url }}"
-            alt="{{ post.title }}"
-          />
-        </a>
-          {% endif %}
+          <!-- Checks if the user has a profile image -->
+          {% if post.author.profile.profile_image %}
+              <a href="{% url 'view_profile' post.author.username %}">
+                <img
+                class="rounded-circle card-img-left img-post-page"
+                src="{{ post.author.profile.profile_image.url }}"
+                alt="{{ post.title }}"
+              />
+            {% else %}
+              <img
+                class="rounded-circle card-img-left img-post-page"
+                src="/static/images/nobody.webp"
+                alt="Placeholder Image"
+              />
+              {% endif %}
+              </a>
           <div class="card-body">
             <h1 class="text-center">{{ post.title }}</h1>
             <p class="mb-3 mt-3">{{ post.body }}</p>
