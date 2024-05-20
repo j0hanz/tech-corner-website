@@ -28,7 +28,13 @@ def edit_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, "Profile updated successfully!")
             return redirect("profile_page")
+        else:
+            messages.error(
+                request,
+                "There was an error updating your profile. Please try again.",
+            )
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=user_profile)
@@ -55,7 +61,13 @@ def profile_page(request):
         bio_form = UserProfileBioForm(request.POST, instance=user_profile)
         if bio_form.is_valid():
             bio_form.save()
+            messages.success(request, "Bio updated successfully!")
             return redirect("profile_page")
+        else:
+            messages.error(
+                request,
+                "There was an error updating your bio. Please try again.",
+            )
     else:
         bio_form = UserProfileBioForm(instance=user_profile)
 
