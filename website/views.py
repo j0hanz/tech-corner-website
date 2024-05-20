@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Post
+from django.contrib import messages
 from .forms import PostForm
 
 
@@ -12,7 +13,13 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, "You have uploaded a new Post!")
             return redirect("index")
+        else:
+            messages.error(
+                request,
+                "Error when creating a Post, please try again.",
+            )
     else:
         form = PostForm()
     return render(request, "website/create_post.html", {"form": form})
