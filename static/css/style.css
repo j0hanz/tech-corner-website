@@ -24,6 +24,11 @@ a {
   text-decoration: underline;
 }
 
+.fa-trash,
+.fa-heart {
+  color: #9b9a9a;
+}
+
 .fa-bars {
   color: #ffffff;
 }
@@ -64,8 +69,8 @@ nav {
 
 /* Images */
 .img-post {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   margin-top: 20px;
   border-style: solid;
   border-color: #171515;
@@ -175,8 +180,8 @@ li {
   }
 
   .img-post {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
   .img-post-page {
