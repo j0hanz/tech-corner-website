@@ -66,10 +66,20 @@ nav {
   margin-right: auto;
   border-style: solid;
   border-color: #f10000;
-  border-radius: 10px;
+  border-radius: 7px;
   width: 16rem;
   background-color: #171515;
   padding: 1px;
+}
+
+.edit-user-post-title, .delete-user-post-title {
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-color: #171515;
+  border-radius: 7px;
+  width: 16rem;
+  background-color: #171515;
 }
 
 /* User Bio */
