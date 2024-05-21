@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from django.contrib import messages
-from .forms import PostForm
+from .forms import PostForm, EditPostBodyForm
 
 
 def about(request):
-    return render(request, 'website/about.html')
+    return render(request, "website/about.html")
+
 
 @login_required
 def create_post(request):
@@ -45,3 +46,25 @@ def post_detail(request, slug):
     """
     post = get_object_or_404(Post, slug=slug)
     return render(request, "website/post_detail.html", {"post": post})
+
+
+@login_required
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+
+    if request.method == "POST":
+        form = EditPostBodyForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Post updated successfully!")
+            return redirect("post_detail", slug=post.slug)
+        else:
+            messages.error(
+                request, "Error updating the post. Please try again."
+            )
+    else:
+        form = EditPostBodyForm(instance=post)
+
+    return render(
+        request, "website/edit_post.html", {"form": form, "post": post}
+    )
