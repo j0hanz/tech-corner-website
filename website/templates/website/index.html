@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
@@ -53,13 +53,13 @@
                 alt="{{ post.title }}"
               />
               {% else %}
-              <a href="{% url 'view_profile' post.author.username %}">
-                <img
-                  class="rounded-circle card-img-left img-post"
-                  src="{% static '/images/nobody.webp' %}"
-                  alt="{{ post.title }}"
-                />
-              </a>
+            </a>
+            <a href="{% url 'view_profile' post.author.username %}">
+              <img
+                class="rounded-circle card-img-left img-post"
+                src="static/images/nobody.webp"
+                alt="{{ post.title }}"
+              />
               {% endif %}
               <div class="text-center"><em>{{ post.author }}</em></div>
             </a>
