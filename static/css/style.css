@@ -60,6 +60,15 @@ nav {
   color: white;
 }
 
+.nonfield {
+  border-style: solid;
+  border-color: #f10000;
+  border-radius: 10px;
+  width: 16rem;
+  background-color: #171515;
+  padding: 1px;
+}
+
 /* User Bio */
 .user-bio {
   margin-left: auto;
@@ -115,10 +124,10 @@ textarea,
 input,
 select {
   background-color: transparent;
-  border-style: solid;
-  border-radius: 5px;
-  padding: 2px;
-  border-color: #9b9a9a;
+  border-style: solid 2px;
+  border-radius: 7px;
+  padding: 3px;
+  border-color: #171515;
   color: #ffffff;
 }
 
