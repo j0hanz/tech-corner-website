@@ -50,20 +50,26 @@ def post_detail(request, slug):
 
 @login_required
 def edit_post(request, post_id):
-    post = get_object_or_404(Post, id=post_id, author=request.user)
+    """
+    View to handle the editing of a post. Users can update the body of their post.
+    Requires the user to be logged in.
+    """
+    post = get_object_or_404(Post, id=post_id)
 
     if request.method == "POST":
-        form = EditPostBodyForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save()
+            form.save(commit=False)
+            post.body = form.cleaned_data["body"]
+            post.save(update_fields=["body"])
             messages.success(request, "Post updated successfully!")
-            return redirect("post_detail", slug=post.slug)
+            return redirect("user_posts")
         else:
             messages.error(
-                request, "Error updating the post. Please try again."
+                request, "Error updating your post. Please try again."
             )
     else:
-        form = EditPostBodyForm(instance=post)
+        form = PostForm(instance=post)
 
     return render(
         request, "website/edit_post.html", {"form": form, "post": post}
