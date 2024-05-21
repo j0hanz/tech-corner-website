@@ -67,7 +67,7 @@
               <h4>{{ post.title }}</h4>
               <p>{{ post.body|truncatechars:50 }}</p>
               <p class="card-text mb-4">{{ post.excerpt|truncatechars:50 }}</p>
-              <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark"
+              <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-light"
                 >Go to post<i class="fa-solid fa-arrow-right mx-2"></i></a
               >
             </div>

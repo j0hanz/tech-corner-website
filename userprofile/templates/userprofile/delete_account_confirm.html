@@ -23,8 +23,8 @@
     <!-- Form for deleting account -->
     <form action="{% url 'delete_account' %}" method="POST">
       {% csrf_token %}
-      <button type="submit" class="btn btn-danger m-3 px-3">Yes, Delete</button>
-      <a href="{% url 'profile_page' %}" class="m-3 btn btn-success px-4">Cancel</a>
+      <button type="submit" class="btn btn-outline-danger m-3 px-3">Yes, Delete</button>
+      <a href="{% url 'profile_page' %}" class="m-3 btn btn-outline-success px-4">Cancel</a>
     </form>
   </div>
 </div>

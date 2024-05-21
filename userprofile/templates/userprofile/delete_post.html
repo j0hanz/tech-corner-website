@@ -32,12 +32,13 @@
   </div>
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
   <div class="text-center">
-    <h2 class="mb-3">Are you sure you want to delete this post?</h2>
-      <h4 class="mb-5 delete-user-post-title">{{ post.title }}</h4>
+    <h2 class="mb-5">Are you sure you want to delete this post?</h2>
+    <h5 class="mb-0">Title:</h5>
+      <h3 class="mb-5 delete-user-post-title">{{ post.title }}</h3>
     <form method="POST" action="{% url 'delete_post' post.id %}">
       {% csrf_token %}
-      <button type="submit" class="btn btn-danger m-3 px-3">Yes, Delete</button>
-      <a href="{% url 'user_posts' %}" class="m-3 btn btn-success px-4">Cancel</a>
+      <button type="submit" class="btn btn-outline-danger m-3 px-3">Yes, Delete</button>
+      <a href="{% url 'user_posts' %}" class="m-3 btn btn-outline-success px-4">Cancel</a>
     </form>
   </div>
 </div>
