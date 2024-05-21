@@ -16,7 +16,7 @@ class Post(models.Model):
     Define the Post model
     """
 
-    title = models.CharField(max_length=200, unique=True)  # Title
+    title = models.CharField(max_length=50, unique=True)  # Title
     slug = models.SlugField(max_length=200, unique=True, blank=True)  # Slug
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_posts"
