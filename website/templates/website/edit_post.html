@@ -1,0 +1,16 @@
+<!-- templates/website/edit_post.html -->
+{% extends "base.html" %}
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="text-center">
+    <h2>Edit Post</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
