@@ -60,7 +60,8 @@
                   <p>{{ post.body|truncatechars:50 }}</p>
                   <p class="card-text mb-4">{{ post.excerpt|truncatechars:50 }}</p>
                   <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark">Read</a>
-                  <a href="{% url 'delete_post' post.id %}"><i class="fa-solid fa-trash fa-lg mx-2"></i></a>
+                  <a href="{% url 'edit_post' post.id %}" class="btn btn-secondary fa-solid fa-pen-to-square"></a>
+                  <a href="{% url 'delete_post' post.id %}" class="btn btn-danger fa-solid fa-trash"></a>
                 </div>
               </div>
             {% endfor %}
