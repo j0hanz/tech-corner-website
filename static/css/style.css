@@ -24,6 +24,10 @@ a {
   text-decoration: underline;
 }
 
+.profile-detail {
+  color: #9b9a9a;
+}
+
 .fa-trash,
 .fa-heart {
   color: #9b9a9a;
@@ -72,16 +76,6 @@ nav {
   padding: 1px;
 }
 
-.edit-user-post-title, .delete-user-post-title {
-  margin-left: auto;
-  margin-right: auto;
-  border-style: solid;
-  border-color: #171515;
-  border-radius: 7px;
-  width: 16rem;
-  background-color: #171515;
-}
-
 /* User Bio */
 .user-bio {
   margin-left: auto;
@@ -109,7 +103,6 @@ nav {
 .img-view-profile {
   width: 150px;
   height: 150px;
-  margin-top: 2rem;
   border-style: solid;
   border-color: #171515;
 }
