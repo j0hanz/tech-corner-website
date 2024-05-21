@@ -3,6 +3,20 @@
 
 Tech Corner is a Reddit-style news site where users can share tech news. Users can interact with posts by creating their own posts and commenting on existing posts.
 
+## User Stories
+
+### User
+
+- As a user, I want to create an account so that I can participate in discussions and post content.
+- As a user, I want to edit my profile so that I can update my personal information.
+- As a user, I want to view my profile so that I can see my personal information and posts.
+- As a user, I want to delete my account if I no longer wish to use the platform.
+- As a user, I want to reset my password if I forget it.
+- As a user, I can create, read, update and delete my posts so that I can manage my content.
+- As a user / owner, I can view comments on an individual post so that I can read the conversation.
+- As a user, I want to click on a post title, so that I can read the full text and see detailed information including comments and upvotes.
+
+
 ## Wireframes
 
 #### Home Page
