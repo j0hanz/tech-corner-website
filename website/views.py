@@ -57,7 +57,7 @@ def edit_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
     if request.method == "POST":
-        form = PostForm(request.POST, request.FILES, instance=post)
+        form = EditPostBodyForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save(commit=False)
             post.body = form.cleaned_data["body"]
@@ -69,7 +69,7 @@ def edit_post(request, post_id):
                 request, "Error updating your post. Please try again."
             )
     else:
-        form = PostForm(instance=post)
+        form = EditPostBodyForm(instance=post)
 
     return render(
         request, "website/edit_post.html", {"form": form, "post": post}

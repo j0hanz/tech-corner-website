@@ -31,7 +31,7 @@
     <h2 class="mb-3">Edit Post</h2>
     <h4 class="mb-5 edit-user-post-title">{{ post.title }}</h4>
     <!-- Form to edit the post -->
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit" class="btn btn-dark">Update</button>
