@@ -67,12 +67,12 @@
               <h4>{{ post.title }}</h4>
               <p>{{ post.body|truncatechars:50 }}</p>
               <p class="card-text mb-4">{{ post.excerpt|truncatechars:50 }}</p>
-              <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark"
-                >Read</a
+              <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark fa-brands fa-readme"
+                ></a
               >
               <a
                 href="{% url 'edit_post' post.id %}"
-                class="btn btn-secondary fa-solid fa-pen-to-square"
+                class="btn btn-secondary fa-solid fa-pen-to-square mx-3"
               ></a>
               <a
                 href="{% url 'delete_post' post.id %}"
