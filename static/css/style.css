@@ -60,7 +60,10 @@ nav {
   color: white;
 }
 
+.errorlist,
 .nonfield {
+  margin-left: auto;
+  margin-right: auto;
   border-style: solid;
   border-color: #f10000;
   border-radius: 10px;
@@ -163,11 +166,17 @@ li {
 #id_email,
 #id_first_name,
 #id_last_name,
-#id_favorite_tech,
-#id_profile_image {
+#id_favorite_tech {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
+}
+
+#id_profile_image {
+  margin-top: 20px;
+  width: 12rem;
+  color: #9b9a9a;
 }
 
 #message-container {
