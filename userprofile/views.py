@@ -90,6 +90,9 @@ def profile_page(request):
 
 
 def delete_post(request, post_id):
+    """
+    Makes it possible for users to delete their Posts.
+    """
     post = get_object_or_404(Post, id=post_id, author=request.user)
     if request.method == "POST":
         post.delete()
