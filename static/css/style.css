@@ -226,4 +226,7 @@ li {
     width: 120px;
     height: 120px;
   }
+  .card-body {
+    max-width: 80%;
+  }
 }
