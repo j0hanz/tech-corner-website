@@ -49,11 +49,11 @@
       Favorite Tech:
       <p class="profile-detail">{{ user.profile.favorite_tech|default:"" }}</p>
       <div class="mt-5">
-        <a href="{% url 'edit_profile' %}" class="mx-3 btn btn-outline-light"
+        <a href="{% url 'edit_profile' %}" class="mx-3 btn btn-outline-light btn-sm"
           >Edit Profile</a
         >
         <span>|</span>
-        <a href="{% url 'user_posts' %}" class="mx-3 btn btn-outline-light"
+        <a href="{% url 'user_posts' %}" class="mx-3 btn btn-outline-light btn-sm"
           >Your Posts</a
         >
       </div>
@@ -62,7 +62,7 @@
       <!-- Form for updating bio -->
       <form method="post">
         {% csrf_token %} {{ bio_form.as_p }}
-        <button type="submit" class="mb-5 btn btn-outline-light">Update</button>
+        <button type="submit" class="mb-5 btn btn-outline-success">Update</button>
       </form>
     </div>
   </div>
