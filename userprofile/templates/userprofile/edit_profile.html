@@ -27,16 +27,16 @@
       {% csrf_token %}
       {{ user_form.as_p }}
       {{ profile_form.as_p }}
-      <button type="submit" class="btn btn-outline-light btn-lg mb-5 mt-3">Update</button>
+      <button type="submit" class="btn btn-outline-light my-5">Update Profile</button>
     </form>
     <!-- Link to change password -->
     <h2 class="mb-3">Change Password</h2>
-    <a href="{% url 'account_change_password' %}" class="btn btn-outline-warning">Change Password</a>
+    <a href="{% url 'account_change_password' %}" class="btn btn-outline-warning my-2">Change Password</a>
     <!-- Form for deleting account -->
     <form action="{% url 'delete_account' %}" method="GET">
       {% csrf_token %}
       <h2 class="mb-3 mt-3">Delete Account</h2>
-      <button type="submit" class="btn btn-outline-danger">Delete Account</button>
+      <button type="submit" class="btn btn-outline-danger my-2">Delete Account</button>
     </form>
   </div>
 </div>
