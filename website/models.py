@@ -44,6 +44,23 @@ class Post(models.Model):
         return f"{self.title} | written by {self.author}"
 
 
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments"
+    )
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="comments"
+    )
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"
+
+
 def unique_slug(instance, new_slug=None):
     """
     Generate a unique slug for the post
