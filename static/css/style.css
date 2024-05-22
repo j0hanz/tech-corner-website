@@ -45,17 +45,20 @@ a {
   color: #9b9a9a;
 }
 
-.navbar-toggler:focus {
-  box-shadow: none;
-  border-color: #9b9a9a;
+/* .navbar-dark {
+  background-color: #171515 !important;
 }
 
-.navbar-toggler:focus {
-  color: #9b9a9a;
-}
+.navbar-toggle {
+  background-color: #171515;
+} */
 
 nav {
   box-shadow: 0px 2px 0px #9b9a9a;
+}
+
+.copyright {
+  color: #9b9a9a;
 }
 
 .custom-card {
@@ -117,7 +120,7 @@ nav {
 }
 
 .img-top {
-  width: 45px;
+  width: 35px;
 }
 
 /* Forms */
@@ -198,6 +201,10 @@ li {
 
   nav {
     box-shadow: 0px 0px 0px;
+  }
+
+  .img-top {
+    width: 30px;
   }
 
   .img-post {
