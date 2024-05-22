@@ -35,10 +35,9 @@
     <h3>{% trans "Sign In" %}</h3>
     <p class="pt-3">
       {% blocktrans %}Not created an account yet?
-      <a class="text-link" href="{{ signup_url }}">Sign up here</a>
+      <a href="{{ signup_url }}"><p class="btn btn-outline-success btn-sm mx-2">Sign up here</p></a>
       {% endblocktrans %}
     </p>
-    <a class="text-link m-3" href="{% url 'account_reset_password' %}">Forgot Password?</a>
   </div>
 </div>
 <div class="container d-flex justify-content-center pt-3">
