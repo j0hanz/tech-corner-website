@@ -1,4 +1,13 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+{% extends "base.html" %}
+
+{% block title %}
+
+{{ post.title }}
+
+{% endblock %}
+
+{% block content %}
+
 <div class="container">
   <!-- Checks if there are any messages to display -->
   {% if messages %}
@@ -21,36 +30,79 @@
   </div>
   {% endif %}
 </div>
-<div class="masthead">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card flex-row custom-card">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center right-bck">
+      <div class="registration-right post-detail-view">
+        <div class="card flex-row custom-card mb-4">
           <!-- Checks if the user has a profile image -->
           {% if post.author.profile.profile_image %}
-              <a href="{% url 'view_profile' post.author.username %}">
-                <img
-                class="rounded-circle card-img-left img-post-page"
-                src="{{ post.author.profile.profile_image.url }}"
-                alt="{{ post.title }}"
-              />
-            {% else %}
-              <img
-                class="rounded-circle card-img-left img-post-page"
-                src="/static/images/nobody.webp"
-                alt="Placeholder Image"
-              />
-              {% endif %}
-              </a>
+          <a href="{% url 'view_profile' post.author.username %}">
+            <img
+              class="rounded-circle card-img-left img-post-page"
+              src="{{ post.author.profile.profile_image.url }}"
+              alt="{{ post.title }}"
+            />
+          </a>
+          {% else %}
+          <a href="{% url 'view_profile' post.author.username %}">
+            <img
+              class="rounded-circle card-img-left img-post-page"
+              src="/static/images/nobody.webp"
+              alt="Placeholder Image"
+            />
+          </a>
+          {% endif %}
           <div class="card-body">
             <h1 class="text-center">{{ post.title }}</h1>
             <p class="mb-3 mt-3">{{ post.body }}</p>
-            <p>Written by {{ post.author }}</p>
-            <p>Published on {{ post.date }}</p>
+            <p class="text-light text-opacity-75 text-end"><strong>Written by {{ post.author }}</strong></p>
+            <p class="text-white text-opacity-25 text-end">Published on {{ post.date }}</p>
+          </div>
+        </div>
+        <!--Comments-->
+        <div class="event-list">
+          <div class="flex-row">
+            <div class="mt-1 mb-5 text-center">
+              <form method="post">
+                {% csrf_token %} {{ comment_form }}
+                <button type="submit" class="btn btn-outline-success btn-sm">
+                  Submit
+                </button>
+              </form>
+            </div>
+            {% for comment in comments %}
+            <div class="card flex-row mb-1 custom-card">
+              <!-- Display the comment author's profile image -->
+              {% if comment.author.profile.profile_image %}
+              <a href="{% url 'view_profile' comment.author.username %}">
+                <img
+                  class="rounded-circle img-post-comment card-img-left"
+                  src="{{ comment.author.profile.profile_image.url }}"
+                  alt="{{ comment.author.username }}"
+                />
+                {% else %}
+              </a>
+              <a href="{% url 'view_profile' comment.author.username %}">
+                <img
+                  class="rounded-circle img-post-comment card-img-left"
+                  src="/static/images/nobody.webp"
+                  alt="Placeholder Image"
+                />
+                {% endif %}
+                <div class="text-center"><em>{{ comment.author }}</em></div>
+              </a>
+              <div
+                class="card-body border border-black rounded mx-2 mb-5 p-1 pb-4"
+              >
+                <p class="mx-2">{{ comment.body }}</p>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
     </div>
   </div>
-  {% endblock %}
 </div>
+{% endblock %}
