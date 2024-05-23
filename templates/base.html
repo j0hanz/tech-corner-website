@@ -1,4 +1,5 @@
 {% load static %}
+
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -48,7 +49,7 @@
             ><img
               src="/static/images/logo_only.webp"
               alt="logo top"
-              class="img-top img-fluid"
+              class="img-top"
           /></a>
           <button
             class="navbar-toggler navbar-dark py-1 px-2 m-0"
@@ -62,7 +63,7 @@
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarProfile">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-0">
               <li class="nav-item">
                 <a
                   class="nav-link"
@@ -78,7 +79,7 @@
                 >
               </li>
             </ul>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ">
               {% if user.is_authenticated %}
               <li class="nav-item">
                 <a
