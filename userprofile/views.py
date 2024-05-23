@@ -104,6 +104,9 @@ def delete_post(request, post_id):
 
 @login_required
 def delete_comment(request, comment_id):
+    """
+    Makes it possible for users to delete their comment.
+    """
     comment = get_object_or_404(Comment, id=comment_id, author=request.user)
     if request.method == "POST":
         comment.delete()
