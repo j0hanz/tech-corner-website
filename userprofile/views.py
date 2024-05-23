@@ -5,6 +5,7 @@ from .models import UserProfile
 from django.contrib.auth.models import User
 from website.models import Post, Comment
 from django.contrib import messages
+from django.urls import reverse
 
 
 @login_required
@@ -24,6 +25,10 @@ def edit_profile(request):
     user_profile, created = UserProfile.objects.get_or_create(
         user=request.user
     )
+
+    if user_profile.user != request.user:
+        messages.error(request, "Unauthorized Access")
+        return redirect(reverse("index"))
 
     if request.method == "POST":
         user_form = UserForm(request.POST, instance=request.user)
@@ -68,6 +73,10 @@ def profile_page(request):
     """
     user_profile = get_object_or_404(UserProfile, user=request.user)
 
+    if user_profile.user != request.user:
+        messages.error(request, "Unauthorized access")
+        return redirect(reverse("index"))
+
     if request.method == "POST":
         bio_form = UserProfileBioForm(request.POST, instance=user_profile)
         if bio_form.is_valid():
@@ -92,9 +101,14 @@ def profile_page(request):
 @login_required
 def delete_post(request, post_id):
     """
-    Makes it possible for users to delete their Posts.
+    Allow users to delete their posts.
     """
-    post = get_object_or_404(Post, id=post_id, author=request.user)
+    post = get_object_or_404(Post, id=post_id)
+
+    if post.author != request.user:
+        messages.error(request, "Unauthorized to delete this post")
+        return redirect(reverse("index"))
+
     if request.method == "POST":
         post.delete()
         messages.success(request, "Your post has been deleted successfully.")
@@ -105,24 +119,27 @@ def delete_post(request, post_id):
 @login_required
 def delete_comment(request, comment_id):
     """
-    Makes it possible for users to delete their comment.
+    Allow users to delete their comments.
     """
-    comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    if comment.author != request.user:
+        messages.error(request, "Unauthorized to delete this comment")
+        return redirect(reverse("post_detail", args=[comment.post.slug]))
+
     if request.method == "POST":
         comment.delete()
         messages.success(request, "Comment deleted successfully!")
         return redirect("post_detail", slug=comment.post.slug)
     return render(
-        request,
-        "userprofile/delete_comment.html",
-        {"comment": comment},
+        request, "userprofile/delete_comment.html", {"comment": comment}
     )
 
 
 @login_required
 def delete_account(request):
     """
-    Makes it possible for users to delete their account.
+    Allow users to delete their account.
     """
     if request.method == "POST":
         user = request.user
