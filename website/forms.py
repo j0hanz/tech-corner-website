@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
         fields = ["title", "body"]
 
 
-class EditPostBodyForm(forms.ModelForm):
+class EditPostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["body"]
