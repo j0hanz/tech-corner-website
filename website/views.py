@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from django.contrib import messages
-from .forms import PostForm, EditPostBodyForm, CommentForm
+from .forms import PostForm, EditPostForm, CommentForm
 
 
 def about(request):
@@ -86,7 +86,7 @@ def edit_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
     if request.method == "POST":
-        form = EditPostBodyForm(request.POST, request.FILES, instance=post)
+        form = EditPostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save(commit=False)
             post.body = form.cleaned_data["body"]
@@ -98,7 +98,7 @@ def edit_post(request, post_id):
                 request, "Error updating your post. Please try again."
             )
     else:
-        form = EditPostBodyForm(instance=post)
+        form = EditPostForm(instance=post)
 
     return render(
         request, "website/edit_post.html", {"form": form, "post": post}
