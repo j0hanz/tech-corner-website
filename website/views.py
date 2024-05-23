@@ -47,7 +47,8 @@ def post_detail(request, slug):
     Allows users to submit comments on the post.
     """
     post = get_object_or_404(Post, slug=slug)
-    comments = post.comments.all().order_by("created_on")
+    comments = Comment.objects.filter(post=post).order_by('-created_on')
+    comment_form = CommentForm()
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -102,3 +103,5 @@ def edit_post(request, post_id):
     return render(
         request, "website/edit_post.html", {"form": form, "post": post}
     )
+
+
