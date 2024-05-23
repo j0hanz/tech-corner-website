@@ -28,12 +28,12 @@
     {% endfor %}
   </div>
   {% endif %}
+
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
+
   <div class="text-center">
     <h2>Edit Profile</h2>
-    <!-- Ensure that only the profile owner can edit -->
-    {% if user_profile.user == request.user %}
-    <!-- Form for editing profile -->
+    <!-- Form for editing profile with file upload capability -->
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
       <button type="submit" class="btn btn-outline-light my-5">
@@ -55,14 +55,7 @@
         Delete Account
       </button>
     </form>
-    {% else %}
-    <div class="alert alert-danger" id="message-container">
-      <h4 class="alert-heading"><strong>Unauthorized Access:</strong></h4> You do not have permission to edit
-      this profile.
-    </div>
-    <p class="mt-5">Return to home page</p>
-        <a class="btn btn-dark" href="{% url 'index' %}"><i class="fa-solid fa-rotate-left"></i></a>
-    {% endif %}
   </div>
 </div>
+
 {% endblock %}
