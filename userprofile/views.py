@@ -26,10 +26,6 @@ def edit_profile(request):
         user=request.user
     )
 
-    if user_profile.user != request.user:
-        messages.error(request, "Unauthorized Access")
-        return redirect(reverse("index"))
-
     if request.method == "POST":
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(
@@ -72,10 +68,6 @@ def profile_page(request):
     Display the profile page of the logged-in user, including a form to edit the bio.
     """
     user_profile = get_object_or_404(UserProfile, user=request.user)
-
-    if user_profile.user != request.user:
-        messages.error(request, "Unauthorized access")
-        return redirect(reverse("index"))
 
     if request.method == "POST":
         bio_form = UserProfileBioForm(request.POST, instance=user_profile)
@@ -143,6 +135,10 @@ def delete_account(request):
     """
     if request.method == "POST":
         user = request.user
+        if user != request.user:
+            messages.error(request, "Unauthorized access")
+            return redirect(reverse("index"))
+
         user.delete()
         messages.success(
             request, "Your account has been deleted successfully."

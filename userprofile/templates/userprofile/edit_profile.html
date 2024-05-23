@@ -28,12 +28,10 @@
     {% endfor %}
   </div>
   {% endif %}
-
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
-
   <div class="text-center">
     <h2>Edit Profile</h2>
-    <!-- Form for editing profile with file upload capability -->
+    <!-- Form for editing profile -->
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
       <button type="submit" class="btn btn-outline-light my-5">
@@ -57,5 +55,4 @@
     </form>
   </div>
 </div>
-
 {% endblock %}
