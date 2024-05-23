@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 
 """
 Define a custom admin class to manage the Post model in the Django admin interface
@@ -14,3 +14,4 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ('status', 'date')
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comment)
