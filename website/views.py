@@ -41,17 +41,21 @@ def index(request):
 
 
 def post_detail(request, slug):
+    """
+    Handle the display and interaction of a specific post created by a user.
+    Displays all comments related to the post and sorts them by creation time.
+    Allows users to submit comments on the post.
+    """
     post = get_object_or_404(Post, slug=slug)
-    comments = post.comments.all()
-    new_comment = None
+    comments = post.comments.all().order_by("created_on")
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.post = post
-            new_comment.author = request.user
-            new_comment.save()
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
             messages.success(request, "Comment added successfully!")
             return redirect("post_detail", slug=post.slug)
         else:
@@ -67,7 +71,6 @@ def post_detail(request, slug):
         {
             "post": post,
             "comments": comments,
-            "new_comment": new_comment,
             "comment_form": comment_form,
         },
     )
