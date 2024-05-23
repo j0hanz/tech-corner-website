@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserProfileForm, UserForm, UserProfileBioForm
 from .models import UserProfile
 from django.contrib.auth.models import User
-from website.models import Post
+from website.models import Post, Comment
 from django.contrib import messages
 
 
@@ -89,6 +89,7 @@ def profile_page(request):
     )
 
 
+@login_required
 def delete_post(request, post_id):
     """
     Makes it possible for users to delete their Posts.
@@ -99,6 +100,20 @@ def delete_post(request, post_id):
         messages.success(request, "Your post has been deleted successfully.")
         return redirect("user_posts")
     return render(request, "userprofile/delete_post.html", {"post": post})
+
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+    if request.method == "POST":
+        comment.delete()
+        messages.success(request, "Comment deleted successfully!")
+        return redirect("post_detail", slug=comment.post.slug)
+    return render(
+        request,
+        "userprofile/delete_comment.html",
+        {"comment": comment},
+    )
 
 
 @login_required
