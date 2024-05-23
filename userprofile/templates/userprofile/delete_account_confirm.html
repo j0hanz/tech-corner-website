@@ -21,6 +21,7 @@
   <div class="text-center">
     <h4 class="mb-5">Are you sure you want to delete your account?</h4>
     <!-- Form for deleting account -->
+    <h3 class="mb-5"><strong>{{ request.user.username }}</strong></h3>
     <form action="{% url 'delete_account' %}" method="POST">
       {% csrf_token %}
       <button type="submit" class="btn btn-outline-danger mx-4">Yes, Delete</button>
