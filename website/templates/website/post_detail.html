@@ -1,10 +1,14 @@
-{% extends "base.html" %} {% block title %} {{ post.title }} {% endblock %} {% block content %}
+{% extends "base.html" %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
 
 <div class="container">
-  <!-- Checks if there are any messages to display -->
   {% if messages %}
   <div id="message-container" class="text-center">
-    <!-- Loops through each message and displays it -->
     {% for message in messages %}
     <div
       class="alert alert-{{ message.tags }} alert-dismissible fade show"
@@ -54,6 +58,7 @@
             <p class="text-white text-opacity-25 text-end">
               Published on {{ post.date }}
             </p>
+            {% if request.user == post.author %}
             <div class="d-flex justify-content-end mb-1">
               <a
                 href="{% url 'edit_post' post.id %}"
@@ -64,22 +69,33 @@
                 class="btn btn-outline-danger fa-solid fa-trash fa-sm px-1 py-2"
               ></a>
             </div>
+            {% endif %}
           </div>
         </div>
         <!--Comments-->
         <div class="event-list">
           <div class="flex-row">
             <div class="mt-1 mb-5 text-center">
+              {% if user.is_authenticated %}
               <form method="post">
                 {% csrf_token %} {{ comment_form }}
                 <button type="submit" class="btn btn-outline-success btn-sm">
                   Submit
                 </button>
               </form>
+              {% else %}
+              <div class="border border-warning-subtle rounded p-2">
+                <p>You need to be signed in to post a comment.</p>
+                <a
+                  href="{% url 'account_login' %}"
+                  class="btn btn-outline-light btn-sm"
+                  >Sign In</a
+                >
+              </div>
+              {% endif %}
             </div>
             {% for comment in comments %}
             <div class="card flex-row mb-1 custom-card">
-              <!-- Display the comment author's profile image -->
               {% if comment.author.profile.profile_image %}
               <a href="{% url 'view_profile' comment.author.username %}">
                 <img
@@ -98,19 +114,16 @@
                 {% endif %}
                 <div class="text-center"><em>{{ comment.author }}</em></div>
               </a>
-              <!-- Body for Comment Text and Icons -->
               <div class="card-body border border-black rounded mx-2 mb-5 p-1">
                 <p class="mx-2">{{ comment.body }}</p>
+                {% if request.user == comment.author %}
                 <div class="d-flex justify-content-end mt-auto">
                   <a
-                    href="{% url 'edit_post' post.id %}"
-                    class="btn btn-outline-warning fa-solid fa-pen-to-square fa-sm px-1 py-2 mx-3"
-                  ></a>
-                  <a
-                    href="{% url 'delete_post' post.id %}"
+                    href="{% url 'delete_comment' comment.id %}"
                     class="btn btn-outline-danger fa-solid fa-trash fa-sm px-1 py-2"
                   ></a>
                 </div>
+                {% endif %}
               </div>
             </div>
             {% endfor %}
