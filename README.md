@@ -22,7 +22,7 @@ Tech Corner is a Reddit-style news site where users can share tech news. Users c
 
 ## Database Structure
 
-![Data_Structure_Tech_Corner](https://github.com/j0hanz/tech-corner-website/assets/159924955/b59145c4-7332-44d8-a058-72a31d5dae04)
+![graphviz](https://github.com/j0hanz/tech-corner-website/assets/159924955/ed537dfd-943c-4ee2-bac9-877cb1c8e52d)
 
 ## Wireframes
 
