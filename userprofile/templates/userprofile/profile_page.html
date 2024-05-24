@@ -43,11 +43,16 @@
       {% endif %}
       <h3 class="mb-3">{{ request.user.username }}</h3>
       <p class="profile-detail mb-0">
-        {{ user.profile.first_name|default:"" }} {{ user.profile.last_name|default:"" }}
+        {{ user.profile.first_name|default:"" }}
+        {{ user.profile.last_name|default:"" }}
       </p>
-      <p class="profile-detail mb-3">{{ user.profile.email|default:"" }}</p>
+      <p class="profile-detail mb-3">
+        {{ user.profile.email|default:"" }}
+      </p>
       Favorite Tech:
-      <p class="profile-detail">{{ user.profile.favorite_tech|default:"" }}</p>
+      <p class="profile-detail">
+        {{ user.profile.favorite_tech|default:"" }}
+      </p>
       <div class="mt-5">
         <a href="{% url 'edit_profile' %}" class="mx-3 btn btn-outline-light btn-sm"
           >Edit Profile</a
@@ -61,7 +66,8 @@
     <div class="bio-form mt-4">
       <!-- Form for updating bio -->
       <form method="post">
-        {% csrf_token %} {{ bio_form.as_p }}
+        {% csrf_token %}
+        {{ bio_form.as_p }}
         <button type="submit" class="mb-5 btn btn-outline-success">Update</button>
       </form>
     </div>

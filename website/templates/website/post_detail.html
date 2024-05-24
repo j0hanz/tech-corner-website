@@ -50,10 +50,16 @@
           </a>
           {% endif %}
           <div class="card-body">
-            <h1 class="text-center">{{ post.title }}</h1>
-            <p class="mb-3 mt-3">{{ post.body }}</p>
+            <h1 class="text-center">
+              {{ post.title }}
+            </h1>
+            <p class="mb-3 mt-3">
+              {{ post.body }}
+            </p>
             <p class="text-light text-opacity-75 text-end">
-              <strong>Written by {{ post.author }}</strong>
+              <strong>
+                Written by {{ post.author }}
+              </strong>
             </p>
             <p class="text-white text-opacity-25 text-end">
               Published on {{ post.date }}
@@ -78,14 +84,17 @@
             <div class="mt-1 mb-5 text-center">
               {% if user.is_authenticated %}
               <form method="post">
-                {% csrf_token %} {{ comment_form.as_p }}
+                {% csrf_token %}
+                {{ comment_form.as_p }}
                 <button type="submit" class="btn btn-outline-success btn-sm">
                   Submit
                 </button>
               </form>
               {% else %}
               <div class="border border-warning-subtle rounded p-2">
-                <p>You need to be signed in to post a comment.</p>
+                <p>
+                  You need to be signed in to post a comment.
+                </p>
                 <a
                   href="{% url 'account_login' %}"
                   class="btn btn-outline-light btn-sm"
@@ -112,10 +121,16 @@
                   alt="Placeholder Image"
                 />
                 {% endif %}
-                <div class="text-center"><em>{{ comment.author }}</em></div>
+                <div class="text-center">
+                  <em>
+                    {{ comment.author }}
+                  </em>
+                </div>
               </a>
               <div class="card-body border border-black rounded mx-2 mb-5 p-1">
-                <p class="mx-2">{{ comment.body }}</p>
+                <p class="mx-2">
+                  {{ comment.body }}
+                </p>
                 {% if request.user == comment.author %}
                 <div class="d-flex justify-content-end mt-auto">
                   <a

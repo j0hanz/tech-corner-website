@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}{{ user.username }}{% endblock %}
+{% block title %}
+{{ user.username }}
+{% endblock %}
 
 {% block content %}
+
 <div class="container">
   <!-- Checks if there are any messages to display -->
   {% if messages %}
@@ -42,15 +45,24 @@
         alt="{{ user.username }}"
       />
       {% endif %}
-      <h3 class="mb-3">{{ user.username }}</h3>
+      <h3 class="mb-3">
+        {{ user.username }}
+      </h3>
       <p class="profile-detail mb-0">
-        {{ user.profile.first_name|default:"" }} {{ user.profile.last_name|default:"" }}
+        {{ user.profile.first_name|default:"" }}
+        {{ user.profile.last_name|default:"" }}
       </p>
-      <p class="profile-detail mb-3">{{ user.profile.email|default:"" }}</p>
+      <p class="profile-detail mb-3">
+        {{ user.profile.email|default:"" }}
+      </p>
       Favorite Tech:
-      <p class="profile-detail">{{ user.profile.favorite_tech|default:"" }}</p>
+      <p class="profile-detail">
+        {{ user.profile.favorite_tech|default:"" }}
+      </p>
       <div class="card custom-card user-bio">
-        <p>{{ user.profile.bio|default:"" }}</p>
+        <p>
+          {{ user.profile.bio|default:"" }}
+        </p>
       </div>
     </div>
   </div>

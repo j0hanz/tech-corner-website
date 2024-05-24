@@ -1,12 +1,15 @@
 {% extends "base.html" %}
+
 {% load i18n %}
-{% load crispy_forms_filters %}
-{% load crispy_forms_tags %}
+
 {% load account socialaccount %}
+
 {% block head_title %}
 {% trans "Sign In" %}
 {% endblock %}
+
 {% block content %}
+
 <div class="container">
   <!-- Checks if there are any messages to display -->
   {% if messages %}
@@ -35,7 +38,9 @@
     <h3>{% trans "Sign In" %}</h3>
     <p class="pt-3">
       {% blocktrans %}Not created an account yet?
-      <a href="{{ signup_url }}"><p class="btn btn-outline-success btn-sm mx-2">Sign up here</p></a>
+      <a href="{{ signup_url }}"
+        ><p class="btn btn-outline-success btn-sm mx-2">Sign up here</p></a
+      >
       {% endblocktrans %}
     </p>
   </div>

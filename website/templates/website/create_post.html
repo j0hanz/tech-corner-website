@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Create New Post{% endblock %}
+{% block title %}
+Create New Post
+{% endblock %}
 
 {% block content %}
+
 <div class="container">
   <!-- Checks if there are any messages to display -->
   {% if messages %}
@@ -28,16 +31,20 @@
 <div class="container">
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
   <div class="text-center">
-    <h2 class="mb-3">Create New Post</h2>
-
+    <h2 class="mb-3">
+      Create New Post
+    </h2>
     <!-- Form for creating a new post -->
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" class="btn btn-outline-success mx-4">Submit</button>
-      <a class="btn btn-outline-warning mx-4" href="{% url 'index' %}">Cancel</a>
+      <button type="submit" class="btn btn-outline-success mx-4">
+        Submit
+      </button>
+      <a class="btn btn-outline-warning mx-4" href="{% url 'index' %}">
+        Cancel
+      </a>
     </form>
   </div>
 </div>
-
 {% endblock %}

@@ -1,6 +1,13 @@
-{% extends "base.html" %} {% load i18n %}
-{% block head_title %} {% trans "Sign Out" %}
-{% endblock %} {% block content %}
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}
+{% trans "Sign Out" %}
+{% endblock %}
+
+{% block content %}
+
 <div class="container">
   <!-- Checks if there are any messages to display -->
   {% if messages %}
@@ -27,13 +34,16 @@
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
   <div class="text-center">
     <h3>{% trans "Sign Out" %}</h3>
-    <p class="pt-3">{% trans 'Are you sure you want to sign out?' %}</p>
+    <p class="pt-3">
+      {% trans 'Are you sure you want to sign out?' %}
+    </p>
   </div>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-4 p-5">
         <form method="post" action="{% url 'account_logout' %}">
-          {% csrf_token %} {% if redirect_field_value %}
+          {% csrf_token %}
+          {% if redirect_field_value %}
           <input
             type="hidden"
             name="{{ redirect_field_name }}"

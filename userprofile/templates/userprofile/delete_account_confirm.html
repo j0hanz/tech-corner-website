@@ -15,8 +15,12 @@
         <i class="fas fa-exclamation-circle fa-2x"></i>
       </div>
       <div class="flex-grow-1 ms-3">
-        <h4 class="alert-heading">Warning!</h4>
-        <p class="mb-0">You cannot regret this choice!</p>
+        <h4 class="alert-heading">
+          Warning!
+        </h4>
+        <p class="mb-0">
+          You cannot regret this choice!
+        </p>
       </div>
       <button
         type="button"
@@ -28,9 +32,15 @@
   </div>
   <img class="img-main img-fluid" src="/static/images/logo.webp" />
   <div class="text-center">
-    <h4 class="mb-5">Are you sure you want to delete your account?</h4>
+    <h4 class="mb-5">
+      Are you sure you want to delete your account?
+    </h4>
     <!-- Form for deleting account -->
-    <h3 class="mb-5"><strong>{{ request.user.username }}</strong></h3>
+    <h3 class="mb-5">
+      <strong>
+        {{ request.user.username }}
+      </strong>
+    </h3>
     <form action="{% url 'delete_account' %}" method="POST">
       {% csrf_token %}
       <button type="submit" class="btn btn-outline-danger mx-4">

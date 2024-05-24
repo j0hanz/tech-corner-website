@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
-{% block title %}Your Posts{% endblock %}
+{% block title %}
+Your Posts
+{% endblock %}
 
 {% block content %}
 
@@ -30,7 +32,9 @@
       <div class="registration-right">
         <div class="row justify-content-evenly">
           <div class="col-4">
-            <h4>Your Posts</h4>
+            <h4>
+              Your Posts
+            </h4>
           </div>
           <div class="col-4">
             <a class="btn btn-outline-light btn-sm" href="{% url 'create_post' %}">
@@ -61,12 +65,20 @@
                 alt="{{ post.title }}"
               />
               {% endif %}
-              <div class="text-center"><em>{{ post.author }}</em></div>
+              <div class="text-center">
+                <em>
+                  {{ post.author }}
+                </em>
+              </div>
             </a>
             <div class="card-body">
               <h4>{{ post.title }}</h4>
-              <p>{{ post.body|truncatechars:50 }}</p>
-              <p class="card-text mb-4">{{ post.excerpt|truncatechars:50 }}</p>
+              <p>
+                {{ post.body|truncatechars:50 }}
+              </p>
+              <p class="card-text mb-4">
+                {{ post.excerpt|truncatechars:50 }}
+              </p>
               <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-light fa-brands fa-readme"
                 ></a
               >
@@ -80,13 +92,16 @@
               ></a>
             </div>
           </div>
-          {% endfor %} {% else %}
+          {% endfor %}
+          {% else %}
           <div
             class="alert alert-warning alert-dismissible fade show"
             id="message-container"
             role="alert"
           >
-            <div class="p-0">You have not created any posts yet.</div>
+            <div class="p-0">
+              You have not created any posts yet.
+            </div>
             <button
               type="button"
               class="btn-close ms-auto"
@@ -100,5 +115,4 @@
     </div>
   </div>
 </div>
-
 {% endblock %}

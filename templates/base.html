@@ -9,7 +9,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Tech Corner{% endblock %}</title>
+    <!-- Meta tags -->
+    <meta name="keywords" content="Tech Corner, Technology, Tech Blog, Tech News, Gadgets, Tech Community">
+    <meta name="description" content="Tech Corner is your go-to platform for sharing and discovering the latest in technology.">
+    <!-- Title -->
+    <title>
+      {% block title %}
+      Tech Corner
+      {% endblock %}
+    </title>
     <!-- Favicon -->
     <link
       rel="shortcut icon"
@@ -130,7 +138,9 @@
     <footer class="d-flex footer mt-auto py-3">
       <div class="container">
         <p class="m-0 text-center copyright">
-          {% block copyright %}<em>© 2024 Tech Corner</em>{% endblock %}
+          {% block copyright %}
+          <em>© 2024 Tech Corner</em>
+          {% endblock %}
           <a href="https://www.facebook.com" target="_blank" rel="noopener">
             <i class="fa-brands fa-facebook-f mx-5"></i>
           </a>
