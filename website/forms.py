@@ -3,6 +3,7 @@ from .models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
+    body = forms.CharField(widget = forms.Textarea(attrs = {'type': 'text','rows': 7, 'cols': 35}))
     class Meta:
         model = Post
         fields = ["title", "body"]

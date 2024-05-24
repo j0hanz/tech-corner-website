@@ -22,6 +22,10 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileBioForm(forms.ModelForm):
+    bio = forms.CharField(
+        widget=forms.Textarea(attrs={"type": "text", "rows": 5, "cols": 35})
+    )
+
     class Meta:
         model = UserProfile
         fields = ["bio"]
