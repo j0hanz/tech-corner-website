@@ -78,7 +78,7 @@
             <div class="mt-1 mb-5 text-center">
               {% if user.is_authenticated %}
               <form method="post">
-                {% csrf_token %} {{ comment_form }}
+                {% csrf_token %} {{ comment_form.as_p }}
                 <button type="submit" class="btn btn-outline-success btn-sm">
                   Submit
                 </button>
