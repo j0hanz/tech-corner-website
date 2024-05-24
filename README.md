@@ -1,4 +1,3 @@
-
 ![tech-corner-high-resolution-logo-white-transparent](https://github.com/j0hanz/tech-corner-website/assets/159924955/7a15d4d7-c904-43f9-9769-4e9ba7d57fc7)
 
 Tech Corner is a Reddit-style news site where users can share tech news. Users can interact with posts by creating their own posts and commenting on existing posts.
@@ -16,6 +15,10 @@ Tech Corner is a Reddit-style news site where users can share tech news. Users c
 - As a user / owner, I can view comments on an individual post so that I can read the conversation.
 - As a user, I want to click on a post title, so that I can read the full text and see detailed information including comments and upvotes.
 
+
+## Database Structure
+
+![Data_Structure_Tech_Corner](https://github.com/j0hanz/tech-corner-website/assets/159924955/b59145c4-7332-44d8-a058-72a31d5dae04)
 
 ## Wireframes
 
