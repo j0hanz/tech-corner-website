@@ -57,7 +57,7 @@ class UserProfileBioForm(forms.ModelForm):
         widget=forms.Textarea(
             attrs={
                 "rows": 5,
-                "cols": 35,
+                "cols": 32,
                 "placeholder": "Describe yourself here, also please share your tech journey...",
             }
         ),

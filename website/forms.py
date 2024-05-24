@@ -13,7 +13,7 @@ class PostForm(forms.ModelForm):
         widget=forms.Textarea(
             attrs={
                 "rows": 7,
-                "cols": 35,
+                "cols": 32,
                 "placeholder": "Write your post here...",
             }
         ),
@@ -30,7 +30,7 @@ class EditPostForm(forms.ModelForm):
         widget=forms.Textarea(
             attrs={
                 "rows": 7,
-                "cols": 35,
+                "cols": 32,
                 "placeholder": "Edit your post here...",
             }
         ),
