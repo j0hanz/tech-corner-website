@@ -24,8 +24,7 @@ def create_post(request):
             return redirect("index")
         else:
             messages.error(
-                request,
-                "Error when creating a Post, please try again.",
+                request, "Error when creating a Post, please try again."
             )
     else:
         form = PostForm()
@@ -47,7 +46,7 @@ def post_detail(request, slug):
     Allows users to submit comments on the post.
     """
     post = get_object_or_404(Post, slug=slug)
-    comments = Comment.objects.filter(post=post).order_by('-created_on')
+    comments = Comment.objects.filter(post=post).order_by("-created_on")
     comment_form = CommentForm()
 
     if request.method == "POST":
@@ -85,6 +84,10 @@ def edit_post(request, post_id):
     """
     post = get_object_or_404(Post, id=post_id)
 
+    if post.author != request.user:
+        messages.error(request, "Unauthorized Access")
+        return redirect("index")
+
     if request.method == "POST":
         form = EditPostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
@@ -103,5 +106,3 @@ def edit_post(request, post_id):
     return render(
         request, "website/edit_post.html", {"form": form, "post": post}
     )
-
-
