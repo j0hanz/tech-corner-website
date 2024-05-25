@@ -189,16 +189,73 @@ The packages installed for this file can be found in requirements.txt, and can b
 
 For full details on project dependencies, please refer to the `requirements.txt` file in the project repository.
 
+### **Getting Started**
+
+#### **Prerequisites**
+- A basic understanding of Python and Django.
+- Installation of Python (version 3.8 or later recommended).
+- A proper setup of a virtual environment.
+
+#### **Installation**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/j0hanz/tech-corner-website.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd tech-corner-website
+   ```
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Set up the database (PostgreSQL is required):**
+   ```bash
+   python manage.py migrate
+   ```
+5. **Create a superuser:**
+   ```bash
+   python manage.py createsuperuser
+   ```
+6. **Run the development server:**
+   ```bash
+   python manage.py runserver
+   ```
+   Open `http://127.0.0.1:8000/` in your web browser.
+
+### **Usage**
+
+- **Navigating the site**: Start from the home page where you can view all tech posts. Sign up to interact and post your own content.
+- **Creating posts**: After logging in, navigate to 'Create Post' from the user dropdown menu to add new content.
+- **Editing and deleting posts**: Posts can be edited or deleted from the post detail page if you're the author.
+
+### **Contributing**
+
+Contributions to Tech Corner are welcome! Here's how you can contribute:
+
+1. **Fork the Repository**: Fork the project to your own GitHub account.
+2. **Create a Branch**:
+   ```bash
+   git checkout -b your-branch-name
+   ```
+3. **Make Necessary Changes** and commit those changes.
+4. **Push Changes** to GitHub.
+5. **Open a Pull Request**:
+   Open a new pull request from your forked version pointing to the original project's main branch. Include a detailed description of your changes and the reasons for them.
+
+**Pull Request Guidelines**:
+- Ensure the PR title clearly describes the problem it solves or the feature it adds.
+- Attach visual elements (screenshots/GIFs) if you're changing the UI.
+- Maintain code quality and adhere to the existing code style.
+
+### **Support**
+
+If you encounter any problems, please open an issue on GitHub. Provide a detailed report that includes steps to reproduce the problem, the expected outcome, and the actual outcome. You can also suggest a fix or improvement.
+
 # Credits
 
-## Acknowledgements
+### **Acknowledgments**
 
-Credits to various tools and resources that have helped build and refine Tech Corner:
-
-- [Namify](https://namify.tech/): A tool for generating brandable names for your business, project, or website.
-- [Logo.com](https://logo.com/): A service for creating professional logos for your brand or project.
-- [CSS Gradient](https://cssgradient.io/): An online tool for creating beautiful gradient backgrounds for your website.
-- [Google Fonts](https://fonts.google.com/selection/embed): A library of free, open-source fonts optimized for the web, easily embeddable in your site.
-- [Favicon.io](https://favicon.io/favicon-converter/): A tool to convert any image to a favicon for your website.
-- [Django User Profile Guide](https://dev.to/earthcomfy/django-user-profile-3hik): A comprehensive guide to creating user profiles in Django.
-- [Bootstrap](https://getbootstrap.com/): A framework for building responsive, mobile-first sites.
+- Thanks to all the contributors who spend time improving Tech Corner.
+- Special thanks to [Namify](https://namify.tech/) and [Logo.com](https://logo.com/) for branding resources.
+- 
