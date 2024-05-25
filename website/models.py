@@ -13,7 +13,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Post(models.Model):
     """
-    Define the Post model
+    Model for Post
     """
 
     title = models.CharField(max_length=50, unique=True)  # Title
@@ -45,6 +45,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Model for Comments
+    """
+
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments"
     )
