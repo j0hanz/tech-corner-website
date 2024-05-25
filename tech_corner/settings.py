@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
 import os
 import dj_database_url
 if os.path.isfile('env.py'):
@@ -70,6 +71,9 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+
+# Redirects after login/logout to the homepage "/"
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -107,7 +111,8 @@ TEMPLATES = [
     },
 ]
 
-from django.contrib.messages import constants as messages
+# Maps alert message to Bootstrap CSS classes.
+
 MESSAGE_TAGS = {
     messages.DEBUG: 'debug',
     messages.INFO: 'info',
@@ -156,6 +161,7 @@ AUTHENTICATION_BACKENDS = [
 
 
 # Django Axes configurations
+# Secures login attempts by limiting failures and locking out users.
 
 AXES_FAILURE_LIMIT = 5
 AXES_LOCK_OUT_AT_FAILURE = True
