@@ -258,4 +258,3 @@ If you encounter any problems, please open an issue on GitHub. Provide a detaile
 
 - Thanks to all the contributors who spend time improving Tech Corner.
 - Special thanks to [Namify](https://namify.tech/) and [Logo.com](https://logo.com/) for branding resources.
-- 
