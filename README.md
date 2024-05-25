@@ -1,5 +1,3 @@
-# Tech Corner
-
 ![tech-corner-high-resolution-logo-white-transparent](https://github.com/j0hanz/tech-corner-website/assets/159924955/7a15d4d7-c904-43f9-9769-4e9ba7d57fc7)
 
 **Tech Corner** is a dynamic community-driven platform where tech enthusiasts can share and discuss the latest technology news and innovations. Users can create their own posts, engage in discussions, and connect with others who share their interests.
@@ -58,6 +56,8 @@ ________________________________________________________________________________
 __________________________________________________________________________________________________________
 #### Your Post Page
 ![Your_Post_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/8a186954-25b3-4a96-9fcb-90b2c6d4b1b9)
+
+# User Experience
 
 ## Pages
 
@@ -121,14 +121,28 @@ Home Page:
 
 ![Home](https://github.com/j0hanz/tech-corner-website/assets/159924955/40934211-8091-4f4f-9f2e-03a3e719099f)
 
-## Key Pages
+Here's a breakdown of the main pages in your Tech Corner website and their functionalities:
 
-- **About Page:** Detailed information about Tech Corner’s mission and community features.
-- **Sign Up & Sign In Pages:** Seamlessly integrate new users and welcome returning members.
-- **Profile Management:** Customize user profiles and manage content.
-- **Content Interaction:** Create, edit, and delete posts and comments.
+* **Informative Pages:**
+    * **About:** Provides an introduction to Tech Corner, its goals, and functionalities.
+* **User Account Management:**
+    * **Sign Up:** Enables new user registration.
+    * **Sign In & Sign Out:** Allows existing users to log in and out of their accounts.
+    * **Profile Management:**  Lets users view and edit their profile details.
+* **Content Management:**
+    * **Content Interaction:**  Empowers users to create, edit, and delete posts and comments.
+    * **User Posts:**  Shows a list of a user's own posts with options to view, edit, or delete them.
+* **Community Pages:**
+    * **Home:** Displays a feed of all publicly visible posts, typically sorted by newest first. 
 
-## Technologies Used
+## Features
+
+**Create Posts:** Share insights, start discussions, or seek advice.
+**Connect with others:** Explore profiles and network with fellow tech enthusiasts.
+**Engage in discussions:** Leave comments and interact with posts on the platform.
+**Personalize your profile:** Showcase your interests and tech expertise.
+
+# Technologies Used
 
 The following technologies were used on this project:
 
@@ -188,6 +202,29 @@ The packages installed for this file can be found in requirements.txt, and can b
 ## Dependencies
 
 For full details on project dependencies, please refer to the `requirements.txt` file in the project repository.
+
+# Deployment
+
+**Deploy to Heroku:**
+
+1. **Log in** to your Heroku Dashboard ([https://devcenter.heroku.com/articles/heroku-dashboard](https://devcenter.heroku.com/articles/heroku-dashboard)).
+2. Click "**New**" and select "**Create new app**".
+3. **Name your app** and choose a region. Click "**Create app**".
+4. Go to the "**Deploy**" tab and choose "**GitHub**" as the deployment method.
+5. **Connect Heroku to GitHub** and authorize access to your project repository.
+6. Select your project repository.
+
+**Set Up Environment Variables:**
+
+1. Go to the "**Settings**" tab and click "**Reveal Config Vars**".
+2. Add any required environment variables like `SECRET_KEY`, `DEBUG`, and database URLs.
+
+**Deploy Your App:**
+
+1. Go back to the "**Deploy**" tab.
+2. Choose the branch you want to deploy and click "**Deploy Branch**".
+
+Your app should now be live! You can find the access link at the top of the Heroku dashboard.
 
 ### **Getting Started**
 
