@@ -18,6 +18,7 @@ if os.path.isfile('env.py'):
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -154,11 +155,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-# django-axes configurations
+# Django Axes configurations
 
 AXES_FAILURE_LIMIT = 5
 AXES_LOCK_OUT_AT_FAILURE = True
+AXES_COOLOFF_TIME = timedelta(minutes=30)
+AXES_LOCKOUT_URL = '/lockout/'
 AXES_RESET_ON_SUCCESS = True
+AXES_LOCKOUT_PARAMETERS = ['username']
 
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
