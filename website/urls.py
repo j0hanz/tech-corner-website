@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, PostList, about, create_post, post_detail, edit_post
+from .views import home, PostList, about, create_post, post_detail, edit_post, lockout_view
 
 urlpatterns = [
     path('', home, name='home'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('posts/<slug:slug>/', post_detail, name='post_detail'),
     path('create-post/', create_post, name='create_post'),
     path('about/', about, name='about'),
+    path('lockout/', lockout_view, name='lockout'),
 ]
