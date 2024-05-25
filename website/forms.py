@@ -3,6 +3,10 @@ from .models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
+    """
+    Form for creating a new post.
+    """
+
     title = forms.CharField(
         widget=forms.TextInput(
             attrs={"placeholder": "Enter the title here..."}
@@ -26,6 +30,10 @@ class PostForm(forms.ModelForm):
 
 
 class EditPostForm(forms.ModelForm):
+    """
+    Form for editing an existing post.
+    """
+
     body = forms.CharField(
         widget=forms.Textarea(
             attrs={
@@ -43,6 +51,10 @@ class EditPostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Form for creating a new comment on a post.
+    """
+
     body = forms.CharField(
         widget=forms.Textarea(
             attrs={

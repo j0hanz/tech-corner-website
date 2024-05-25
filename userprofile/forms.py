@@ -4,6 +4,10 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    A form to update a user's profile information.
+    """
+
     first_name = forms.CharField(
         required=False,
         widget=forms.TextInput(
@@ -37,6 +41,10 @@ class UserProfileForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
+    """
+    A form to update a user's username.
+    """
+
     username = forms.CharField(
         required=True,
         widget=forms.TextInput(
@@ -52,6 +60,10 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileBioForm(forms.ModelForm):
+    """
+    A form to update a user's profile bio.
+    """
+
     bio = forms.CharField(
         required=False,
         widget=forms.Textarea(
