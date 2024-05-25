@@ -225,7 +225,7 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 # Testing
 
-# Future Improvements
+# Future Implementation
 
 - **Mobile App**: Develop a mobile app version of Tech Corner for iOS and Android.
 - **Advanced Search**: Implement an advanced search feature to help users find posts more efficiently.
@@ -342,12 +342,10 @@ Your app should now be live! You can find the access link at the top of the Hero
 # FAQs
 
 **Q: How can I reset my password?**
-A: Use the "Reset Password" link on the sign-in page. Follow the instructions sent to your email.
+A: The current version does not offer a password reset feature. However, this functionality is planned for future implementation.
 
 **Q: How can I delete my account?**
-A: Go to your profile settings and select "Delete Account". Confirm your choice, and your data will be permanently removed.
-
-...
+A: To delete your account, go to your profile settings and select "Delete Account." Confirm your choice, and your data will be permanently removed.
 
 # Credits
 
