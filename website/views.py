@@ -8,8 +8,8 @@ from .forms import PostForm, EditPostForm, CommentForm
 
 class PostList(ListView):
     """
-    Displays a paginated list of published posts sorted by their publication date in descending order.
-    This view automatically filters posts to show only those marked as published.
+    Displays a paginated list of published posts.
+    Sorted by their publication date in descending order.
     """
 
     model = Post
@@ -23,9 +23,10 @@ class PostList(ListView):
 
 def home(request):
     """
-    Serve as the entry point for the website, redirecting users based on their authentication status.
-    Authenticated users are redirected to the index page to view the list of posts.
-    Non-authenticated users are redirected to the About page for general information about the site.
+    Serve as the entry point for the website.
+    Redirecting users based on their authentication status.
+    Authenticated users are redirected to the index page.
+    Non-authenticated users are redirected to the About page.
     """
     if request.user.is_authenticated:
         return redirect("index")
@@ -35,7 +36,7 @@ def home(request):
 
 def lockout_view(request):
     """
-    Renders the lockout page when a user is locked out due to too many failed login attempts.
+    Renders the lockout page.
     """
     return render(request, "website/lockout.html")
 
@@ -50,7 +51,7 @@ def about(request):
 @login_required
 def create_post(request):
     """
-    Handle the creation of a new post. Only accessible to logged-in users.
+    Handle the creation of a new post.
     """
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
@@ -79,9 +80,7 @@ def index(request):
 
 def post_detail(request, slug):
     """
-    Handle the display and interaction of a specific post created by a user.
-    Displays all comments related to the post and sorts them by creation time.
-    Allows users to submit comments on the post.
+    Displays a user's post with comments.
     """
     post = get_object_or_404(Post, slug=slug)
     comments = Comment.objects.filter(post=post).order_by("-created_on")
@@ -117,7 +116,8 @@ def post_detail(request, slug):
 @login_required
 def edit_post(request, post_id):
     """
-    View to handle the editing of a post. Users can update the body of their post.
+    View to handle the editing of a post.
+    Users can update the body of their post.
     Requires the user to be logged in.
     """
     post = get_object_or_404(Post, id=post_id)

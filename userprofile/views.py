@@ -65,7 +65,8 @@ def user_posts(request):
 @login_required
 def profile_page(request):
     """
-    Display the profile page of the logged-in user, including a form to edit the bio.
+    Display the profile page of the logged-in user,
+    including a form to edit the bio.
     """
     user_profile = get_object_or_404(UserProfile, user=request.user)
 
