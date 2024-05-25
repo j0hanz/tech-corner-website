@@ -131,6 +131,17 @@ Home Page:
 - **Personalize Your Space:** Customize your profile with a photo, favorite tech, and optional contact details.
 - **Fully Responsive:** Designed to work smoothly on phones, tablets, and computers.
 
+### Security
+
+#### Django Axes
+
+Django Axes is an essential security feature for our users, designed to protect against brute-force attacks by limiting the number of login attempts. Here’s why we chose to include Django Axes:
+
+- **Security Enhancement**: By restricting the number of login attempts, we greatly reduce the risk of unauthorized access via brute-force methods.
+- **User Protection**: This ensures that legitimate users are protected from malicious login attempts.
+
+If your account is locked due to multiple failed login attempts, it will automatically be reset after 30 minutes, allowing you to try logging in again.
+
 # Technologies Used
 
 The following technologies were used on this project:
