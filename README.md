@@ -48,6 +48,22 @@ The Open Sans font family is used for its clear and readable design across all d
 #### The entity relationship diagram for this project can be seen below.
 ![graphviz](https://github.com/j0hanz/tech-corner-website/assets/159924955/ed537dfd-943c-4ee2-bac9-877cb1c8e52d)
 
+**Entities:**
+
+* User
+* UserProfile
+* FavoriteTech
+* Post
+* Comment
+
+**Relationships:**
+
+* One User can have one UserProfile (One-to-One)
+* One UserProfile can have one FavoriteTech (One-to-Many) (Optional)
+* One User can have many Posts (One-to-Many)
+* One Post can have many Comments (One-to-Many)
+* One User can have many Comments (One-to-Many) (Through the Post model)
+
 ## Wireframes
 
 #### Below are the wireframes used in the development of this site.
