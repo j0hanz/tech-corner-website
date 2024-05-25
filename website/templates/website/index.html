@@ -32,11 +32,10 @@ Home
   <div class="row">
     <div class="col-md-12 d-flex justify-content-center right-bck">
       <div class="registration-right">
-        <div class="row justify-content-evenly">
+        <div class="row justify-content-evenly mb-5">
           <div class="col-4">
-            <h4>
-              Latest Posts
-            </h4>
+            <a class="btn btn-outline-light btn-sm" href="{% url 'index' %}"
+              >Latest Posts</a>
           </div>
           <div class="col-4">
             <a class="btn btn-outline-light btn-sm" href="{% url 'create_post' %}"
@@ -61,7 +60,7 @@ Home
             <a href="{% url 'view_profile' post.author.username %}">
               <img
                 class="rounded-circle card-img-left img-post"
-                src="static/images/nobody.webp"
+                src="/static/images/nobody.webp"
                 alt="{{ post.title }}"
               />
               {% endif %}
@@ -76,17 +75,32 @@ Home
                 {{ post.title }}
               </h4>
               <p>
-                {{ post.body|truncatechars:50 }}
+                {{ post.body|truncatechars:70 }}
               </p>
               <p class="card-text mb-4">
-                {{ post.excerpt|truncatechars:50 }}
+                {{ post.excerpt|truncatechars:70 }}
               </p>
               <a href="{% url 'post_detail' post.slug %}" class="btn btn-sm btn-outline-light"
-                >Go to post<i class="fa-solid fa-arrow-right mx-2"></i></a
+                >Go to post<i class="fa-solid fa-angle-right mx-2"></i></a
               >
             </div>
           </div>
           {% endfor %}
+          <!-- Pagination list -->
+          {% if is_paginated %}
+            <div class="text-center mt-5 mb-5">
+              <!-- Previous list arrow -->
+              {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-light fa-solid fa-angle-left mx-4">
+                </a>
+              {% endif %}
+              <!-- Next list arrow -->
+              {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-light fa-solid fa-angle-right mx-4">
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
