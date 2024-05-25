@@ -2,6 +2,8 @@
 
 **Tech Corner** is a dynamic community-driven platform where tech enthusiasts can share and discuss the latest technology news and innovations. Users can create their own posts, engage in discussions, and connect with others who share their interests.
 
+Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp.com/)
+
 ## User Stories
 
 ### Account Management
@@ -121,26 +123,13 @@ Home Page:
 
 ![Home](https://github.com/j0hanz/tech-corner-website/assets/159924955/40934211-8091-4f4f-9f2e-03a3e719099f)
 
-Here's a breakdown of the main pages in your Tech Corner website and their functionalities:
-
-* **Informative Pages:**
-    * **About:** Provides an introduction to Tech Corner, its goals, and functionalities.
-* **User Account Management:**
-    * **Sign Up:** Enables new user registration.
-    * **Sign In & Sign Out:** Allows existing users to log in and out of their accounts.
-    * **Profile Management:**  Lets users view and edit their profile details.
-* **Content Management:**
-    * **Content Interaction:**  Empowers users to create, edit, and delete posts and comments.
-    * **User Posts:**  Shows a list of a user's own posts with options to view, edit, or delete them.
-* **Community Pages:**
-    * **Home:** Displays a feed of all publicly visible posts, typically sorted by newest first. 
-
 ## Features
 
-**Create Posts:** Share insights, start discussions, or seek advice.
-**Connect with others:** Explore profiles and network with fellow tech enthusiasts.
-**Engage in discussions:** Leave comments and interact with posts on the platform.
-**Personalize your profile:** Showcase your interests and tech expertise.
+- **Share Knowledge:** Start discussions, answer questions, and offer help.
+- **Connect with Users:** Interact with fellow tech enthusiasts.
+- **Join the Conversation:** Comment and share your thoughts on the latest tech trends.
+- **Personalize Your Space:** Customize your profile with a photo, favorite tech, and optional contact details.
+- **Fully Responsive:** Designed to work smoothly on phones, tablets, and computers.
 
 # Technologies Used
 
@@ -205,89 +194,117 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 # Deployment
 
-**Deploy to Heroku:**
+## Deploy to Heroku
 
-1. **Log in** to your Heroku Dashboard ([https://devcenter.heroku.com/articles/heroku-dashboard](https://devcenter.heroku.com/articles/heroku-dashboard)).
+### Create and Set Up Your App
+
+1. **Log in** to your Heroku Dashboard: [Heroku Dashboard](https://devcenter.heroku.com/articles/heroku-dashboard).
 2. Click "**New**" and select "**Create new app**".
 3. **Name your app** and choose a region. Click "**Create app**".
 4. Go to the "**Deploy**" tab and choose "**GitHub**" as the deployment method.
 5. **Connect Heroku to GitHub** and authorize access to your project repository.
 6. Select your project repository.
 
-**Set Up Environment Variables:**
+### Set Up Environment Variables in Django
 
-1. Go to the "**Settings**" tab and click "**Reveal Config Vars**".
-2. Add any required environment variables like `SECRET_KEY`, `DEBUG`, and database URLs.
+1. **Create an `env.py` file:**
+   - In the top-level directory of your Django app, create a new file named `env.py`.
 
-**Deploy Your App:**
+2. **Import `os` in `env.py`:**
+   ```python
+   import os
+   ```
 
-1. Go back to the "**Deploy**" tab.
-2. Choose the branch you want to deploy and click "**Deploy Branch**".
+3. **Set up necessary environment variables in `env.py`:**
+   - Add a secret key:
+     ```python
+     os.environ['SECRET_KEY'] = 'your secret key'
+     ```
+   - Add the database URL:
+     ```python
+     os.environ['DATABASE_URL'] = 'Paste the database link in here'
+     ```
+
+4. **Update `settings.py` to use environment variables:**
+   - Replace the value of the `SECRET_KEY` variable with:
+     ```python
+     SECRET_KEY = os.environ.get('SECRET_KEY')
+     ```
+   - Change the value of the `DATABASES` variable to:
+     ```python
+     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+     ```
+
+5. **Modify the top of `settings.py`:**
+   ```python
+   from pathlib import Path
+   import os
+   import dj_database_url
+
+   if os.path.isfile('env.py'):
+       import env
+   ```
+
+### Configure Heroku Environment Variables
+
+1. **Navigate to the "Settings" tab in Heroku.**
+2. **Open the "Config Vars" section and add environment variables:**
+   - Add `DATABASE_URL` with the database link from your `env.py`.
+   - Add `SECRET_KEY` with the secret key value from your `env.py`.
+
+### Finalize Settings in Django
+
+1. **Migrate the models to the new database connection:**
+   - In your terminal, run:
+     ```bash
+     python manage.py migrate
+     ```
+
+2. **Add static files settings in `settings.py`:**
+   ```python
+   STATIC_URL = '/static/'
+   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+   STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+   ```
+
+3. **Update the templates directory in `settings.py`:**
+   ```python
+   TEMPLARES_DIR = os.path.join(BASE_DIR, 'templates')
+   ```
+
+4. **Modify the `DIRS` key in the `TEMPLATES` variable in `settings.py`:**
+   ```python
+   'DIRS': [TEMPLARES_DIR],
+   ```
+
+5. **Add Heroku to the `ALLOWED_HOSTS` list:**
+   - The format will be `your-app-name.herokuapp.com`, which you can copy from the Domains section in the Settings tab of your Heroku app.
+
+### Create Necessary Folders and Files
+
+1. **Create `static` and `templates` folders:**
+   - In your Django app's code editor, create new top-level folders named `static` and `templates`.
+
+2. **Create a `Procfile`:**
+   - At the top level of your project directory, create a new file named `Procfile` with a capital "P".
+   - Add the following line to the `Procfile`:
+     ```bash
+     web: gunicorn PROJECT_NAME.wsgi
+     ```
+
+### Deploy Your Changes
+
+**Deploy Your App from Heroku:**
+- Go to the "**Deploy**" tab in Heroku.
+- Choose the branch you want to deploy and click "**Deploy Branch**".
 
 Your app should now be live! You can find the access link at the top of the Heroku dashboard.
-
-### **Getting Started**
-
-#### **Prerequisites**
-- A basic understanding of Python and Django.
-- Installation of Python (version 3.8 or later recommended).
-- A proper setup of a virtual environment.
-
-#### **Installation**
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/j0hanz/tech-corner-website.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd tech-corner-website
-   ```
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Set up the database (PostgreSQL is required):**
-   ```bash
-   python manage.py migrate
-   ```
-5. **Create a superuser:**
-   ```bash
-   python manage.py createsuperuser
-   ```
-6. **Run the development server:**
-   ```bash
-   python manage.py runserver
-   ```
-   Open `http://127.0.0.1:8000/` in your web browser.
 
 ### **Usage**
 
 - **Navigating the site**: Start from the home page where you can view all tech posts. Sign up to interact and post your own content.
 - **Creating posts**: After logging in, navigate to 'Create Post' from the user dropdown menu to add new content.
 - **Editing and deleting posts**: Posts can be edited or deleted from the post detail page if you're the author.
-
-### **Contributing**
-
-Contributions to Tech Corner are welcome! Here's how you can contribute:
-
-1. **Fork the Repository**: Fork the project to your own GitHub account.
-2. **Create a Branch**:
-   ```bash
-   git checkout -b your-branch-name
-   ```
-3. **Make Necessary Changes** and commit those changes.
-4. **Push Changes** to GitHub.
-5. **Open a Pull Request**:
-   Open a new pull request from your forked version pointing to the original project's main branch. Include a detailed description of your changes and the reasons for them.
-
-**Pull Request Guidelines**:
-- Ensure the PR title clearly describes the problem it solves or the feature it adds.
-- Attach visual elements (screenshots/GIFs) if you're changing the UI.
-- Maintain code quality and adhere to the existing code style.
-
-### **Support**
-
-If you encounter any problems, please open an issue on GitHub. Provide a detailed report that includes steps to reproduce the problem, the expected outcome, and the actual outcome. You can also suggest a fix or improvement.
 
 # Credits
 
