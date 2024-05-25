@@ -1,8 +1,36 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from django.contrib import messages
 from .forms import PostForm, EditPostForm, CommentForm
+
+
+class PostList(ListView):
+    """
+    Displays a paginated list of published posts sorted by their publication date in descending order.
+    This view automatically filters posts to show only those marked as published.
+    """
+
+    model = Post
+    template_name = "website/index.html"
+    context_object_name = "posts"
+    paginate_by = 5  # Number of posts displayed per page.
+    queryset = Post.objects.filter(status=1).order_by(
+        "-date"
+    )  # The set of posts to display, filtered and sorted.
+
+
+def home(request):
+    """
+    Serve as the entry point for the website, redirecting users based on their authentication status.
+    Authenticated users are redirected to the index page to view the list of posts.
+    Non-authenticated users are redirected to the About page for general information about the site.
+    """
+    if request.user.is_authenticated:
+        return redirect("index")
+    else:
+        return redirect("about")
 
 
 def about(request):
