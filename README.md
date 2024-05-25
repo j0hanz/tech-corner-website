@@ -4,7 +4,7 @@
 
 Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp.com/)
 
-## User Stories
+# User Stories
 
 ### Account Management
 - **Create Account:** Register to join and contribute to the community.
@@ -17,6 +17,18 @@ Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp
 - **CRUD Operations:** Create, read, update, and delete posts.
 - **Comment System:** Engage with posts through comments.
 - **Detailed View:** Access detailed post views including comments and interactions.
+
+# Design
+
+## Color Scheme
+The background image uses a gradient created with [CSS Gradient](https://cssgradient.io/).
+
+## Typography
+The Open Sans font family is used for its clear and readable design across all devices.
+
+## Imagery
+- **Logo:** Designed using the [LOGO](https://logo.com/) tool.
+- **Favicon:** Created with [Favicon Generator](https://favicon.io/favicon-converter/) for a custom browsing icon.
 
 ## Database Structure
 
