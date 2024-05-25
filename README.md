@@ -4,6 +4,19 @@
 
 Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp.com/)
 
+## Introduction
+
+Welcome to Tech Corner, a platform designed for technology enthusiasts to connect, share knowledge, and stay updated with the latest trends in technology. Whether you're a developer, a tech blogger, or simply passionate about tech, Tech Corner offers a space for you to engage and grow within a vibrant community.
+
+## Features
+
+- **Share Knowledge:** Start discussions, answer questions, and offer help.
+- **Connect with Users:** Interact with fellow tech enthusiasts.
+- **Join the Conversation:** Comment and share your thoughts on the latest tech trends.
+- **Personalize Your Space:** Customize your profile with a photo, favorite tech, and optional contact details.
+- **Fully Responsive:** Designed to work smoothly on phones, tablets, and computers.
+- **Security:** Includes features like Django Axes to protect against brute-force attacks.
+
 # User Stories
 
 ### Account Management
@@ -138,14 +151,6 @@ Home Page:
 
 ![Home](https://github.com/j0hanz/tech-corner-website/assets/159924955/40934211-8091-4f4f-9f2e-03a3e719099f)
 
-## Features
-
-- **Share Knowledge:** Start discussions, answer questions, and offer help.
-- **Connect with Users:** Interact with fellow tech enthusiasts.
-- **Join the Conversation:** Comment and share your thoughts on the latest tech trends.
-- **Personalize Your Space:** Customize your profile with a photo, favorite tech, and optional contact details.
-- **Fully Responsive:** Designed to work smoothly on phones, tablets, and computers.
-
 ### Security
 
 #### Django Axes
@@ -217,6 +222,14 @@ The packages installed for this file can be found in requirements.txt, and can b
 ## Dependencies
 
 For full details on project dependencies, please refer to the `requirements.txt` file in the project repository.
+
+# Testing
+
+# Future Improvements
+
+- **Mobile App**: Develop a mobile app version of Tech Corner for iOS and Android.
+- **Advanced Search**: Implement an advanced search feature to help users find posts more efficiently.
+- **Notifications**: Add real-time notifications for post interactions and comments.
 
 # Deployment
 
@@ -326,11 +339,15 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 Your app should now be live! You can find the access link at the top of the Heroku dashboard.
 
-### **Usage**
+# FAQs
 
-- **Navigating the site**: Start from the home page where you can view all tech posts. Sign up to interact and post your own content.
-- **Creating posts**: After logging in, navigate to 'Create Post' from the user dropdown menu to add new content.
-- **Editing and deleting posts**: Posts can be edited or deleted from the post detail page if you're the author.
+**Q: How can I reset my password?**
+A: Use the "Reset Password" link on the sign-in page. Follow the instructions sent to your email.
+
+**Q: How can I delete my account?**
+A: Go to your profile settings and select "Delete Account". Confirm your choice, and your data will be permanently removed.
+
+...
 
 # Credits
 
