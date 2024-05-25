@@ -33,7 +33,17 @@ def home(request):
         return redirect("about")
 
 
+def lockout_view(request):
+    """
+    Renders the lockout page when a user is locked out due to too many failed login attempts.
+    """
+    return render(request, "website/lockout.html")
+
+
 def about(request):
+    """
+    Renders the about page of the website.
+    """
     return render(request, "website/about.html")
 
 
