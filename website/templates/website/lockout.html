@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <img class="img-main img-fluid" src="/static/images/logo.webp" />
+  <div class="text-center">
+    <!-- Header for lockout message -->
+    <h2 class="mb-3">
+        Max login attempts reached
+    </h2>
+    <h1 class="mb-3">
+        <i class="fa-solid h1 fa-lock mx-2 mt-3"></i>
+    </h1>
+    <!-- Lockout explanation -->
+    <p>
+        You have been locked out due to too many failed login attempts. <br>Please
+      try again later.
+    </p>
+  </div>
+</div>
+{% endblock %}
