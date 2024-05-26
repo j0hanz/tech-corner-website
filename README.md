@@ -1,6 +1,13 @@
-![tech-corner-high-resolution-logo-white-transparent](https://github.com/j0hanz/tech-corner-website/assets/159924955/7a15d4d7-c904-43f9-9769-4e9ba7d57fc7)
+<p align="center">
+  <img src="https://github.com/j0hanz/tech-corner-website/assets/159924955/7a15d4d7-c904-43f9-9769-4e9ba7d57fc7" alt="tech-corner-high-resolution-logo-white-transparent"/>
+</p>
 
-**Tech Corner** is a dynamic community-driven platform where tech enthusiasts can share and discuss the latest technology news and innovations. Users can create their own posts, engage in discussions, and connect with others who share their interests.
+<p align="center">
+<strong>Tech Corner</strong> is a community blog and news site for technology enthusiasts to share and engage with the latest tech news. <br>Join us to post your insights, comment on discussions, and connect with a network of tech enthusiasts.<br>
+   Discover and share the latest in technology with us!
+</p>
+
+![responsive-removebg](https://github.com/j0hanz/tech-corner-website/assets/159924955/f554fd8a-0d91-4aa6-9ac8-d2ca90aad1c2)
 
 Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp.com/)
 
