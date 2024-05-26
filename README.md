@@ -303,6 +303,8 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 ## Testing
 
+[View detailed testing information here](TESTING.md).
+
 ## Future Implementation
 
 - **Mobile App**: Develop a mobile app version of Tech Corner for iOS and Android.
