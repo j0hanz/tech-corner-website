@@ -11,22 +11,44 @@ class FavoriteTech(models.Model):
     Model to store favorite technology types.
     """
 
-    TYPE_LAPTOP = "Laptop"
-    TYPE_SMARTPHONE = "Smartphone"
+    TYPE_PC = "PC"
+    TYPE_MOBILE = "Mobile"
     TYPE_TABLET = "Tablet"
-    TYPE_DESKTOP = "Desktop"
+    TYPE_AI = "AI"
     TYPE_RASPBERRYPI = "Raspberry Pi"
     TYPE_NETWORKING = "Networking"
     TYPE_OTHER = "Other"
+    TYPE_LAPTOP = "Laptop"
+    TYPE_SMARTPHONE = "Smartphone"
+    TYPE_DESKTOP = "Desktop"
+    TYPE_SMART_HOME = "Smart Home"
+    TYPE_WEARABLE = "Wearable"
+    TYPE_GAMING_CONSOLE = "Gaming Console"
+    TYPE_VR = "VR"
+    TYPE_DRONE = "Drone"
+    TYPE_IOT = "IoT"
+    TYPE_CLOUD_COMPUTING = "Cloud Computing"
+    TYPE_CYBER_SECURITY = "Cyber Security"
 
     TYPE_CHOICES = [
-        (TYPE_LAPTOP, _("Laptop")),
-        (TYPE_SMARTPHONE, _("Smartphone")),
+        (TYPE_PC, _("PC")),
+        (TYPE_MOBILE, _("Mobile")),
         (TYPE_TABLET, _("Tablet")),
-        (TYPE_DESKTOP, _("Desktop")),
+        (TYPE_AI, _("AI")),
         (TYPE_RASPBERRYPI, _("Raspberry Pi")),
         (TYPE_NETWORKING, _("Networking")),
         (TYPE_OTHER, _("Other")),
+        (TYPE_LAPTOP, _("Laptop")),
+        (TYPE_SMARTPHONE, _("Smartphone")),
+        (TYPE_DESKTOP, _("Desktop")),
+        (TYPE_SMART_HOME, _("Smart Home")),
+        (TYPE_WEARABLE, _("Wearable")),
+        (TYPE_GAMING_CONSOLE, _("Gaming Console")),
+        (TYPE_VR, _("VR")),
+        (TYPE_DRONE, _("Drone")),
+        (TYPE_IOT, _("IoT")),
+        (TYPE_CLOUD_COMPUTING, _("Cloud Computing")),
+        (TYPE_CYBER_SECURITY, _("Cyber Security")),
     ]
 
     type = models.CharField(
