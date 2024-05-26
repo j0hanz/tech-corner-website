@@ -56,7 +56,6 @@ Welcome to Tech Corner, a platform designed for technology enthusiasts to connec
 - **Edit Profile:** Update personal details and preferences.
 - **View Profile:** Access personal profile and contributions.
 - **Delete Account:** Remove personal data and exit the community.
-- **Reset Password:** Recover access through email verification.
 
 ### Post Interaction
 - **CRUD Operations:** Create, read, update, and delete posts.
