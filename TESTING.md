@@ -85,6 +85,14 @@
 - [X] **Verify password change functionality**: `/account/password/reset/`
   - Check if password has changed and log-in with the new password.
 
+#### Django Axes
+- [X] **Ensure user lockout after reaching maximum login attempts**:
+  - Confirm that the user account is locked after the specified number of failed login attempts.
+  
+- [X] **Verify reset of locked users after 30 minutes**:
+  - Access the `/lockout/` endpoint to check if the lockout template is displayed correctly.
+  - Ensure that only the specific username is locked out, not the entire IP address.
+
 #### Deployment
 - [X] **Check deployment settings**:
   - Ensure `DEBUG` is set to `False` in production
