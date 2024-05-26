@@ -103,3 +103,48 @@
 - [X] **Check favicon is displayed correctly**
 - [X] **Verify all links and buttons work as expected**
 - [X] **Ensure no broken images on the site**
+
+
+## Responsiveness
+
+The website must be fully responsive across all screen sizes.
+This includes ensuring that images maintain their quality without any pixelation or distortion.
+Additionally, page elements should be arranged to prevent overlapping, and horizontal scrolling should be completely avoided.
+
+https://github.com/j0hanz/tech-corner-website/assets/159924955/04591c56-63dd-44e1-b286-fb5fafc8a369
+
+### Index
+![Home_page](https://github.com/j0hanz/tech-corner-website/assets/159924955/ab31d339-157c-492a-9b83-913337f5d771)
+
+### About
+![about_page](https://github.com/j0hanz/tech-corner-website/assets/159924955/df62820e-1070-45cd-93b0-3c362cc82af7)
+
+### Sign Up & Sign In
+![signup_signin_pages](https://github.com/j0hanz/tech-corner-website/assets/159924955/d0e7fb13-5318-4424-ab61-aad8c62227e4)
+
+### Post Detail
+![Post_Detail_page](https://github.com/j0hanz/tech-corner-website/assets/159924955/7647ee2a-13c9-45cb-beb6-da4cff927c2a)
+
+
+## Python Linter
+
+### Views in Website App
+![views_website](https://github.com/j0hanz/tech-corner-website/assets/159924955/7ababed0-167e-4eed-b89f-bc4e247803f9)
+
+### Models in Website App
+![models_website](https://github.com/j0hanz/tech-corner-website/assets/159924955/e9e7af68-7d76-484b-af9a-59957d1552ad)
+
+### Views in User Profile App
+![views_userprofile](https://github.com/j0hanz/tech-corner-website/assets/159924955/11fd69e0-6d5e-4f23-bf5a-687c94fa4484)
+
+### Models in User Profile App
+![models_userprofile](https://github.com/j0hanz/tech-corner-website/assets/159924955/622dcae4-1aaa-4123-a221-da2d16e086b2)
+
+## JavaScript
+
+### JavaScript file for this project were checked using [JSHint](https://jshint.com/).
+
+![JSHint](https://github.com/j0hanz/tech-corner-website/assets/159924955/ed1504be-03f5-429d-9dfa-a77e207cfa20)
+
+
+
