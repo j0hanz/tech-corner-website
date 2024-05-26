@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -79,7 +80,7 @@ class UserProfile(models.Model):
         _("Last Name"), max_length=50, null=True, blank=True
     )
     email = models.EmailField(
-        _("Email Address"), max_length=300, unique=True, null=True, blank=True
+        _("Email Address"), max_length=300, null=True, blank=True
     )
     favorite_tech = models.ForeignKey(
         FavoriteTech,
@@ -98,6 +99,27 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+    def check_email(self):
+        """
+        Validate the email address is unique if it is not empty.
+        """
+        if self.email:
+            if (
+                UserProfile.objects.filter(email=self.email)
+                .exclude(pk=self.pk)
+                .exists()
+            ):
+                raise ValidationError(
+                    {"email": _("This email address is already in use.")}
+                )
+
+    def save(self, *args, **kwargs):
+        """
+        Ensure the check_email method is called before saving.
+        """
+        self.check_email()
+        super().save(*args, **kwargs)
+
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
@@ -107,4 +129,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
     else:
-        instance.profile.save()
+        try:
+            instance.profile.save()
+        except UserProfile.DoesNotExist:
+            UserProfile.objects.create(user=instance)
