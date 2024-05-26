@@ -21,6 +21,7 @@
 5. [Database Structure](#database-structure)
 6. [Wireframes](#wireframes)
 7. [User Experience](#user-experience)
+   - [Pages](#pages)
 8. [Security](#security)
    - [Django Axes](#django-axes)
 9. [Technologies Used](#technologies-used)
@@ -33,18 +34,25 @@
 10. [Packages](#packages)
 11. [Dependencies](#dependencies)
 12. [Testing](#testing)
-13. [Future Implementation](#future-implementation)
-14. [Deployment](#deployment)
+13. [Known Issues](#known-issues)
+14. [Future Implementation](#future-implementation)
+15. [Deployment](#deployment)
     - [Deploy to Heroku](#deploy-to-heroku)
-15. [FAQs](#faqs)
-16. [Credits](#credits)
+    - [Forking the Repository](#forking-the-repository)
+    - [Cloning the Repository](#cloning-the-repository)
+16. [FAQs](#faqs)
+17. [Credits](#credits)
     - [Acknowledgments](#acknowledgments)
+
+---
 
 ## Introduction
 
 ![responsive-removebg](https://github.com/j0hanz/tech-corner-website/assets/159924955/f554fd8a-0d91-4aa6-9ac8-d2ca90aad1c2)
 
 Welcome to Tech Corner, a platform designed for technology enthusiasts to connect, share knowledge, and stay updated with the latest trends in technology. Whether you're a developer, a tech blogger, or simply passionate about tech, Tech Corner offers a space for you to engage and grow within a vibrant community.
+
+---
 
 ## Features
 
@@ -68,6 +76,8 @@ Welcome to Tech Corner, a platform designed for technology enthusiasts to connec
 - **Comment System:** Engage with posts through comments.
 - **Detailed View:** Access detailed post views including comments and interactions.
 
+###### [ Back to Start ](#table-of-contents)
+
 ## Design
 
 ### Color Scheme
@@ -80,8 +90,6 @@ The Open Sans font family is used for its clear and readable design across all d
 - **Logo:** Designed using the [LOGO](https://logo.com/) tool.
 - **Favicon:** Created with [Favicon Generator](https://favicon.io/favicon-converter/) for a custom browsing icon.
 
-Your section on the database structure looks good and is clear. Here are a few minor improvements for clarity and formatting:
-
 ## Database Structure
 
 #### The entity relationship diagram for this project can be seen below.
@@ -89,7 +97,7 @@ Your section on the database structure looks good and is clear. Here are a few m
 
 ### Entities and Relationships
 
-This project includes several models that form the core of the application. Below is a brief overview of each model and their connections:
+This project has several models that make up the main parts of the application. Here’s a brief description of each model and their connections:
 
 1. **User Model**:
    - This is the built-in Django model for users.
@@ -125,6 +133,8 @@ This project includes several models that form the core of the application. Belo
 * One post can have many comments (One-to-Many).
 * One user can write many comments (One-to-Many).
 
+###### [ Back to Start ](#table-of-contents)
+
 ## Wireframes
 
 #### Below are the wireframes used in the development of this site.
@@ -133,37 +143,57 @@ This project includes several models that form the core of the application. Belo
 
 ![Home_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/dd145c8d-b149-4d14-9ed3-0ade18e690f7)
 
+---
+
 - **Enter Post Page**
 
 ![Enter_Post_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/3948334f-6c02-4a7e-abf7-6152a26fe30a)
+
+---
 
 - **Post Page**
 
 ![Post_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/345af101-1edd-46e2-98ce-c2a48dd19d1f)
 
+---
+
 - **Sign Up Page**
 
 ![Sign_Up_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/a8995187-9038-451a-97ef-d930b094a9d8)
+
+---
 
 - **Sign In Page**
 
 ![Sign_In_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/1a032e68-b27d-4049-941d-8bcdab49dfb8)
 
+---
+
 - **Password Reset Page**
 
 ![Password_Reset_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/5bbf0e31-7a7c-4f33-8a84-9295d5046300)
+
+---
 
 - **Profile Page**
 
 ![Profile_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/5f12a900-bf1b-473f-9c8e-10bba8c07e1b)
 
+---
+
 - **Edit Profile Page**
 
 ![Edit_Profile_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/93cf9d0f-d039-4b3b-8448-50182f9002fb)
 
+---
+
 - **Your Post Page**
 
 ![Your_Post_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/8a186954-25b3-4a96-9fcb-90b2c6d4b1b9)
+
+###### [ Back to Start ](#table-of-contents)
+
+---
 
 ## User Experience
 
@@ -175,17 +205,25 @@ This project includes several models that form the core of the application. Belo
 
 *The About page provides information about the Tech Corner website and its features. If you are not logged in, you will be redirected to this page. If you are logged in, you will be redirected to the home page.*
 
+---
+
 - **Sign Up:**
 
 ![Sign Up](https://github.com/j0hanz/tech-corner-website/assets/159924955/b9116200-8ff9-4fc0-a938-70d45b63d222)
 
 *The Sign Up page allows users to create their own accounts.*
 
+---
+
 - **Sign In:**
+
+
 
 ![Sign In](https://github.com/j0hanz/tech-corner-website/assets/159924955/69ce63bf-8755-4eb3-a8f8-7a0ded3bc97b)
 
 *The Sign In page allows users to log into their accounts.*
+
+---
 
 - **Profile:**
 
@@ -193,11 +231,15 @@ This project includes several models that form the core of the application. Belo
 
 *The Profile page allows users to navigate to the Edit Profile section, view their own posts, and provide a description of themselves.*
 
+---
+
 - **Edit Profile:**
 
 ![Edit Profile](https://github.com/j0hanz/tech-corner-website/assets/159924955/5d4e9faf-1337-4261-be1c-fe5d75fb24bc)
 
 *The Edit Profile page allows users to customize their profiles, change their passwords, delete their accounts, and upload profile images.*
+
+---
 
 - **Create Post:**
 
@@ -205,11 +247,15 @@ This project includes several models that form the core of the application. Belo
 
 *The Create Post page allows users to create their own posts.*
 
+---
+
 - **User Posts:**
 
 ![User Posts](https://github.com/j0hanz/tech-corner-website/assets/159924955/9c5382ca-a569-497b-874b-8534d13c5aab)
 
 *The User Posts page allows users to view their own posts.*
+
+---
 
 - **Sign Out:**
 
@@ -217,11 +263,15 @@ This project includes several models that form the core of the application. Belo
 
 *The Sign Out page allows users to log out of their accounts.*
 
+---
+
 - **Change Password:**
 
 ![Change Password](https://github.com/j0hanz/tech-corner-website/assets/159924955/01793358-72e1-4b71-8344-11e3d2198aaa)
 
 *The Change Password page allows users to update their passwords.*
+
+---
 
 - **Delete Account:**
 
@@ -229,11 +279,15 @@ This project includes several models that form the core of the application. Belo
 
 *The Delete Account page allows users to delete their accounts.*
 
+---
+
 - **Edit Post:**
 
 ![Edit Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/88834cba-7a08-4bf5-a92e-6d92f7c26489)
 
 *The Edit Post page allows users to modify their posts.*
+
+---
 
 - **Delete Post:**
 
@@ -241,11 +295,15 @@ This project includes several models that form the core of the application. Belo
 
 *The Delete Post page allows users to delete their posts.*
 
+---
+
 - **User Profile:**
 
 ![User Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/067d6793-c913-4fe1-82e9-901e5f84d40b)
 
 *Users can view other users' profiles by clicking on their icons.*
+
+---
 
 - **Home Page:**
 
@@ -253,9 +311,13 @@ This project includes several models that form the core of the application. Belo
 
 *The Home page displays all published posts, sorted from newest to oldest. Logged-in users are redirected to this page by default.*
 
-### Security
+###### [ Back to Start ](#table-of-contents)
 
-#### Django Axes
+---
+
+## Security
+
+### Django Axes
 
 Django Axes is an essential security feature for our users, designed to protect against brute-force attacks by limiting the number of login attempts. Here’s why we chose to include Django Axes:
 
@@ -264,21 +326,23 @@ Django Axes is an essential security feature for our users, designed to protect 
 
 If your account is locked due to multiple failed login attempts, it will automatically be reset after 30 minutes, allowing you to try logging in again.
 
+###### [ Back to Start ](#table-of-contents)
+
 ## Technologies Used
 
-The following technologies were used in this project:
+The following technologies were utilized in this project:
 
 ### Backend
-- **Python**: The main programming language for backend development.
-- **Django**: A high-level Python web framework for fast development and clean design. [Django Documentation](https://docs.djangoproject.com/)
-- **Django Allauth**: Handles authentication, registration, and account management. [Django Allauth Documentation](https://django-allauth.readthedocs.io/)
+- **Python**: The primary language for backend development.
+- **Django**: A Python web framework for rapid development and clean design. [Django Documentation](https://docs.djangoproject.com/)
+- **Django Allauth**: Manages authentication, registration, and account management. [Django Allauth Documentation](https://django-allauth.readthedocs.io/)
 
 ### Frontend
-- **HTML**: Standard markup language for creating web pages.
-- **CSS**: Styles the appearance of web pages, including layout and design.
-- **JavaScript**: Programming language for creating interactive web elements.
-- **Bootstrap**: A front-end framework for responsive, mobile-first web development. This project uses [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/).
-- **Font Awesome**: A toolkit for icons and fonts based on CSS. [Font Awesome](https://fontawesome.com/)
+- **HTML**: The standard markup language for creating web pages.
+- **CSS**: Styles web page layout and design.
+- **JavaScript**: Adds interactivity to web pages.
+- **Bootstrap**: A front-end framework for responsive, mobile-first web development. Using [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/).
+- **Font Awesome**: A toolkit for icons and fonts. [Font Awesome](https://fontawesome.com/)
 - **Google Fonts**: A library of web fonts. [Google Fonts](https://fonts.google.com/)
 
 ### Database
@@ -292,10 +356,12 @@ The following technologies were used in this project:
 - **ElephantSQL**: A hosting service for PostgreSQL databases. [ElephantSQL](https://www.elephantsql.com/)
 
 ### Other Tools and Libraries
-- **Git**: Tracks changes in source code. [Git Documentation](https://git-scm.com/doc)
+- **Git**: Version control system to track changes in source code. [Git Documentation](https://git-scm.com/doc)
 - **GitHub**: Platform for version control and collaborative development. [GitHub](https://github.com/)
 - **Whitenoise**: Serves static files for Python web apps. [Whitenoise Documentation](http://whitenoise.evans.io/en/stable/)
 - **Axes**: Tracks failed login attempts in Django sites. [Axes Documentation](https://django-axes.readthedocs.io/en/latest/)
+
+###### [ Back to Start ](#table-of-contents)
 
 ## Packages
 
@@ -329,11 +395,29 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 [View detailed testing information here](TESTING.md).
 
+## Known Issues
+
+1. On the "Your Posts" page, the "New Post +" button does not align correctly in height when no posts have been created.
+2. When scrolling on smaller screen sizes, a small white bar briefly appears at the bottom of the screen and disappears after scrolling stops.
+3. On touchscreens, button effects remain in a hovered state if the user navigates back to the same page.
+4. Some user-uploaded profile images are cropped or not displayed in their original state.
+
 ## Future Implementation
 
-- **Mobile App**: Develop a mobile app version of Tech Corner for iOS and Android.
-- **Advanced Search**: Implement an advanced search feature to help users find posts more efficiently.
-- **Notifications**: Add real-time notifications for post interactions and comments.
+- **Mobile App**: Develop a Tech Corner app for iOS and Android.
+- **Advanced Search**: Implement filters and keyword relevance to improve search functionality.
+- **Notifications**: Add notifications for interactions and comments.
+- **Content Recommendations**: Implement a recommendation system for personalized content suggestions.
+- **Community Features**: Introduce forums, user groups, and direct messaging for better community engagement.
+- **Hyperlink Support**: Enable users to link URLs using a hyperlink function.
+- **Reset Password**: Allow users to reset their password via email if forgotten.
+- **Edit Comment**: Allow users to edit their comments.
+- **Post Topic**: Allow users to categorize their posts by selecting a topic such as News, Help Needed, Discussion, etc., during post creation.
+- **MFA**: Implement multi-factor authentication (MFA) for enhanced security.
+
+###### [ Back to Start ](#table-of-contents)
+
+---
 
 ## Deployment
 
@@ -348,6 +432,8 @@ For full details on project dependencies, please refer to the `requirements.txt`
 5. **Connect Heroku to GitHub** and authorize access to your project repository.
 6. Select your project repository.
 
+---
+
 #### Set Up Environment Variables in Django
 
 1. **Create an `env.py` file:**
@@ -361,11 +447,11 @@ For full details on project dependencies, please refer to the `requirements.txt`
 3. **Set up necessary environment variables in `env.py`:**
    - Add a secret key:
      ```python
-     os.environ['SECRET_KEY'] = 'your secret key'
+     os.environ['SECRET_KEY'] = 'your_secret_key'
      ```
    - Add the database URL:
      ```python
-     os.environ['DATABASE_URL'] = 'Paste the database link in here'
+     os.environ['DATABASE_URL'] = 'your_database_url'
      ```
 
 4. **Update `settings.py` to use environment variables:**
@@ -388,12 +474,16 @@ For full details on project dependencies, please refer to the `requirements.txt`
        import env
    ```
 
+---
+
 #### Configure Heroku Environment Variables
 
 1. **Navigate to the "Settings" tab in Heroku.**
 2. **Open the "Config Vars" section and add environment variables:**
    - Add `DATABASE_URL` with the database link from your `env.py`.
    - Add `SECRET_KEY` with the secret key value from your `env.py`.
+
+---
 
 #### Finalize Settings in Django
 
@@ -407,7 +497,7 @@ For full details on project dependencies, please refer to the `requirements.txt`
    ```python
    STATIC_URL = '/static/'
    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-   STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
    ```
 
 3. **Update the templates directory in `settings.py`:**
@@ -421,9 +511,9 @@ For full details on project dependencies, please refer to the `requirements.txt`
    ```
 
 5. **Add Heroku to the `ALLOWED_HOSTS` list:**
-   - The format will be `your-app-name.herokuapp.com`, which
+   - The format will be `your-app-name.herokuapp.com`, which you can copy from the Domains section in the Settings tab of your Heroku app.
 
- you can copy from the Domains section in the Settings tab of your Heroku app.
+---
 
 #### Create Necessary Folders and Files
 
@@ -437,6 +527,8 @@ For full details on project dependencies, please refer to the `requirements.txt`
      web: gunicorn PROJECT_NAME.wsgi
      ```
 
+---
+
 #### Deploy Your Changes
 
 **Deploy Your App from Heroku:**
@@ -444,6 +536,36 @@ For full details on project dependencies, please refer to the `requirements.txt`
 - Choose the branch you want to deploy and click "**Deploy Branch**".
 
 Your app should now be live! You can find the access link at the top of the Heroku dashboard.
+
+---
+
+### Forking the Repository
+
+By forking the GitHub repository, you can create a copy of the original repository to view or modify without affecting the original. Follow these steps to fork the repository:
+
+1. **Log in to GitHub** or create an account if you don't have one.
+2. Go to the Tech Corner repository: [Tech Corner Repository](https://github.com/j0hanz/tech-corner-website).
+3. Click on the "**Fork**" button at the top right of the repository page.
+4. GitHub will create a copy of the repository in your account.
+
+---
+
+### Cloning the Repository
+
+Creating a clone allows you to make a local copy of the repository to run the project on your machine. Follow these steps to clone the repository:
+
+1. Navigate to the forked repository in your GitHub account.
+2. Click on the "**Code**" button at the top of the list of files.
+3. Select the "**HTTPS**" option and copy the provided URL to your clipboard.
+4. Open your code editor and, in the terminal, navigate to your desired directory.
+5. Type `git clone` followed by the URL you copied.
+6. Press Enter, and Git will clone the repository to your local machine.
+
+By following these steps, you'll have a local copy of the Tech Corner project that you can modify and run as needed.
+
+###### [ Back to Start ](#table-of-contents)
+
+---
 
 ## FAQs
 
