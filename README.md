@@ -105,96 +105,129 @@ The Open Sans font family is used for its clear and readable design across all d
 
 #### Below are the wireframes used in the development of this site.
 
-### Home Page
+- **Home Page**
+
 ![Home_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/dd145c8d-b149-4d14-9ed3-0ade18e690f7)
 
-### Enter Post Page
+- **Enter Post Page**
+
 ![Enter_Post_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/3948334f-6c02-4a7e-abf7-6152a26fe30a)
 
-### Post Page
+- **Post Page**
+
 ![Post_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/345af101-1edd-46e2-98ce-c2a48dd19d1f)
 
-### Sign Up Page
+- **Sign Up Page**
+
 ![Sign_Up_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/a8995187-9038-451a-97ef-d930b094a9d8)
 
-### Sign In Page
+- **Sign In Page**
+
 ![Sign_In_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/1a032e68-b27d-4049-941d-8bcdab49dfb8)
 
-### Password Reset Page
+- **Password Reset Page**
+
 ![Password_Reset_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/5bbf0e31-7a7c-4f33-8a84-9295d5046300)
 
-### Profile Page
+- **Profile Page**
+
 ![Profile_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/5f12a900-bf1b-473f-9c8e-10bba8c07e1b)
 
-### Edit Profile Page
+- **Edit Profile Page**
+
 ![Edit_Profile_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/93cf9d0f-d039-4b3b-8448-50182f9002fb)
 
-### Your Post Page
+- **Your Post Page**
+
 ![Your_Post_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/8a186954-25b3-4a96-9fcb-90b2c6d4b1b9)
 
 ## User Experience
 
 ### Pages
 
-About and welcome page:
-
+- **About:**
+ 
 ![About](https://github.com/j0hanz/tech-corner-website/assets/159924955/a01112fe-2e04-4b9c-999a-2d1802b983f7)
 
-Sign Up:
+*The About page provides information about the Tech Corner website and its features. If you are not logged in, you will be redirected to this page. If you are logged in, you will be redirected to the home page.*
+
+- **Sign Up:**
 
 ![Sign Up](https://github.com/j0hanz/tech-corner-website/assets/159924955/b9116200-8ff9-4fc0-a938-70d45b63d222)
 
-Sign In:
+*The Sign Up page allows users to create their own accounts.*
+
+- **Sign In:**
 
 ![Sign In](https://github.com/j0hanz/tech-corner-website/assets/159924955/69ce63bf-8755-4eb3-a8f8-7a0ded3bc97b)
 
-Profile:
+*The Sign In page allows users to log into their accounts.*
+
+- **Profile:**
 
 ![Profile](https://github.com/j0hanz/tech-corner-website/assets/159924955/ed674dac-c53b-4ae8-aebe-936e5e6dbc40)
 
-Edit Profile:
+*The Profile page allows users to navigate to the Edit Profile section, view their own posts, and provide a description of themselves.*
+
+- **Edit Profile:**
 
 ![Edit Profile](https://github.com/j0hanz/tech-corner-website/assets/159924955/5d4e9faf-1337-4261-be1c-fe5d75fb24bc)
 
-Create Post:
+*The Edit Profile page allows users to customize their profiles, change their passwords, delete their accounts, and upload profile images.*
+
+- **Create Post:**
 
 ![Create Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/9f6b91e0-c7ba-4afd-aefa-67c6d54d2a19)
 
-User Posts:
+*The Create Post page allows users to create their own posts.*
+
+- **User Posts:**
 
 ![User Posts](https://github.com/j0hanz/tech-corner-website/assets/159924955/9c5382ca-a569-497b-874b-8534d13c5aab)
 
-Sign Out:
+*The User Posts page allows users to view their own posts.*
+
+- **Sign Out:**
 
 ![Sign Out](https://github.com/j0hanz/tech-corner-website/assets/159924955/c8bfb96f-ecdf-4762-b0df-5920c77671d3)
 
-Change Password:
+*The Sign Out page allows users to log out of their accounts.*
+
+- **Change Password:**
 
 ![Change Password](https://github.com/j0hanz/tech-corner-website/assets/159924955/01793358-72e1-4b71-8344-11e3d2198aaa)
 
-Delete Account:
+*The Change Password page allows users to update their passwords.*
+
+- **Delete Account:**
 
 ![Delete Account](https://github.com/j0hanz/tech-corner-website/assets/159924955/d006e70f-50d7-47c6-926d-e017f1264919)
 
-Edit Post:
+*The Delete Account page allows users to delete their accounts.*
+
+- **Edit Post:**
 
 ![Edit Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/88834cba-7a08-4bf5-a92e-6d92f7c26489)
 
-Delete Post:
+*The Edit Post page allows users to modify their posts.*
+
+- **Delete Post:**
 
 ![Delete Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/6a4f400e-e504-49ae-8f62-12207bedc9e2)
 
-Profile with images uploaded:
+*The Delete Post page allows users to delete their posts.*
 
-![Profile img](https://github.com/j0hanz/tech-corner-website/assets/159924955/af293e04-7f78-4a1a-8f0f-2f4aa7462517)
-
-User Profile:
+- **User Profile:**
 
 ![User Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/067d6793-c913-4fe1-82e9-901e5f84d40b)
 
-Home Page:
+*Users can view other users' profiles by clicking on their icons.*
+
+- **Home Page:**
 
 ![Home](https://github.com/j0hanz/tech-corner-website/assets/159924955/40934211-8091-4f4f-9f2e-03a3e719099f)
+
+*The Home page displays all published posts, sorted from newest to oldest. Logged-in users are redirected to this page by default.*
 
 ### Security
 
