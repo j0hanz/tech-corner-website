@@ -173,9 +173,7 @@ Delete Account:
 
 Edit Post:
 
-![Edit Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/88834cba-7a08-4bf
-
-5-a92e-6d92f7c26489)
+![Edit Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/88834cba-7a08-4bf5-a92e-6d92f7c26489)
 
 Delete Post:
 
