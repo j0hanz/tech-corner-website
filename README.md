@@ -425,7 +425,7 @@ Your app should now be live! You can find the access link at the top of the Hero
 A: The current version does not offer a password reset feature. However, this functionality is planned for future implementation.
 
 **Q: How can I delete my account?**
-A: To delete your account, go to your profile settings and select "Delete Account." Confirm your choice, and your data will be permanently removed.
+A: To delete your account, first go to your profile, then click "Edit Profile" and scroll down to the red button marked "Delete Account." Confirm your choice, and your data will be permanently removed.
 
 ## Credits
 
