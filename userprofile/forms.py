@@ -24,17 +24,12 @@ class UserProfileForm(forms.ModelForm):
             }
         ),
     )
-    email = forms.EmailField(
-        required=False,
-        widget=forms.EmailInput(attrs={"placeholder": "Email (optional)"}),
-    )
 
     class Meta:
         model = UserProfile
         fields = [
             "first_name",
             "last_name",
-            "email",
             "favorite_tech",
             "profile_image",
         ]
@@ -42,7 +37,7 @@ class UserProfileForm(forms.ModelForm):
 
 class UserForm(forms.ModelForm):
     """
-    A form to update a user's username.
+    A form to update a user's username and email.
     """
 
     username = forms.CharField(
@@ -53,10 +48,18 @@ class UserForm(forms.ModelForm):
             }
         ),
     )
+    email = forms.EmailField(
+        required=False,
+        widget=forms.EmailInput(
+            attrs={
+                "placeholder": "Email (optional)",
+            }
+        ),
+    )
 
     class Meta:
         model = User
-        fields = ["username"]
+        fields = ["username", "email"]
 
 
 class UserProfileBioForm(forms.ModelForm):
