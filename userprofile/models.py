@@ -99,7 +99,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-    def check_email(self):
+    def clean(self):
         """
         Validate the email address is unique if it is not empty.
         """
@@ -115,9 +115,9 @@ class UserProfile(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Ensure the check_email method is called before saving.
+        Ensure the model is fully cleaned before saving to perform custom validation.
         """
-        self.check_email()
+        self.full_clean()
         super().save(*args, **kwargs)
 
 
