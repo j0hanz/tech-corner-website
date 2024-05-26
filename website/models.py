@@ -67,7 +67,9 @@ class Comment(models.Model):
 
 def unique_slug(instance, new_slug=None):
     """
-    Generate a unique slug for the post
+    Generate a unique slug for the post.
+    Credit:
+    https://fazlerabby7.github.io/auto-generating-unique-slug-django-generic-approach/
     """
     slug = slugify(instance.title) if new_slug is None else new_slug
     Klass = instance.__class__
