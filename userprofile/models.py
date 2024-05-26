@@ -1,4 +1,3 @@
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -79,9 +78,6 @@ class UserProfile(models.Model):
     last_name = models.CharField(
         _("Last Name"), max_length=50, null=True, blank=True
     )
-    email = models.EmailField(
-        _("Email Address"), max_length=300, null=True, blank=True
-    )
     favorite_tech = models.ForeignKey(
         FavoriteTech,
         on_delete=models.SET_NULL,
@@ -98,27 +94,6 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-
-    def clean(self):
-        """
-        Validate the email address is unique if it is not empty.
-        """
-        if self.email:
-            if (
-                UserProfile.objects.filter(email=self.email)
-                .exclude(pk=self.pk)
-                .exists()
-            ):
-                raise ValidationError(
-                    {"email": _("This email address is already in use.")}
-                )
-
-    def save(self, *args, **kwargs):
-        """
-        Ensure the model is fully cleaned before saving to perform custom validation.
-        """
-        self.full_clean()
-        super().save(*args, **kwargs)
 
 
 @receiver(post_save, sender=User)
