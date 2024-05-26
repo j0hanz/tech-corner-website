@@ -6,10 +6,7 @@
 <strong>Tech Corner</strong> is a community blog and news site for technology enthusiasts to share and engage with the latest tech news. <br>Join us to post your insights, comment on discussions, and connect with a network of tech enthusiasts.<br>
    Discover and share the latest in technology with us!
 </p>
-
-![responsive-removebg](https://github.com/j0hanz/tech-corner-website/assets/159924955/f554fd8a-0d91-4aa6-9ac8-d2ca90aad1c2)
-
-Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp.com/)
+<p align="center">Visit :arrow_right:<a href="https://tech-corner-web-70b84e69e118.herokuapp.com/">Tech Corner</a></p>
 
 # Table of Contents
 1. [Introduction](#introduction)
@@ -48,6 +45,8 @@ Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp
 Welcome to Tech Corner, a platform designed for technology enthusiasts to connect, share knowledge, and stay updated with the latest trends in technology. Whether you're a developer, a tech blogger, or simply passionate about tech, Tech Corner offers a space for you to engage and grow within a vibrant community.
 
 ## Features
+
+![responsive-removebg](https://github.com/j0hanz/tech-corner-website/assets/159924955/f554fd8a-0d91-4aa6-9ac8-d2ca90aad1c2)
 
 - **Share Knowledge:** Start discussions, answer questions, and offer help.
 - **Connect with Users:** Interact with fellow tech enthusiasts.
