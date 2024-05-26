@@ -4,6 +4,38 @@
 
 Visit :arrow_right: [Tech Corner](https://tech-corner-web-70b84e69e118.herokuapp.com/)
 
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [User Stories](#user-stories)
+   - [Account Management](#account-management)
+   - [Post Interaction](#post-interaction)
+4. [Design](#design)
+   - [Color Scheme](#color-scheme)
+   - [Typography](#typography)
+   - [Imagery](#imagery)
+5. [Database Structure](#database-structure)
+6. [Wireframes](#wireframes)
+7. [User Experience](#user-experience)
+8. [Security](#security)
+   - [Django Axes](#django-axes)
+9. [Technologies Used](#technologies-used)
+   - [Backend](#backend)
+   - [Frontend](#frontend)
+   - [Database](#database)
+   - [Storage](#storage)
+   - [Deployment](#deployment)
+   - [Other Tools and Libraries](#other-tools-and-libraries)
+10. [Packages](#packages)
+11. [Dependencies](#dependencies)
+12. [Testing](#testing)
+13. [Future Implementation](#future-implementation)
+14. [Deployment](#deployment)
+    - [Deploy to Heroku](#deploy-to-heroku)
+15. [FAQs](#faqs)
+16. [Credits](#credits)
+    - [Acknowledgments](#acknowledgments)
+
 ## Introduction
 
 Welcome to Tech Corner, a platform designed for technology enthusiasts to connect, share knowledge, and stay updated with the latest trends in technology. Whether you're a developer, a tech blogger, or simply passionate about tech, Tech Corner offers a space for you to engage and grow within a vibrant community.
@@ -17,7 +49,7 @@ Welcome to Tech Corner, a platform designed for technology enthusiasts to connec
 - **Fully Responsive:** Designed to work smoothly on phones, tablets, and computers.
 - **Security:** Includes features like Django Axes to protect against brute-force attacks.
 
-# User Stories
+## User Stories
 
 ### Account Management
 - **Create Account:** Register to join and contribute to the community.
@@ -31,15 +63,15 @@ Welcome to Tech Corner, a platform designed for technology enthusiasts to connec
 - **Comment System:** Engage with posts through comments.
 - **Detailed View:** Access detailed post views including comments and interactions.
 
-# Design
+## Design
 
-## Color Scheme
+### Color Scheme
 The background image uses a gradient created with [CSS Gradient](https://cssgradient.io/).
 
-## Typography
+### Typography
 The Open Sans font family is used for its clear and readable design across all devices.
 
-## Imagery
+### Imagery
 - **Logo:** Designed using the [LOGO](https://logo.com/) tool.
 - **Favicon:** Created with [Favicon Generator](https://favicon.io/favicon-converter/) for a custom browsing icon.
 
@@ -71,41 +103,33 @@ The Open Sans font family is used for its clear and readable design across all d
 ### Home Page
 ![Home_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/dd145c8d-b149-4d14-9ed3-0ade18e690f7)
 
-__________________________________________________________________________________________________________
 ### Enter Post Page
 ![Enter_Post_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/3948334f-6c02-4a7e-abf7-6152a26fe30a)
 
-__________________________________________________________________________________________________________
 ### Post Page
 ![Post_Page](https://github.com/j0hanz/tech-corner-website/assets/159924955/345af101-1edd-46e2-98ce-c2a48dd19d1f)
 
-__________________________________________________________________________________________________________
 ### Sign Up Page
 ![Sign_Up_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/a8995187-9038-451a-97ef-d930b094a9d8)
 
-__________________________________________________________________________________________________________
 ### Sign In Page
 ![Sign_In_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/1a032e68-b27d-4049-941d-8bcdab49dfb8)
 
-__________________________________________________________________________________________________________
 ### Password Reset Page
 ![Password_Reset_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/5bbf0e31-7a7c-4f33-8a84-9295d5046300)
 
-__________________________________________________________________________________________________________
 ### Profile Page
 ![Profile_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/5f12a900-bf1b-473f-9c8e-10bba8c07e1b)
 
-__________________________________________________________________________________________________________
 ### Edit Profile Page
 ![Edit_Profile_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/93cf9d0f-d039-4b3b-8448-50182f9002fb)
 
-__________________________________________________________________________________________________________
 ### Your Post Page
 ![Your_Post_Page-removebg-preview](https://github.com/j0hanz/tech-corner-website/assets/159924955/8a186954-25b3-4a96-9fcb-90b2c6d4b1b9)
 
-# User Experience
+## User Experience
 
-## Pages
+### Pages
 
 About and welcome page:
 
@@ -149,7 +173,9 @@ Delete Account:
 
 Edit Post:
 
-![Edit Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/88834cba-7a08-4bf5-a92e-6d92f7c26489)
+![Edit Post](https://github.com/j0hanz/tech-corner-website/assets/159924955/88834cba-7a08-4bf
+
+5-a92e-6d92f7c26489)
 
 Delete Post:
 
@@ -178,9 +204,9 @@ Django Axes is an essential security feature for our users, designed to protect 
 
 If your account is locked due to multiple failed login attempts, it will automatically be reset after 30 minutes, allowing you to try logging in again.
 
-# Technologies Used
+## Technologies Used
 
-The following technologies were used on this project:
+The following technologies were used in this project:
 
 ### Backend
 - **Python**: The main programming language for backend development.
@@ -213,7 +239,7 @@ The following technologies were used on this project:
 
 ## Packages
 
-The packages installed for this file can be found in requirements.txt, and can be seen below.
+The packages installed for this project can be found in requirements.txt and can be seen below.
 
 - [asgiref==3.8.1](https://pypi.org/project/asgiref/)
 - [Django==4.2.9](https://pypi.org/project/Django/)
@@ -239,19 +265,19 @@ The packages installed for this file can be found in requirements.txt, and can b
 
 For full details on project dependencies, please refer to the `requirements.txt` file in the project repository.
 
-# Testing
+## Testing
 
-# Future Implementation
+## Future Implementation
 
 - **Mobile App**: Develop a mobile app version of Tech Corner for iOS and Android.
 - **Advanced Search**: Implement an advanced search feature to help users find posts more efficiently.
 - **Notifications**: Add real-time notifications for post interactions and comments.
 
-# Deployment
+## Deployment
 
-## Deploy to Heroku
+### Deploy to Heroku
 
-### Create and Set Up Your App
+#### Create and Set Up Your App
 
 1. **Log in** to your Heroku Dashboard: [Heroku Dashboard](https://devcenter.heroku.com/articles/heroku-dashboard).
 2. Click "**New**" and select "**Create new app**".
@@ -260,7 +286,7 @@ For full details on project dependencies, please refer to the `requirements.txt`
 5. **Connect Heroku to GitHub** and authorize access to your project repository.
 6. Select your project repository.
 
-### Set Up Environment Variables in Django
+#### Set Up Environment Variables in Django
 
 1. **Create an `env.py` file:**
    - In the top-level directory of your Django app, create a new file named `env.py`.
@@ -300,14 +326,14 @@ For full details on project dependencies, please refer to the `requirements.txt`
        import env
    ```
 
-### Configure Heroku Environment Variables
+#### Configure Heroku Environment Variables
 
 1. **Navigate to the "Settings" tab in Heroku.**
 2. **Open the "Config Vars" section and add environment variables:**
    - Add `DATABASE_URL` with the database link from your `env.py`.
    - Add `SECRET_KEY` with the secret key value from your `env.py`.
 
-### Finalize Settings in Django
+#### Finalize Settings in Django
 
 1. **Migrate the models to the new database connection:**
    - In your terminal, run:
@@ -324,18 +350,20 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 3. **Update the templates directory in `settings.py`:**
    ```python
-   TEMPLARES_DIR = os.path.join(BASE_DIR, 'templates')
+   TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
    ```
 
 4. **Modify the `DIRS` key in the `TEMPLATES` variable in `settings.py`:**
    ```python
-   'DIRS': [TEMPLARES_DIR],
+   'DIRS': [TEMPLATES_DIR],
    ```
 
 5. **Add Heroku to the `ALLOWED_HOSTS` list:**
-   - The format will be `your-app-name.herokuapp.com`, which you can copy from the Domains section in the Settings tab of your Heroku app.
+   - The format will be `your-app-name.herokuapp.com`, which
 
-### Create Necessary Folders and Files
+ you can copy from the Domains section in the Settings tab of your Heroku app.
+
+#### Create Necessary Folders and Files
 
 1. **Create `static` and `templates` folders:**
    - In your Django app's code editor, create new top-level folders named `static` and `templates`.
@@ -347,7 +375,7 @@ For full details on project dependencies, please refer to the `requirements.txt`
      web: gunicorn PROJECT_NAME.wsgi
      ```
 
-### Deploy Your Changes
+#### Deploy Your Changes
 
 **Deploy Your App from Heroku:**
 - Go to the "**Deploy**" tab in Heroku.
@@ -355,7 +383,7 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 Your app should now be live! You can find the access link at the top of the Heroku dashboard.
 
-# FAQs
+## FAQs
 
 **Q: How can I reset my password?**
 A: The current version does not offer a password reset feature. However, this functionality is planned for future implementation.
@@ -363,9 +391,9 @@ A: The current version does not offer a password reset feature. However, this fu
 **Q: How can I delete my account?**
 A: To delete your account, go to your profile settings and select "Delete Account." Confirm your choice, and your data will be permanently removed.
 
-# Credits
+## Credits
 
-### **Acknowledgments**
+### Acknowledgments
 
 - Thanks to all the contributors who spend time improving Tech Corner.
 - Special thanks to [Namify](https://namify.tech/) and [Logo.com](https://logo.com/) for branding resources.
