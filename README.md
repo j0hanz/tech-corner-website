@@ -65,17 +65,31 @@ Welcome to Tech Corner, a platform designed for technology enthusiasts to connec
 
 ## User Stories
 
-### Account Management
+### Agile Development
+
+This project followed an agile methodology. The initial focus was on developing a functional site covering all key user stories. Additional features and functionalities were added incrementally.
+
+- **Examples of User Stories:**
+  - [User Account Creation](https://github.com/j0hanz/tech-corner-website/issues/1)
+  - [Profile Management](https://github.com/j0hanz/tech-corner-website/issues/12)
+  - [View My Profile](https://github.com/j0hanz/tech-corner-website/issues/13)
+  - [Open a Post](https://github.com/j0hanz/tech-corner-website/issues/5)
+  - [Manage Posts](https://github.com/j0hanz/tech-corner-website/issues/4)
+  - [About Page](https://github.com/j0hanz/tech-corner-website/issues/17)
+  - [Enhance Authentication Pages](https://github.com/j0hanz/tech-corner-website/issues/9)
+
+GitHub Projects was used to manage the project board. You can view it [here](https://github.com/users/j0hanz/projects/4/views/1).
+
+#### Account Management
 - **Create Account:** Register to join and contribute to the community.
 - **Edit Profile:** Update personal details and preferences.
 - **View Profile:** Access personal profile and contributions.
 - **Delete Account:** Remove personal data and exit the community.
 
-### Post Interaction
+#### Post Interaction
 - **CRUD Operations:** Create, read, update, and delete posts.
 - **Comment System:** Engage with posts through comments.
-- **Detailed View:** Access detailed post views including comments and interactions.
-
+- **Detailed View:** Access detailed post views, including comments and interactions.
 ###### [ Back to Start ](#table-of-contents)
 
 ## Design
@@ -404,16 +418,17 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 ## Future Implementation
 
-- **Mobile App**: Develop a Tech Corner app for iOS and Android.
-- **Advanced Search**: Implement filters and keyword relevance to improve search functionality.
+- **Search Posts**: Implement search functionality to find specific posts.
 - **Notifications**: Add notifications for interactions and comments.
-- **Content Recommendations**: Implement a recommendation system for personalized content suggestions.
-- **Community Features**: Introduce forums, user groups, and direct messaging for better community engagement.
-- **Hyperlink Support**: Enable users to link URLs using a hyperlink function.
+- **Messages**: Enable users to send private messages for private communication.
+- **Like Button Functionality**: Implement a like button for posts.
+- **Hyperlink Support**: Enable users to add URLs using a hyperlink function.
 - **Reset Password**: Allow users to reset their password via email if forgotten.
 - **Edit Comment**: Allow users to edit their comments.
-- **Post Topic**: Allow users to categorize their posts by selecting a topic such as News, Help Needed, Discussion, etc., during post creation.
+- **Follow Other Users**: Allow users to follow other users.
 - **MFA**: Implement multi-factor authentication (MFA) for enhanced security.
+- **Feedback Page**: Provide a page for users to contact us directly.
+- **Report Inappropriate Content**: Enable users to report inappropriate content to help maintain community standards.
 
 ###### [ Back to Start ](#table-of-contents)
 
@@ -569,15 +584,58 @@ By following these steps, you'll have a local copy of the Tech Corner project th
 
 ## FAQs
 
-**Q: How can I reset my password?**
-A: The current version does not offer a password reset feature. However, this functionality is planned for future implementation.
+#### Q: How can I reset my password?
+**A:** Currently, there is no password reset feature, but it will be available in the future.
 
-**Q: How can I delete my account?**
-A: To delete your account, first go to your profile, then click "Edit Profile" and scroll down to the red button marked "Delete Account." Confirm your choice, and your data will be permanently removed.
+#### Q: How can I delete my account?
+**A:** Go to your profile, click "Edit Profile," scroll down, and click the red "Delete Account" button.
+
+#### Q: How can I search for specific posts?
+**A:** Search functionality is not available now but will be added in the future.
+
+#### Q: How do I send private messages?
+**A:** Private messaging is not supported yet but will be added in future updates.
+
+#### Q: Can I edit my comments?
+**A:** Comment editing is not available now but is planned for future updates.
+
+#### Q: How do I follow other users?
+**A:** Following users is a feature planned for future versions.
+
+#### Q: Can I add hyperlinks in my posts?
+**A:** Adding hyperlinks will be available in future updates.
+
+#### Q: How do I personalize my profile?
+**A:** Go to your profile, click "Edit Profile," and customize your details.
+
+#### Q: Is Tech Corner accessible on different devices?
+**A:** Yes, it's fully responsive and works on phones, tablets, and computers.
+
+#### Q: What security measures are in place to protect my account?
+**A:** Tech Corner uses features like Django Axes to protect against brute-force attacks.
+
+---
 
 ## Credits
 
+### YouTube Channels
+
+[Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode)
+- **Thanks:** His [Python Django Tutorial](https://www.youtube.com/watch?v=qcJZN1pvG6A&list=PL0Zuz27SZ-6NamGNr7dEqzNFEcZ_FAUVX) was very helpful.
+
+[Python Simplified](https://www.youtube.com/@PythonSimplified)
+- For great Python tutorials.
+
+[Programming with Mosh](https://www.youtube.com/watch?v=rHux0gMZ3Eg)
+- For excellent programming tutorials.
+
 ### Acknowledgments
 
-- Thanks to all the contributors who spend time improving Tech Corner.
-- Special thanks to [Namify](https://namify.tech/) and [Logo.com](https://logo.com/) for branding resources.
+- **Contributors:** Thanks to everyone improving Tech Corner.
+- **Special Thanks:** 
+  - [Namify](https://namify.tech/) and [Logo.com](https://logo.com/) for branding resources.
+
+I would also like to thank:
+
+- **Graeme Taylor** - My mentor.
+- **Kristyna** - My cohort facilitator.
