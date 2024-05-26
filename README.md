@@ -80,26 +80,52 @@ The Open Sans font family is used for its clear and readable design across all d
 - **Logo:** Designed using the [LOGO](https://logo.com/) tool.
 - **Favicon:** Created with [Favicon Generator](https://favicon.io/favicon-converter/) for a custom browsing icon.
 
+Your section on the database structure looks good and is clear. Here are a few minor improvements for clarity and formatting:
+
+Sure, here's a simpler version:
+
 ## Database Structure
 
 #### The entity relationship diagram for this project can be seen below.
-![graphviz](https://github.com/j0hanz/tech-corner-website/assets/159924955/ed537dfd-943c-4ee2-bac9-877cb1c8e52d)
+![schema_database](https://github.com/j0hanz/tech-corner-website/assets/159924955/3358bd6e-1b74-4b9d-ae49-9bed0c9fc2f3)
 
-**Entities:**
+### Entities and Relationships
 
-* User
-* UserProfile
-* FavoriteTech
-* Post
-* Comment
+This project has several models that make up the main parts of the application. Here’s a brief description of each model and their connections:
+
+1. **User Model**:
+   - This is the built-in Django model for users.
+   - Linked with `UserProfile`, `Post`, and `Comment`.
+
+2. **UserProfile Model**:
+   - Extends the `User` model with more details.
+   - Fields: `first_name`, `last_name`, `favorite_tech`, `profile_image`, `bio`.
+   - One user has one profile.
+   - Linked to `FavoriteTech`.
+
+3. **FavoriteTech Model**:
+   - Stores different types of favorite technologies.
+   - Field: `type`.
+   - Linked with `UserProfile`.
+
+4. **Post Model**:
+   - Represents blog posts.
+   - Fields: `title`, `slug`, `author`, `body`, `date`, `status`, `excerpt`, `updated_on`.
+   - Each post is written by one user.
+   - Linked with `Comment`.
+
+5. **Comment Model**:
+   - Represents comments on posts.
+   - Fields: `post`, `author`, `body`, `created_on`.
+   - Each comment is linked to one post and one user.
 
 **Relationships:**
 
-* One User can have one UserProfile (One-to-One)
-* One UserProfile can have one FavoriteTech (One-to-Many) (Optional)
-* One User can have many Posts (One-to-Many)
-* One Post can have many Comments (One-to-Many)
-* One User can have many Comments (One-to-Many) (Through the Post model)
+* One user has one profile (One-to-One).
+* One profile can have one favorite tech (One-to-One, Optional).
+* One user can write many posts (One-to-Many).
+* One post can have many comments (One-to-Many).
+* One user can write many comments (One-to-Many).
 
 ## Wireframes
 
