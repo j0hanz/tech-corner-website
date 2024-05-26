@@ -82,8 +82,6 @@ The Open Sans font family is used for its clear and readable design across all d
 
 Your section on the database structure looks good and is clear. Here are a few minor improvements for clarity and formatting:
 
-Sure, here's a simpler version:
-
 ## Database Structure
 
 #### The entity relationship diagram for this project can be seen below.
@@ -91,7 +89,7 @@ Sure, here's a simpler version:
 
 ### Entities and Relationships
 
-This project has several models that make up the main parts of the application. Here’s a brief description of each model and their connections:
+This project includes several models that form the core of the application. Below is a brief overview of each model and their connections:
 
 1. **User Model**:
    - This is the built-in Django model for users.
