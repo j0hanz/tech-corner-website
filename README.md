@@ -392,10 +392,6 @@ The following technologies were utilized in this project:
 ### Storage
 - **Cloudinary**: Manages images and videos in the cloud. [Cloudinary](https://cloudinary.com/)
 
-### Deployment
-- **Heroku**: A platform for deploying and scaling web applications. [Heroku](https://www.heroku.com/)
-- **ElephantSQL**: A hosting service for PostgreSQL databases. [ElephantSQL](https://www.elephantsql.com/)
-
 ### Other Tools and Libraries
 - **Git**: Version control system to track changes in source code. [Git Documentation](https://git-scm.com/doc)
 - **GitHub**: Platform for version control and collaborative development. [GitHub](https://github.com/)
