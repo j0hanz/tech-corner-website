@@ -8,6 +8,8 @@
 </p>
 <p align="center">Visit :arrow_right:<a href="https://tech-corner-web-70b84e69e118.herokuapp.com/">Tech Corner</a></p>
 
+---
+
 # Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
@@ -42,6 +44,7 @@
     - [Cloning the Repository](#cloning-the-repository)
 16. [FAQs](#faqs)
 17. [Credits](#credits)
+    - [YouTube Channels](#youtube-channels)
     - [Acknowledgments](#acknowledgments)
 
 ---
@@ -90,6 +93,7 @@ GitHub Projects was used to manage the project board. You can view it [here](htt
 - **CRUD Operations:** Create, read, update, and delete posts.
 - **Comment System:** Engage with posts through comments.
 - **Detailed View:** Access detailed post views, including comments and interactions.
+
 ###### [ Back to Start ](#table-of-contents)
 
 ## Design
@@ -230,8 +234,6 @@ This project has several models that make up the main parts of the application. 
 ---
 
 - **Sign In:**
-
-
 
 ![Sign In](https://github.com/j0hanz/tech-corner-website/assets/159924955/69ce63bf-8755-4eb3-a8f8-7a0ded3bc97b)
 
@@ -559,7 +561,7 @@ Your app should now be live! You can find the access link at the top of the Hero
 By forking the GitHub repository, you can create a copy of the original repository to view or modify without affecting the original. Follow these steps to fork the repository:
 
 1. **Log in to GitHub** or create an account if you don't have one.
-2. Go to the Tech Corner repository: [Tech Corner Repository](https://github.com/j0hanz/tech-corner-website).
+2. Navigate to this [Repository](https://github.com/j0hanz/tech-corner-website).
 3. Click on the "**Fork**" button at the top right of the repository page.
 4. GitHub will create a copy of the repository in your account.
 
@@ -569,7 +571,7 @@ By forking the GitHub repository, you can create a copy of the original reposito
 
 Creating a clone allows you to make a local copy of the repository to run the project on your machine. Follow these steps to clone the repository:
 
-1. Navigate to the forked repository in your GitHub account.
+1. Navigate to [Tech Corner Repository](https://github.com/j0hanz/tech-corner-website).
 2. Click on the "**Code**" button at the top of the list of files.
 3. Select the "**HTTPS**" option and copy the provided URL to your clipboard.
 4. Open your code editor and, in the terminal, navigate to your desired directory.
@@ -621,7 +623,7 @@ By following these steps, you'll have a local copy of the Tech Corner project th
 ### YouTube Channels
 
 [Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode)
-- **Thanks:** His [Python Django Tutorial](https://www.youtube.com/watch?v=qcJZN1pvG6A&list=PL0Zuz27SZ-6NamGNr7dEqzNFEcZ_FAUVX) was very helpful.
+- **This** [Python Django Tutorial](https://www.youtube.com/watch?v=qcJZN1pvG6A&list=PL0Zuz27SZ-6NamGNr7dEqzNFEcZ_FAUVX) was very helpful.
 
 [Python Simplified](https://www.youtube.com/@PythonSimplified)
 - For great Python tutorials.
