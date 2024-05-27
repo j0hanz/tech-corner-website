@@ -72,9 +72,25 @@ Welcome to Tech Corner, a platform designed for technology enthusiasts to connec
 
 ### Agile Development
 
-This project followed an agile methodology. The initial focus was on developing a functional site covering all key user stories. Additional features and functionalities were added incrementally.
+This project followed an agile methodology with an initial focus on developing a functional site that covered all key user stories. Additional features and functionalities were added incrementally.
 
-**Examples of User Stories:**
+#### MoSCoW Method
+
+The MoSCoW method was used to prioritize features:
+- **Must Have**: Essential for project success.
+- **Should Have**: Important but not critical.
+- **Could Have**: Nice to have, consider for future.
+
+#### Story Points
+
+**Story Points** are a way to estimate the effort required to complete a task. They take into account the complexity, risks, and time needed. Instead of measuring in hours, story points use numbers like 1, 2, 3, 5, and 8 to represent different effort levels.
+
+#### Sprint
+
+A **Sprint** is a fixed time period, usually 1-4 weeks, where the team works on specific tasks or user stories. At the end of the sprint, the team reviews their progress and plans for the next sprint. This helps ensure steady and incremental progress.
+
+### Examples of User Stories
+
 - [User Account Creation](https://github.com/j0hanz/tech-corner-website/issues/1)
 - [Profile Management](https://github.com/j0hanz/tech-corner-website/issues/12)
 - [View My Profile](https://github.com/j0hanz/tech-corner-website/issues/13)
@@ -85,15 +101,17 @@ This project followed an agile methodology. The initial focus was on developing 
 
 GitHub Projects was used to manage the project board. You can view it [here](https://github.com/users/j0hanz/projects/4/views/1).
 
-#### Account Management
-- **[User Account Creation](https://github.com/j0hanz/tech-corner-website/issues/1):** As a tech enthusiast, I want to create an account so that I can participate in discussions and post content.
-- **[Profile Management](https://github.com/j0hanz/tech-corner-website/issues/12):** As a user, I want to edit my profile so that I can update my personal information.
-- **[View My Profile](https://github.com/j0hanz/tech-corner-website/issues/13):** As a user, I want to view my profile so that I can see my personal information and posts.
-- **[Delete Account](https://github.com/j0hanz/tech-corner-website/issues/14):** As a user, I want to delete my account if I no longer wish to use the platform.
+### Account Management
 
-#### Post Interaction
-- **[CRUD Operations](https://github.com/j0hanz/tech-corner-website/issues/4):** As a user, I want to create, read, update, and delete posts so that I can manage my content.
-- **[Comment System](https://github.com/j0hanz/tech-corner-website/issues/25):** As a user, I want to engage with posts through comments so that I can participate in discussions.
+- **[User Account Creation](https://github.com/j0hanz/tech-corner-website/issues/1)**: As a tech enthusiast, I want to create an account so that I can participate in discussions and post content.
+- **[Profile Management](https://github.com/j0hanz/tech-corner-website/issues/12)**: As a user, I want to edit my profile so that I can update my personal information.
+- **[View My Profile](https://github.com/j0hanz/tech-corner-website/issues/13)**: As a user, I want to view my profile so that I can see my personal information and posts.
+- **[Delete Account](https://github.com/j0hanz/tech-corner-website/issues/14)**: As a user, I want to delete my account if I no longer wish to use the platform.
+
+### Post Interaction
+
+- **[CRUD Operations](https://github.com/j0hanz/tech-corner-website/issues/4)**: As a user, I want to create, read, update, and delete posts so that I can manage my content.
+- **[Comment System](https://github.com/j0hanz/tech-corner-website/issues/25)**: As a user, I want to engage with posts through comments so that I can participate in discussions.
 
 ###### [ Back to Start ](#table-of-contents)
 
@@ -102,14 +120,18 @@ GitHub Projects was used to manage the project board. You can view it [here](htt
 ## Design
 
 ### Color Scheme
+
 The background image uses a gradient created with [CSS Gradient](https://cssgradient.io/).
 
 ### Typography
+
 The Open Sans font family is used for its clear and readable design across all devices.
 
 ### Imagery
+
 - **Logo:** Designed using the [LOGO](https://logo.com/) tool.
 - **Favicon:** Created with [Favicon Generator](https://favicon.io/favicon-converter/) for a custom browsing icon.
+- **RemoveBg:** Used [RemoveBg](https://www.remove.bg/) to remove backgrounds for visual improvements.
 
 ## Database Structure
 
