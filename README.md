@@ -423,17 +423,17 @@ For full details on project dependencies, please refer to the `requirements.txt`
 
 ## Future Implementation
 
-- **Search Posts**: Implement search functionality to find specific posts.
-- **Notifications**: Add notifications for interactions and comments.
-- **Messages**: Enable users to send private messages for private communication.
-- **Like Button Functionality**: Implement a like button for posts.
-- **Hyperlink Support**: Enable users to add URLs using a hyperlink function.
-- **Reset Password**: Allow users to reset their password via email if forgotten.
-- **Edit Comment**: Allow users to edit their comments.
-- **Follow Other Users**: Allow users to follow other users.
-- **MFA**: Implement multi-factor authentication (MFA) for enhanced security.
-- **Feedback Page**: Provide a page for users to contact us directly.
-- **Report Inappropriate Content**: Enable users to report inappropriate content to help maintain community standards.
+- **Search Posts**: Implement search functionality to find specific posts.[#20](https://github.com/j0hanz/tech-corner-website/issues/20)
+- **Notifications**: Add notifications for interactions and comments.[#15](https://github.com/j0hanz/tech-corner-website/issues/15)
+- **Messages**: Enable users to send private messages for private communication.[#16](https://github.com/j0hanz/tech-corner-website/issues/16)
+- **Like Button Functionality**: Implement a like button for posts.[#21](https://github.com/j0hanz/tech-corner-website/issues/21)
+- **Hyperlink Support**: Enable users to add URLs using a hyperlink function.[#26](https://github.com/j0hanz/tech-corner-website/issues/26)
+- **Reset Password**: Allow users to reset their password via email if forgotten.[#18](https://github.com/j0hanz/tech-corner-website/issues/18)
+- **Edit Comment**: Allow users to edit their comments.[#27](https://github.com/j0hanz/tech-corner-website/issues/27)
+- **Follow Other Users**: Allow users to follow other users.[#22](https://github.com/j0hanz/tech-corner-website/issues/22)
+- **MFA**: Implement multi-factor authentication (MFA) for enhanced security.[#28](https://github.com/j0hanz/tech-corner-website/issues/28)
+- **Feedback Page**: Provide a page for users to contact us directly.[#7](https://github.com/j0hanz/tech-corner-website/issues/7)
+- **Report Inappropriate Content**: Enable users to report inappropriate content to help maintain community standards.[#23](https://github.com/j0hanz/tech-corner-website/issues/23)
 
 ###### [ Back to Start ](#table-of-contents)
 
@@ -590,25 +590,25 @@ By following these steps, you'll have a local copy of the Tech Corner project th
 ## FAQs
 
 #### Q: How can I reset my password?
-**A:** Currently, there is no password reset feature, but it will be available in the future.
+**A:** Currently, there is no password reset feature, but it will be available in the future.[#18](https://github.com/j0hanz/tech-corner-website/issues/18)
 
 #### Q: How can I delete my account?
 **A:** Go to your profile, click "Edit Profile," scroll down, and click the red "Delete Account" button.
 
 #### Q: How can I search for specific posts?
-**A:** Search functionality is not available now but will be added in the future.
+**A:** Search functionality is not available now but will be added in the future.[#20](https://github.com/j0hanz/tech-corner-website/issues/20)
 
 #### Q: How do I send private messages?
-**A:** Private messaging is not supported yet but will be added in future updates.
+**A:** Private messaging is not supported yet but will be added in future updates.[#16](https://github.com/j0hanz/tech-corner-website/issues/16)
 
 #### Q: Can I edit my comments?
-**A:** Comment editing is not available now but is planned for future updates.
+**A:** Comment editing is not available now but is planned for future updates.[#27](https://github.com/j0hanz/tech-corner-website/issues/27)
 
 #### Q: How do I follow other users?
-**A:** Following users is a feature planned for future versions.
+**A:** Following users is a feature planned for future versions.[#22](https://github.com/j0hanz/tech-corner-website/issues/22)
 
 #### Q: Can I add hyperlinks in my posts?
-**A:** Adding hyperlinks will be available in future updates.
+**A:** Adding hyperlinks will be available in future updates.[#26](https://github.com/j0hanz/tech-corner-website/issues/26)
 
 #### Q: How do I personalize my profile?
 **A:** Go to your profile, click "Edit Profile," and customize your details.
