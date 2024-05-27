@@ -82,7 +82,7 @@
 
 #### Security
 - [X] **Ensure password is not visible when typing**
-- [X] **Verify password change functionality**: `/account/password/reset/`
+- [X] **Verify password change functionality**: `/account/password/change/`
   - Check if password has changed and log-in with the new password.
 
 #### Django Axes
