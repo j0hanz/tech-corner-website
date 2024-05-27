@@ -84,15 +84,14 @@ This project followed an agile methodology. The initial focus was on developing 
 GitHub Projects was used to manage the project board. You can view it [here](https://github.com/users/j0hanz/projects/4/views/1).
 
 #### Account Management
-- **Create Account:** Register to join and contribute to the community.
-- **Edit Profile:** Update personal details and preferences.
-- **View Profile:** Access personal profile and contributions.
-- **Delete Account:** Remove personal data and exit the community.
+- **[User Account Creation](https://github.com/j0hanz/tech-corner-website/issues/1):** As a tech enthusiast, I want to create an account so that I can participate in discussions and post content.
+- **[Profile Management](https://github.com/j0hanz/tech-corner-website/issues/12):** As a user, I want to edit my profile so that I can update my personal information.
+- **[View My Profile](https://github.com/j0hanz/tech-corner-website/issues/13):** As a user, I want to view my profile so that I can see my personal information and posts.
+- **[Delete Account](https://github.com/j0hanz/tech-corner-website/issues/14):** As a user, I want to delete my account if I no longer wish to use the platform.
 
 #### Post Interaction
-- **CRUD Operations:** Create, read, update, and delete posts.
-- **Comment System:** Engage with posts through comments.
-- **Detailed View:** Access detailed post views, including comments and interactions.
+- **[CRUD Operations](https://github.com/j0hanz/tech-corner-website/issues/4):** Create, read, update, and delete posts.
+- **[Comment System](https://github.com/j0hanz/tech-corner-website/issues/25):** Engage with posts through comments.
 
 ###### [ Back to Start ](#table-of-contents)
 
