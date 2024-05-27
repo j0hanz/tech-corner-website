@@ -66,20 +66,22 @@ Welcome to Tech Corner, a platform designed for technology enthusiasts to connec
 - **Fully Responsive:** Designed to work smoothly on phones, tablets, and computers.
 - **Security:** Includes features like Django Axes to protect against brute-force attacks.
 
+---
+
 ## User Stories
 
 ### Agile Development
 
 This project followed an agile methodology. The initial focus was on developing a functional site covering all key user stories. Additional features and functionalities were added incrementally.
 
-- **Examples of User Stories:**
-  - [User Account Creation](https://github.com/j0hanz/tech-corner-website/issues/1)
-  - [Profile Management](https://github.com/j0hanz/tech-corner-website/issues/12)
-  - [View My Profile](https://github.com/j0hanz/tech-corner-website/issues/13)
-  - [Open a Post](https://github.com/j0hanz/tech-corner-website/issues/5)
-  - [Manage Posts](https://github.com/j0hanz/tech-corner-website/issues/4)
-  - [About Page](https://github.com/j0hanz/tech-corner-website/issues/17)
-  - [Enhance Authentication Pages](https://github.com/j0hanz/tech-corner-website/issues/9)
+**Examples of User Stories:**
+- [User Account Creation](https://github.com/j0hanz/tech-corner-website/issues/1)
+- [Profile Management](https://github.com/j0hanz/tech-corner-website/issues/12)
+- [View My Profile](https://github.com/j0hanz/tech-corner-website/issues/13)
+- [Open a Post](https://github.com/j0hanz/tech-corner-website/issues/5)
+- [Manage Posts](https://github.com/j0hanz/tech-corner-website/issues/4)
+- [About Page](https://github.com/j0hanz/tech-corner-website/issues/17)
+- [Enhance Authentication Pages](https://github.com/j0hanz/tech-corner-website/issues/9)
 
 GitHub Projects was used to manage the project board. You can view it [here](https://github.com/users/j0hanz/projects/4/views/1).
 
@@ -90,10 +92,12 @@ GitHub Projects was used to manage the project board. You can view it [here](htt
 - **[Delete Account](https://github.com/j0hanz/tech-corner-website/issues/14):** As a user, I want to delete my account if I no longer wish to use the platform.
 
 #### Post Interaction
-- **[CRUD Operations](https://github.com/j0hanz/tech-corner-website/issues/4):** Create, read, update, and delete posts.
-- **[Comment System](https://github.com/j0hanz/tech-corner-website/issues/25):** Engage with posts through comments.
+- **[CRUD Operations](https://github.com/j0hanz/tech-corner-website/issues/4):** As a user, I want to create, read, update, and delete posts so that I can manage my content.
+- **[Comment System](https://github.com/j0hanz/tech-corner-website/issues/25):** As a user, I want to engage with posts through comments so that I can participate in discussions.
 
 ###### [ Back to Start ](#table-of-contents)
+
+---
 
 ## Design
 
