@@ -82,22 +82,27 @@ nav {
 .img-post {
   width: 125px;
   height: 125px;
+  object-fit: cover;
   margin-top: 20px;
   border-style: solid;
   border-color: #171515;
+  transition: transform 0.3s ease;
 }
 
 .img-post-page {
   width: 80px;
   height: 80px;
+  object-fit: cover;
   margin-top: 70px;
   border-style: solid;
   border-color: #171515;
+  transition: transform 0.3s ease;
 }
 
 .img-view-profile {
   width: 150px;
   height: 150px;
+  object-fit: cover;
   border-style: solid;
   border-color: #171515;
 }
@@ -118,8 +123,16 @@ nav {
 .img-post-comment {
   width: 60px;
   height: 60px;
+  object-fit: cover;
   border-style: solid;
   border-color: #171515;
+  transition: transform 0.3s ease;
+}
+
+.img-post:hover,
+.img-post-page:hover,
+.img-post-comment:hover {
+  transform: scale(1.05);
 }
 
 .post-detail-view {
