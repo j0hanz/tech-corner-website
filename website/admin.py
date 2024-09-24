@@ -13,6 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     raw_id_fields = ('author',)
     date_hierarchy = 'date'
     ordering = ('status', 'date')
+    readonly_fields = ('image',)
 
 
 admin.site.register(Post, PostAdmin)
