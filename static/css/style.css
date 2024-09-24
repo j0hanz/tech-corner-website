@@ -2,7 +2,7 @@
 /* Body */
 body {
   color: #ffffff;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background: linear-gradient(0deg, #171515, #0c3736, #171515);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -86,7 +86,17 @@ nav {
   margin-top: 20px;
   border-style: solid;
   border-color: #171515;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.img-post-content {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .img-post-page {
@@ -96,7 +106,8 @@ nav {
   margin-top: 70px;
   border-style: solid;
   border-color: #171515;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .img-view-profile {
@@ -105,6 +116,7 @@ nav {
   object-fit: cover;
   border-style: solid;
   border-color: #171515;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .img-main {
