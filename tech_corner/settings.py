@@ -29,7 +29,6 @@ ALLOWED_HOSTS = [
     '.herokuapp.com',
 ]
 
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -107,7 +106,6 @@ MESSAGE_TAGS = {
 # WSGI application
 WSGI_APPLICATION = 'tech_corner.wsgi.application'
 
-
 # Database
 if DEBUG:
     DATABASES = {
@@ -151,7 +149,6 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-
 # Django Axes configurations
 # Secures login attempts by limiting failures and locking out users.
 AXES_FAILURE_LIMIT = 5
@@ -166,13 +163,13 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Stockholm'
 USE_I18N = True
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
