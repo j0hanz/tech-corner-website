@@ -22,10 +22,11 @@ class PostForm(forms.ModelForm):
         ),
         label='Body',
     )
+    image = forms.ImageField(required=False, label='Image')
 
     class Meta:
         model = Post
-        fields = ['title', 'body']
+        fields = ['title', 'body', 'image']
 
 
 class EditPostForm(forms.ModelForm):
@@ -41,10 +42,11 @@ class EditPostForm(forms.ModelForm):
         ),
         label='Body',
     )
+    image = forms.ImageField(required=False, label='Image')
 
     class Meta:
         model = Post
-        fields = ['body']
+        fields = ['body', 'image']
 
 
 class CommentForm(forms.ModelForm):
