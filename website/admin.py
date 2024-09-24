@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Post, Comment
 
-"""
-Define a custom admin class to manage the Post model in the Django admin interface
-"""
+from .models import Comment, Post
+
+"""Manage the Post model in the Django admin interface."""
+
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status', 'date', 'author')
     list_filter = ('status', 'date')
@@ -12,6 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     raw_id_fields = ('author',)
     date_hierarchy = 'date'
     ordering = ('status', 'date')
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment)
