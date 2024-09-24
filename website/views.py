@@ -116,9 +116,7 @@ def edit_post(request, post_id):
     if request.method == 'POST':
         form = EditPostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save(commit=False)
-            post.body = form.cleaned_data['body']
-            post.save(update_fields=['body'])
+            form.save()
             messages.success(request, 'Post updated successfully!')
             return redirect('user_posts')
         messages.error(
