@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
-<div class="container">
-    <img class="img-main img-fluid" src="/static/images/logo.webp" />
+  <div class="container">
+    <img class="img-main img-fluid"
+         src="{% static 'images/logo.webp' %}"
+         alt="Logo" />
     <div class="text-center">
-        <h2 class="mb-5">
-            Page doesn't exist...
-        </h2>
-        <p>
-            Return to home page
-        </p>
-        <a class="btn btn-dark" href="{% url 'index' %}"><i class="fa-solid fa-rotate-left"></i></a>
+      <h2 class="mb-5">
+        Page doesn't exist...
+      </h2>
+      <p>
+        Return to home page
+      </p>
+      <a class="btn btn-dark"
+         href="{% url 'index' %}">
+        <i class="fa-solid fa-rotate-left"></i>
+      </a>
     </div>
-</div>
-{% endblock %}
+  </div>
+{% endblock content %}

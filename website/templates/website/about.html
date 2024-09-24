@@ -1,95 +1,95 @@
 {% extends "base.html" %}
 
-{% block title %} About Us {% endblock %}
+{% load static %}
+
+{% block title %}
+  About Us
+{% endblock title %}
 
 {% block content %}
 
-<div class="container">
-  <!-- Message Alerts -->
-  {% if messages %}
-  <div id="message-container" class="text-center">
-    {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      {{ message }}
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
-  <!-- Main Content -->
-  <div class="text-center mt-5 mb-5">
-    <img
-      class="img-main img-fluid"
-      src="/static/images/logo.webp"
-      alt="Tech Corner Logo"
-    />
-    <p class="display-4">Welcome to Tech Corner</p>
-    <p class="lead mb-5 mt-5">
-      <em> Discover and share the latest in technology with us!</em>
-    </p>
-    <!-- Authentication Links -->
-    {% if not user.is_authenticated %}
-    <a
-      href="{% url 'account_signup' %}"
-      class="btn btn-outline-light btn-lg mx-4 mt-4"
-      ><i class="fa-solid fa-user-plus mx-1"></i>Sign Up</a
-    >
-    <a
-      href="{% url 'account_login' %}"
-      class="btn btn-outline-light btn-lg mx-4 mt-4"
-      ><i class="fa-solid fa-sign-in mx-1"></i>Sign In</a
-    >
+  <div class="container">
+    <!-- Message Alerts -->
+    {% if messages %}
+      <div id="message-container"
+           class="text-center">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+               role="alert">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
+            </button>
+          </div>
+        {% endfor %}
+      </div>
     {% endif %}
-  </div>
-  <!-- About and Features Sections -->
-  <div class="row">
-    <div class="col-md-6 my-4">
-      <h2 class="mb-3">About Tech Corner:</h2>
-      <p>
-        Tech Corner is a community blog and news site for technology enthusiasts
-        to share and engage with the latest tech news. Join us to post your
-        insights, comment on discussions, and connect with a network of tech
-        enthusiasts.
+    <!-- Main Content -->
+    <div class="text-center mt-5 mb-5">
+      <img class="img-main img-fluid"
+           src="{% static 'images/logo.webp' %}"
+           alt="Tech Corner Logo" />
+      <p class="display-4">
+        Welcome to Tech Corner
       </p>
+      <p class="lead mb-5 mt-5">
+        <em> Discover and share the latest in technology with us!</em>
+      </p>
+      <!-- Authentication Links -->
+      {% if not user.is_authenticated %}
+        <a href="{% url 'account_signup' %}"
+           class="btn btn-outline-light btn-lg mx-4 mt-4"><i class="fa-solid fa-user-plus mx-1"></i>Sign Up</a>
+        <a href="{% url 'account_login' %}"
+           class="btn btn-outline-light btn-lg mx-4 mt-4"><i class="fa-solid fa-sign-in mx-1"></i>Sign In</a>
+      {% endif %}
     </div>
-    <div class="col-md-6 my-4">
-      <h2 class="mb-3">Features:</h2>
-      <ul class="list-unstyled">
-        <li>
-          <strong>Share Knowledge:</strong> Start discussions, answer questions,
-          and offer help.
-        </li>
-        <li>
-          <strong>Connect with Users:</strong> Interact with fellow tech
+    <!-- About and Features Sections -->
+    <div class="row">
+      <div class="col-md-6 my-4">
+        <h2 class="mb-3">
+          About Tech Corner:
+        </h2>
+        <p>
+          Tech Corner is a community blog and news site for technology enthusiasts
+          to share and engage with the latest tech news. Join us to post your
+          insights, comment on discussions, and connect with a network of tech
           enthusiasts.
-        </li>
-        <li>
-          <strong>Join the Conversation:</strong> Comment and share your
-          thoughts on the latest tech trends.
-        </li>
-        <li>
-          <strong>Personalize Your Space:</strong> Customize your profile with a
-          photo, favorite tech, and optional contact details.
-        </li>
-        <li>
-          <strong>Fully Responsive:</strong> Designed to work smoothly on
-          phones, tablets, and computers.
-        </li>
-        <li>
-          <strong>Security:</strong> Essential security feature for our users,
-          designed to protect against brute-force attacks by limiting the number
-          of login attempts.
-        </li>
-      </ul>
+        </p>
+      </div>
+      <div class="col-md-6 my-4">
+        <h2 class="mb-3">
+          Features:
+        </h2>
+        <ul class="list-unstyled">
+          <li>
+            <strong>Share Knowledge:</strong> Start discussions, answer questions,
+            and offer help.
+          </li>
+          <li>
+            <strong>Connect with Users:</strong> Interact with fellow tech
+            enthusiasts.
+          </li>
+          <li>
+            <strong>Join the Conversation:</strong> Comment and share your
+            thoughts on the latest tech trends.
+          </li>
+          <li>
+            <strong>Personalize Your Space:</strong> Customize your profile with a
+            photo, favorite tech, and optional contact details.
+          </li>
+          <li>
+            <strong>Fully Responsive:</strong> Designed to work smoothly on
+            phones, tablets, and computers.
+          </li>
+          <li>
+            <strong>Security:</strong> Essential security feature for our users,
+            designed to protect against brute-force attacks by limiting the number
+            of login attempts.
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
-{% endblock %}
+{% endblock content %}

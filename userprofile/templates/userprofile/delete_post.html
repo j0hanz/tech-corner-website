@@ -1,79 +1,79 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
-Delete Post
-{% endblock %}
+  Delete Post
+{% endblock title %}
 
 {% block content %}
 
-<div class="container">
-  <!-- Checks if there are any messages to display -->
-  {% if messages %}
-  <div id="message-container" class="text-center">
-    <!-- Loops through each message and displays it -->
-    {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      {{ message }}
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
-  <!-- Warning alert message -->
-  <div
-    class="alert alert-danger alert-dismissible fade show"
-    id="message-container"
-    role="alert"
-  >
-    <div class="d-flex align-items-center">
-      <div class="flex-shrink-0">
-        <!-- Warning icon -->
-        <i class="fas fa-exclamation-circle fa-2x"></i>
+  <div class="container">
+    <!-- Checks if there are any messages to display -->
+    {% if messages %}
+      <div id="message-container"
+           class="text-center">
+        <!-- Loops through each message and displays it -->
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+               role="alert">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
+            </button>
+          </div>
+        {% endfor %}
       </div>
-      <div class="flex-grow-1 ms-3">
-        <h4 class="alert-heading">
-          Warning!
-        </h4>
-        <p class="mb-0">
-          You cannot regret this choice!
-        </p>
+    {% endif %}
+    <!-- Warning alert message -->
+    <div class="alert alert-danger alert-dismissible fade show"
+         id="message-container"
+         role="alert">
+      <div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <!-- Warning icon -->
+          <i class="fas fa-exclamation-circle fa-2x"></i>
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <h4 class="alert-heading">
+            Warning!
+          </h4>
+          <p class="mb-0">
+            You cannot regret this choice!
+          </p>
+        </div>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close">
+        </button>
       </div>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
+    </div>
+    <img class="img-main img-fluid"
+         src="{% static 'images/logo.webp' %}"
+         alt="Logo" />
+    <div class="text-center">
+      <h2 class="mb-5">
+        Are you sure you want to delete this post?
+      </h2>
+      <h6 class="mb-0 text-white text-opacity-50">
+        Title:
+      </h6>
+      <h3 class="mb-5">
+        <strong>{{ post.title }}</strong>
+      </h3>
+      <form method="post"
+            action="{% url 'delete_post' post.id %}">
+        {% csrf_token %}
+        <button type="submit"
+                class="btn btn-outline-danger mx-4">
+          Yes, Delete
+        </button>
+        <a href="{% url 'user_posts' %}"
+           class="btn btn-outline-success mx-4">Cancel</a>
+      </form>
     </div>
   </div>
-  <img class="img-main img-fluid" src="/static/images/logo.webp" />
-  <div class="text-center">
-    <h2 class="mb-5">
-      Are you sure you want to delete this post?
-    </h2>
-    <h6 class="mb-0 text-white text-opacity-50">
-      Title:
-    </h6>
-    <h3 class="mb-5">
-      <strong>{{ post.title }}</strong>
-    </h3>
-    <form method="POST" action="{% url 'delete_post' post.id %}">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-outline-danger mx-4">
-        Yes, Delete
-      </button>
-      <a href="{% url 'user_posts' %}" class="btn btn-outline-success mx-4"
-        >Cancel</a
-      >
-    </form>
-  </div>
-</div>
-{% endblock %}
+{% endblock content %}

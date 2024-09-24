@@ -1,124 +1,113 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
-Your Posts
-{% endblock %}
+  Your Posts
+{% endblock title %}
 
 {% block content %}
 
-<div class="container-fluid">
-  <!-- Checks if there are any messages to display -->
-  {% if messages %}
-  <div id="message-container" class="text-center">
-    <!-- Loops through each message and displays it -->
-    {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      {{ message }}
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
-  <div class="row">
-    <div class="col-md-12 d-flex justify-content-center right-bck">
-      <div class="registration-right">
-        <div class="row justify-content-evenly mb-5">
-          <div class="col-4">
-            <a class="btn btn-outline-light btn-sm" href="{% url 'index' %}"
-              >Home Page</a>
+  <div class="container-fluid">
+    <!-- Checks if there are any messages to display -->
+    {% if messages %}
+      <div id="message-container"
+           class="text-center">
+        <!-- Loops through each message and displays it -->
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+               role="alert">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
+            </button>
           </div>
-          <div class="col-4">
-            <a class="btn btn-outline-light btn-sm" href="{% url 'create_post' %}">
-              New Post<i class="fa-solid fa-plus px-2"></i>
-            </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-center right-bck">
+        <div class="registration-right">
+          <div class="row justify-content-evenly mb-5">
+            <div class="col-4">
+              <a class="btn btn-outline-light btn-sm"
+                 href="{% url 'index' %}">Home Page</a>
+            </div>
+            <div class="col-4">
+              <a class="btn btn-outline-light btn-sm"
+                 href="{% url 'create_post' %}">
+                New Post<i class="fa-solid fa-plus px-2"></i>
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="event-list">
-          <!-- Checks if there are any posts -->
-          {% if posts %}
-          <!-- Loop through each post -->
-          {% for post in posts %}
-          <div class="card flex-row mb-3 custom-card">
-            <!-- Checks if the user has a profile image -->
-            {% if post.author.profile.profile_image %}
-            <a href="{% url 'profile_page' %}">
-              <img
-                class="rounded-circle card-img-left img-post"
-                src="{{ post.author.profile.profile_image.url }}"
-                alt="{{ post.title }}"
-              />
-              {% else %}
-            </a>
-            <a href="{% url 'profile_page' %}">
-              <img
-                class="rounded-circle card-img-left img-post"
-                src="/static/images/nobody.webp"
-                alt="{{ post.title }}"
-              />
-              {% endif %}
-              <div class="text-center">
-                <em>
-                  {{ post.author }}
-                </em>
+          <div class="event-list">
+            <!-- Checks if there are any posts -->
+            {% if posts %}
+              <!-- Loop through each post -->
+              {% for post in posts %}
+                <div class="card flex-row mb-3 custom-card">
+                  <!-- Checks if the user has a profile image -->
+                  {% if post.author.profile.profile_image %}
+                    <a href="{% url 'profile_page' %}">
+                      <img class="rounded-circle card-img-left img-post"
+                           src="{{ post.author.profile.profile_image.url }}"
+                           alt="{{ post.title }}" />
+                    {% else %}
+                    </a>
+                    <a href="{% url 'profile_page' %}">
+                      <img class="rounded-circle card-img-left img-post"
+                           src="{% static 'images/nobody.webp' %}"
+                           alt="{{ post.title }}" />
+                    {% endif %}
+                    <div class="text-center">
+                      <em>
+                        {{ post.author }}
+                      </em>
+                    </div>
+                  </a>
+                  <div class="card-body">
+                    <h4>
+                      {{ post.title }}
+                    </h4>
+                    <p>
+                      {{ post.body|truncatechars:70 }}
+                    </p>
+                    <p class="card-text mb-4">
+                      {{ post.excerpt|truncatechars:70 }}
+                    </p>
+                    <a href="{% url 'post_detail' post.slug %}"
+                       class="btn btn-outline-light btn-sm fa-brands fa-readme"></a>
+                    <a href="{% url 'edit_post' post.id %}"
+                       class="btn btn-outline-warning btn-sm fa-solid fa-pen-to-square mx-4"></a>
+                    <a href="{% url 'delete_post' post.id %}"
+                       class="btn btn-outline-danger btn-sm fa-solid fa-trash"></a>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="alert alert-warning alert-dismissible fade show"
+                   id="message-container"
+                   role="alert">
+                <div class="p-0">
+                  You have not created any posts yet.
+                </div>
+                <button type="button"
+                        class="btn-close ms-auto"
+                        data-bs-dismiss="alert"
+                        aria-label="Close">
+                </button>
               </div>
-            </a>
-            <div class="card-body">
-              <h4>
-                {{ post.title }}
-              </h4>
-              <p>
-                {{ post.body|truncatechars:70 }}
-              </p>
-              <p class="card-text mb-4">
-                {{ post.excerpt|truncatechars:70 }}
-              </p>
-              <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-light btn-sm fa-brands fa-readme"
-                ></a
-              >
-              <a
-                href="{% url 'edit_post' post.id %}"
-                class="btn btn-outline-warning btn-sm fa-solid fa-pen-to-square mx-4"
-              ></a>
-              <a
-                href="{% url 'delete_post' post.id %}"
-                class="btn btn-outline-danger btn-sm fa-solid fa-trash"
-              ></a>
-            </div>
+              <div class="border border-secondary-subtle rounded p-4">
+                <p class="text-white text-opacity-25 text-center my-auto">
+                  No posts found
+                </p>
+              </div>
+            {% endif %}
           </div>
-          {% endfor %}
-          {% else %}
-          <div
-            class="alert alert-warning alert-dismissible fade show"
-            id="message-container"
-            role="alert"
-          >
-            <div class="p-0">
-              You have not created any posts yet.
-            </div>
-            <button
-              type="button"
-              class="btn-close ms-auto"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="border border-secondary-subtle rounded p-4">
-            <p class="text-white text-opacity-25 text-center my-auto">
-              No posts found
-            </p>
-          </div>
-          {% endif %}
         </div>
       </div>
     </div>
   </div>
-</div>
-{% endblock %}
+{% endblock content %}

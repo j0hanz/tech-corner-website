@@ -1,55 +1,61 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block title %}
+  Delete Account
+{% endblock title %}
+
 {% block content %}
 
-<div class="container">
-  <!-- Warning alert message -->
-  <div
-    class="alert alert-danger alert-dismissible fade show"
-    id="message-container"
-    role="alert"
-  >
-    <div class="d-flex align-items-center">
-      <div class="flex-shrink-0">
-        <!-- Warning icon -->
-        <i class="fas fa-exclamation-circle fa-2x"></i>
+  <div class="container">
+    <!-- Warning alert message -->
+    <div class="alert alert-danger alert-dismissible fade show"
+         id="message-container"
+         role="alert">
+      <div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <!-- Warning icon -->
+          <i class="fas fa-exclamation-circle fa-2x"></i>
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <h4 class="alert-heading">
+            Warning!
+          </h4>
+          <p class="mb-0">
+            You cannot regret this choice!
+          </p>
+        </div>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close">
+        </button>
       </div>
-      <div class="flex-grow-1 ms-3">
-        <h4 class="alert-heading">
-          Warning!
-        </h4>
-        <p class="mb-0">
-          You cannot regret this choice!
-        </p>
-      </div>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
+    </div>
+    <img class="img-main img-fluid"
+         src="{% static 'images/logo.webp' %}"
+         alt="Logo" />
+    <div class="text-center">
+      <h4 class="mb-5">
+        Are you sure you want to delete your account?
+      </h4>
+      <!-- Form for deleting account -->
+      <h3 class="mb-5">
+        <strong>
+          {{ request.user.username }}
+        </strong>
+      </h3>
+      <form action="{% url 'delete_account' %}"
+            method="post">
+        {% csrf_token %}
+        <button type="submit"
+                class="btn btn-outline-danger mx-4">
+          Yes, Delete
+        </button>
+        <a href="{% url 'profile_page' %}"
+           class="btn btn-outline-success mx-4">Cancel</a>
+      </form>
     </div>
   </div>
-  <img class="img-main img-fluid" src="/static/images/logo.webp" />
-  <div class="text-center">
-    <h4 class="mb-5">
-      Are you sure you want to delete your account?
-    </h4>
-    <!-- Form for deleting account -->
-    <h3 class="mb-5">
-      <strong>
-        {{ request.user.username }}
-      </strong>
-    </h3>
-    <form action="{% url 'delete_account' %}" method="POST">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-outline-danger mx-4">
-        Yes, Delete
-      </button>
-      <a href="{% url 'profile_page' %}" class="btn btn-outline-success mx-4"
-        >Cancel</a
-      >
-    </form>
-  </div>
-</div>
-{% endblock %}
+{% endblock content %}

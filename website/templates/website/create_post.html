@@ -1,50 +1,55 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
-Create New Post
-{% endblock %}
+  Create New Post
+{% endblock title %}
 
 {% block content %}
 
-<div class="container">
-  <!-- Checks if there are any messages to display -->
-  {% if messages %}
-  <div id="message-container" class="text-center">
-    <!-- Loops through each message and displays it -->
-    {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      {{ message }}
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
+  <div class="container">
+    <!-- Checks if there are any messages to display -->
+    {% if messages %}
+      <div id="message-container"
+           class="text-center">
+        <!-- Loops through each message and displays it -->
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+               role="alert">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
+            </button>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="container">
+    <img class="img-main img-fluid"
+         src="{% static 'images/logo.webp' %}"
+         alt="Logo" />
+    <div class="text-center">
+      <h2 class="mb-3">
+        Create New Post
+      </h2>
+      <!-- Form for creating a new post -->
+      <form method="post"
+            enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"
+                class="btn btn-outline-success mx-4">
+          Submit
+        </button>
+        <a class="btn btn-outline-warning mx-4"
+           href="{% url 'index' %}">
+          Cancel
+        </a>
+      </form>
     </div>
-    {% endfor %}
   </div>
-  {% endif %}
-</div>
-<div class="container">
-  <img class="img-main img-fluid" src="/static/images/logo.webp" />
-  <div class="text-center">
-    <h2 class="mb-3">
-      Create New Post
-    </h2>
-    <!-- Form for creating a new post -->
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-outline-success mx-4">
-        Submit
-      </button>
-      <a class="btn btn-outline-warning mx-4" href="{% url 'index' %}">
-        Cancel
-      </a>
-    </form>
-  </div>
-</div>
-{% endblock %}
+{% endblock content %}
