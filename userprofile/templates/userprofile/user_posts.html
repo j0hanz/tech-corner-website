@@ -78,11 +78,11 @@
                       {{ post.excerpt|truncatechars:70 }}
                     </p>
                     <a href="{% url 'post_detail' post.slug %}"
-                       class="btn btn-outline-light btn-sm fa-brands fa-readme"></a>
+                       class="btn btn-outline-light p-3 btn-sm fa-brands fa-readme fa-sm me-2"></a>
                     <a href="{% url 'edit_post' post.id %}"
-                       class="btn btn-outline-warning btn-sm fa-solid fa-pen-to-square mx-4"></a>
+                       class="btn btn-outline-warning p-3 btn-sm fa-solid fa-pen-to-square fa-sm me-2"></a>
                     <a href="{% url 'delete_post' post.id %}"
-                       class="btn btn-outline-danger btn-sm fa-solid fa-trash"></a>
+                       class="btn btn-outline-danger p-3 btn-sm fa-solid fa-trash fa-sm"></a>
                   </div>
                 </div>
               {% endfor %}
