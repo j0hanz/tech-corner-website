@@ -49,9 +49,7 @@ class UserProfile(models.Model):
     """Extends base User model to include additional fields."""
 
     user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE,
-        related_name='profile',
+        User, on_delete=models.CASCADE, related_name='userprofile'
     )
     first_name = models.CharField(
         _('First Name'),
@@ -70,7 +68,7 @@ class UserProfile(models.Model):
         blank=True,
         verbose_name=_('Favorite Tech'),
     )
-    profile_image = CloudinaryField(_('Profile Image'), null=True, blank=True)
+    profile_image = CloudinaryField('Profile Image', null=True, blank=True)
     bio = models.TextField(_('Bio'), max_length=500, blank=True)
 
     class Meta:
@@ -82,12 +80,11 @@ class UserProfile(models.Model):
 
 
 @receiver(post_save, sender=User)
-def create_or_update_user_profile(sender, instance, created, **kwargs) -> None:
-    """Signal to create or update UserProfile instance whenever a User is saved."""
+def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
     else:
         try:
-            instance.profile.save()
+            instance.userprofile.save()
         except UserProfile.DoesNotExist:
             UserProfile.objects.create(user=instance)
