@@ -9,35 +9,35 @@ from tech_corner.utils import shortnaturaltime
 
 
 class Post(models.Model):
-    """Model for Post."""
+    """Model representing a blog post."""
 
     STATUS = ((0, 'Draft'), (1, 'Published'))
 
-    title = models.CharField(max_length=50, unique=True)  # Title
-    image = CloudinaryField('Post Image', null=True, blank=True)  # Image
-    slug = models.SlugField(max_length=200, unique=True, blank=True)  # Slug
+    title = models.CharField(max_length=50, unique=True)
+    image = CloudinaryField('Post Image', null=True, blank=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='user_posts',
-    )  # Author
-    body = models.TextField()  # Body
-    date = models.DateTimeField(auto_now_add=True)  # Date
+    )
+    body = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(
         choices=STATUS,
         default=1,
-    )  # Status (Default "Published")
+    )
     excerpt = models.TextField(
         blank=True,
-    )  # Excerpt (Only available in admin interface)
+    )
     updated_on = models.DateTimeField(
         auto_now=True,
-    )  # Date the post was last updated
+    )
 
     class Meta:
         """Meta options for the Post model."""
 
-        ordering = ['-date']  # Orders posts by date in descending order
+        ordering = ['-date']
 
     def __str__(self) -> str:
         return f'{self.title} | written by {self.author}'
