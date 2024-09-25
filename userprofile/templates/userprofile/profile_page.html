@@ -32,9 +32,9 @@
     <div class="text-center">
       <div class="mt-5">
         <!-- Checks if the user has a profile image -->
-        {% if user.userprofile.profile_image %}
+        {% if user_profile.profile_image %}
           <img class="rounded img-fluid img-view-profile"
-               src="{{ user.userprofile.profile_image.url }}"
+               src="{{ user_profile.profile_image.url }}"
                alt="Profile Image" />
         {% else %}
           <img class="rounded img-fluid img-view-profile"
@@ -45,15 +45,15 @@
           {{ request.user.username }}
         </h3>
         <p class="profile-detail mb-0">
-          {{ user.userprofile.first_name|default:"" }}
-          {{ user.userprofile.last_name|default:"" }}
+          {{ user.profile.first_name|default:"" }}
+          {{ user.profile.last_name|default:"" }}
         </p>
         <p class="profile-detail mb-3">
           {{ request.user.email|default:"" }}
         </p>
         Favorite Tech:
         <p class="profile-detail">
-          {{ user.userprofile.favorite_tech|default:"" }}
+          {{ user.profile.favorite_tech|default:"" }}
         </p>
         <div class="mt-5">
           <a href="{% url 'edit_profile' %}"

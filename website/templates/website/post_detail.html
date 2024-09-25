@@ -38,7 +38,7 @@
                   <a href="{% url 'view_profile' post.author.username %}">
                   {% endif %}
                   <img class="rounded-circle card-img-left img-post-page mb-2"
-                       src="{% if user.userprofile.profile_image %}{{ user.userprofile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                       src="{% if post.author.profile.profile_image %}{{ post.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
                        alt="{{ post.title }}" />
                 </a>
               </a>
@@ -96,14 +96,14 @@
               </div>
               {% for comment in comments %}
                 <div class="card flex-row mb-1 custom-card">
-                  {% if user.userprofile.profile_image %}
+                  {% if comment.author.profile.profile_image %}
                     {% if comment.author == user %}
                       <a href="{% url 'profile_page' %}">
                       {% else %}
                         <a href="{% url 'view_profile' comment.author.username %}">
                         {% endif %}
                         <img class="rounded-circle img-post-comment card-img-left"
-                             src="{{ user.userprofile.profile_image.url }}"
+                             src="{{ comment.author.profile.profile_image.url }}"
                              alt="{{ comment.author.username }}" />
 
                       {% else %}
