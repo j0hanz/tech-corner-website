@@ -14,7 +14,7 @@ class Post(models.Model):
     STATUS = ((0, 'Draft'), (1, 'Published'))
 
     title = models.CharField(max_length=50, unique=True)
-    image = CloudinaryField('Post Image', null=True, blank=True)
+    image = CloudinaryField('image', blank=True, null=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     author = models.ForeignKey(
         User,
@@ -84,7 +84,7 @@ def unique_slug(instance, new_slug=None):
 
 
 @receiver(pre_save, sender=Post)
-def save_post_receiver(sender, instance, *args, **kwargs) -> None:
+def save_post_receiver(sender, instance, *args, **kwargs):
     """Signal to generate a slug before saving the Post."""
     if not instance.slug:
         instance.slug = unique_slug(instance)
