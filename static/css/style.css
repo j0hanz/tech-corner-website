@@ -79,6 +79,78 @@ nav {
 }
 
 /* Images */
+.container-image {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 12px;
+  color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Placeholder for image upload */
+.placeholder-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  background-color: rgba(63, 62, 62, 0.7);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  max-width: 90%;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Image wrapper */
+.image-wrapper {
+  max-width: 30rem;
+  width: 100%;
+  padding: 3rem;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s 0.3s, opacity 0.3s;
+  border-radius: 10px;
+  position: relative;
+  opacity: 0.7;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.image-wrapper:hover {
+  border-color: #fcfcfc;
+  box-shadow: 0 0 15px 0 rgba(10, 10, 10, 0.5);
+  opacity: 1;
+}
+
+/* Form control */
+.form-control {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #495057;
+  color: #f8f9fa;
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  background-color: #3a3f44;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
 .img-post {
   width: 125px;
   height: 125px;
@@ -169,6 +241,26 @@ nav {
 form {
   display: block;
   text-align: center;
+}
+
+.form-control {
+  max-width: 30rem;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid #ffffff4d;
+  border-radius: 7px;
+  color: #ffffff;
+}
+
+.form-control:focus {
+  background-color: #ffffff1a;
+  border-color: #ffffff99;
+  box-shadow: 0 0 0 0.2rem #ffffff33;
+  color: #ffffff;
+}
+
+.form-control::placeholder {
+  color: #ffffff80;
 }
 
 textarea,
