@@ -10,27 +10,13 @@
 
       <div class="image-wrapper"
            onclick="document.getElementById('image-upload').click()">
-        {% if form.image.value %}
-          <!-- If an image is already uploaded or selected -->
-          <figure>
-            <img src="{{ form.image.value.url }}"
-                 alt="Post preview"
-                 class="img-fluid" />
-            <div class="placeholder-img">
-              Click to change the image
-            </div>
-          </figure>
-        {% else %}
-          <!-- If no image is uploaded, show the upload icon -->
-          <figure>
-            <img src="{% static 'images/upload.png' %}"
-                 alt="Upload"
-                 class="img-fluid" />
-            <div class="placeholder-img">
-              Click to upload an image
-            </div>
-          </figure>
-        {% endif %}
+        <img src="{% static 'images/upload.png' %}"
+             alt="Upload"
+             class="upload-icon"
+             id="preview-image" />
+        <div class="placeholder-text">
+          Click to upload an image
+        </div>
       </div>
 
       <input type="file"
@@ -38,7 +24,6 @@
              accept="image/*"
              class="d-none"
              onchange="previewImage(event)" />
-
       <div class="form-group my-3">
         {{ form.title.label_tag }}
         {{ form.title }}
