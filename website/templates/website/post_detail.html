@@ -7,7 +7,6 @@
 {% endblock title %}
 
 {% block content %}
-
   <div class="container">
     {% if messages %}
       <div id="message-container"
@@ -32,15 +31,10 @@
         <div class="registration-right post-detail-view">
           <div class="card flex-row custom-card mb-4">
             <div class="d-flex flex-column align-items-center">
-              {% if post.author == user %}
-                <a href="{% url 'profile_page' %}">
-                {% else %}
-                  <a href="{% url 'view_profile' post.author.username %}">
-                  {% endif %}
-                  <img class="rounded-circle card-img-left img-post-page mb-2"
-                       src="{% if post.author.profile.profile_image %}{{ post.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
-                       alt="{{ post.title }}" />
-                </a>
+              <a href="{% if post.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' post.author.username %}{% endif %}">
+                <img class="rounded-circle card-img-left img-post-page mb-2"
+                     src="{% if post.author.profile.profile_image %}{{ post.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                     alt="{{ post.author.username }}" />
               </a>
               <p class="text-center mb-0">
                 <strong>{{ post.author }}</strong>
@@ -64,14 +58,16 @@
               {% if request.user == post.author %}
                 <div class="d-flex justify-content-end my-2">
                   <a href="{% url 'edit_post' post.id %}"
-                     class="btn btn-outline-warning text-white fa-solid fa-pen-to-square fa-sm p-3"></a>
+                     class="btn btn-outline-warning text-white fa-solid fa-pen-to-square fa-sm p-3"
+                     aria-label="Edit post"></a>
                   <a href="{% url 'delete_post' post.id %}"
-                     class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3 ms-4"></a>
+                     class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3 ms-4"
+                     aria-label="Delete post"></a>
                 </div>
               {% endif %}
             </div>
           </div>
-          <!--Comments-->
+          <!-- Comments Section -->
           <div class="event-list">
             <div class="flex-row">
               <div class="mt-1 mb-5 text-center">
@@ -94,37 +90,18 @@
                   </div>
                 {% endif %}
               </div>
+              <!-- Display Comments -->
               {% for comment in comments %}
                 <div class="card flex-row mb-1 custom-card">
-                  {% if comment.author.profile.profile_image %}
-                    {% if comment.author == user %}
-                      <a href="{% url 'profile_page' %}">
-                      {% else %}
-                        <a href="{% url 'view_profile' comment.author.username %}">
-                        {% endif %}
-                        <img class="rounded-circle img-post-comment card-img-left"
-                             src="{{ comment.author.profile.profile_image.url }}"
-                             alt="{{ comment.author.username }}" />
-
-                      {% else %}
-                      </a>
-                    </a>
-                    {% if comment.author == user %}
-                      <a href="{% url 'profile_page' %}">
-                      {% else %}
-                        <a href="{% url 'view_profile' comment.author.username %}">
-                        {% endif %}
-                        <img class="rounded-circle img-post-comment card-img-left"
-                             src="{% static 'images/nobody.webp' %}"
-                             alt="Placeholder Image" />
-                      </a>
-                    {% endif %}
-                    <div class="text-center">
-                      <em>
-                        {{ comment.author }}
-                      </em>
-                    </div>
+                  <a href="{% if comment.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' comment.author.username %}{% endif %}">
+                    <img class="rounded-circle img-post-comment card-img-left"
+                         src="{% if comment.author.profile.profile_image %}{{ comment.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                         alt="{{ comment.author.username }}" />
                   </a>
+                  <div class="text-center">
+                    <em>{{ comment.author }}</em>
+                  </div>
+
                   <div class="card-body border border-black rounded mx-2 mb-5 p-1">
                     <p class="mx-2">
                       {{ comment.body }}
@@ -132,7 +109,8 @@
                     {% if request.user == comment.author %}
                       <div class="d-flex justify-content-end mt-auto">
                         <a href="{% url 'delete_comment' comment.id %}"
-                           class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3"></a>
+                           class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3"
+                           aria-label="Delete comment"></a>
                       </div>
                     {% endif %}
                   </div>
