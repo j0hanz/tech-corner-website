@@ -48,16 +48,26 @@
               <div class="card flex-row mb-3 custom-card">
                 <!-- Checks if the user has a profile image -->
                 {% if user.userprofile.profile_image %}
-                  <a href="{% url 'view_profile' post.author.username %}">
-                    <img class="rounded-circle card-img-left img-post"
-                         src="{{ user.userprofile.profile_image.url }}"
-                         alt="{{ post.title }}" />
-                  {% else %}
+                  {% if post.author == user %}
+                    <a href="{% url 'profile_page' %}">
+                    {% else %}
+                      <a href="{% url 'view_profile' post.author.username %}">
+                      {% endif %}
+                      <img class="rounded-circle card-img-left img-post"
+                           src="{{ user.userprofile.profile_image.url }}"
+                           alt="{{ post.title }}" />
+                    {% else %}
+                    </a>
                   </a>
-                  <a href="{% url 'view_profile' post.author.username %}">
-                    <img class="rounded-circle card-img-left img-post"
-                         src="{% static 'images/nobody.webp' %}"
-                         alt="{{ post.title }}" />
+                  {% if post.author == user %}
+                    <a href="{% url 'profile_page' %}">
+                    {% else %}
+                      <a href="{% url 'view_profile' post.author.username %}">
+                      {% endif %}
+                      <img class="rounded-circle card-img-left img-post"
+                           src="{% static 'images/nobody.webp' %}"
+                           alt="{{ post.title }}" />
+                    </a>
                   {% endif %}
                   <div class="text-center">
                     <em>
