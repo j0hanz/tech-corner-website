@@ -2,54 +2,65 @@
 
 {% load static %}
 
-{% block title %}
-  Create New Post
-{% endblock title %}
-
 {% block content %}
+  <div class="container-image">
+    <form method="post"
+          enctype="multipart/form-data">
+      {% csrf_token %}
 
-  <div class="container">
-    <!-- Checks if there are any messages to display -->
-    {% if messages %}
-      <div id="message-container"
-           class="text-center">
-        <!-- Loops through each message and displays it -->
-        {% for message in messages %}
-          <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
-               role="alert">
-            {{ message }}
-            <button type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close">
-            </button>
-          </div>
-        {% endfor %}
+      <div class="image-wrapper"
+           onclick="document.getElementById('image-upload').click()">
+        {% if form.image.value %}
+          <!-- If an image is already uploaded or selected -->
+          <figure>
+            <img src="{{ form.image.value.url }}"
+                 alt="Post preview"
+                 class="img-fluid" />
+            <div class="placeholder-img">
+              Click to change the image
+            </div>
+          </figure>
+        {% else %}
+          <!-- If no image is uploaded, show the upload icon -->
+          <figure>
+            <img src="{% static 'images/upload.png' %}"
+                 alt="Upload"
+                 class="img-fluid" />
+            <div class="placeholder-img">
+              Click to upload an image
+            </div>
+          </figure>
+        {% endif %}
       </div>
-    {% endif %}
-  </div>
-  <div class="container">
-    <img class="img-main img-fluid"
-         src="{% static 'images/logo.webp' %}"
-         alt="Logo" />
-    <div class="text-center">
-      <h2 class="mb-3">
-        Create New Post
-      </h2>
-      <!-- Form for creating a new post -->
-      <form method="post"
-            enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
+
+      <input type="file"
+             id="image-upload"
+             accept="image/*"
+             class="d-none"
+             onchange="previewImage(event)" />
+
+      <div class="form-group my-3">
+        {{ form.title.label_tag }}
+        {{ form.title }}
+      </div>
+
+      <div class="form-group mb-3">
+        {{ form.body.label_tag }}
+        {{ form.body }}
+      </div>
+
+      <div class="d-flex justify-content-center my-4">
         <button type="submit"
-                class="btn btn-outline-success mx-4">
+                class="btn btn-outline-success">
           Submit
         </button>
         <a class="btn btn-outline-warning mx-4"
-           href="{% url 'index' %}">
-          Cancel
-        </a>
-      </form>
-    </div>
+           href="{% url 'index' %}">Cancel</a>
+      </div>
+    </form>
   </div>
 {% endblock content %}
+
+{% block extra_js %}
+  <script src="{% static 'js/script.js' %}"></script>
+{% endblock extra_js %}
