@@ -5,10 +5,18 @@ from .models import Comment, Post
 
 class PostForm(forms.ModelForm):
     """Form for creating a new post."""
-    image = forms.ImageField(required=False, label='', widget=forms.FileInput(attrs={'class': 'form-control-file'}))
+
+    image = forms.ImageField(
+        required=False,
+        label='',
+        widget=forms.FileInput(attrs={'class': 'form-control-file'}),
+    )
     title = forms.CharField(
         widget=forms.TextInput(
-            attrs={'placeholder': 'Enter the title here...', 'class': 'form-control'},
+            attrs={
+                'placeholder': 'Enter the title here...',
+                'class': 'form-control',
+            },
         ),
         label='Title',
     )
