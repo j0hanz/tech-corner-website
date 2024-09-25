@@ -80,15 +80,21 @@ nav {
 
 /* Images */
 .container-image {
-  max-width: 600px;
+  max-width: 30rem;
   margin: 0 auto;
   padding: 10px;
   border-radius: 12px;
-  color: #f8f9fa;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Placeholder for image upload */
@@ -106,32 +112,47 @@ nav {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-/* Image wrapper */
 .image-wrapper {
-  max-width: 30rem;
   width: 100%;
-  padding: 3rem;
-  margin: 0 auto;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: border-color 0.3s, box-shadow 0.3s 0.3s, opacity 0.3s;
-  border-radius: 10px;
+  height: 300px;
+  border: 2px solid #ffffff4d;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
   opacity: 0.7;
+}
+
+.image-wrapper:hover {
+  border-color: #ffffff99;
+  box-shadow: 0 0 0 0.02rem #ffffff33;
+  opacity: 1;
 }
 
 .image-wrapper img {
   max-width: 100%;
-  width: 150px;
-  height: auto;
-  border-radius: 10px;
+  max-height: 100%;
+  object-fit: contain;
 }
 
-.image-wrapper:hover {
-  border-color: #fcfcfc;
-  box-shadow: 0 0 15px 0 rgba(10, 10, 10, 0.5);
-  opacity: 1;
+.upload-icon {
+  width: 125px;
+  height: 125px;
+}
+
+.placeholder-text {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.11);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 /* Form control */
@@ -244,7 +265,6 @@ form {
 }
 
 .form-control {
-  max-width: 30rem;
   width: 100%;
   background-color: transparent;
   border: 2px solid #ffffff4d;
