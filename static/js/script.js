@@ -13,13 +13,11 @@ window.setTimeout(function () {
 
 // Function to preview the image selected by the user
 function previewImage(event) {
-  const output = document.querySelector('.image-wrapper img');
-  if (output) {
+  const output = document.getElementById('preview-image');
+  const placeholderText = document.querySelector('.placeholder-text');
+  if (event.target.files && event.target.files[0]) {
     output.src = URL.createObjectURL(event.target.files[0]);
-  } else {
-    const newImg = document.createElement('img');
-    newImg.src = URL.createObjectURL(event.target.files[0]);
-    newImg.classList.add('img-fluid');
-    document.querySelector('.image-wrapper').appendChild(newImg);
+    output.classList.remove('upload-icon');
+    placeholderText.style.display = 'none';
   }
 }
