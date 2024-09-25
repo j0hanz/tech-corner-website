@@ -49,10 +49,10 @@
               {% for post in posts %}
                 <div class="card flex-row mb-3 custom-card">
                   <!-- Checks if the user has a profile image -->
-                  {% if post.author.profile.profile_image %}
+                  {% if user.userprofile.profile_image %}
                     <a href="{% url 'profile_page' %}">
                       <img class="rounded-circle card-img-left img-post"
-                           src="{{ post.author.profile.profile_image.url }}"
+                           src="{{ user.userprofile.profile_image.url }}"
                            alt="{{ post.title }}" />
                     {% else %}
                     </a>
@@ -68,21 +68,26 @@
                     </div>
                   </a>
                   <div class="card-body">
-                    <h4>
-                      {{ post.title }}
-                    </h4>
-                    <p>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <h5 class="card-title">
+                        {{ post.title }}
+                      </h5>
+                      <small class="text-white-50">{{ post.short_date }}</small>
+                    </div>
+                    <p class="card-text">
                       {{ post.body|truncatechars:70 }}
                     </p>
-                    <p class="card-text mb-4">
-                      {{ post.excerpt|truncatechars:70 }}
-                    </p>
+                    {% if post.excerpt %}
+                      <p class="card-text text-muted">
+                        {{ post.excerpt|truncatechars:70 }}
+                      </p>
+                    {% endif %}
                     <a href="{% url 'post_detail' post.slug %}"
-                       class="btn btn-outline-light p-3 btn-sm fa-brands fa-readme fa-sm me-2"></a>
+                       class="btn btn-outline-primary text-white p-3 btn-sm fa-brands fa-readme fa-sm me-2"></a>
                     <a href="{% url 'edit_post' post.id %}"
-                       class="btn btn-outline-warning p-3 btn-sm fa-solid fa-pen-to-square fa-sm me-2"></a>
+                       class="btn btn-outline-warning text-white p-3 btn-sm fa-solid fa-pen-to-square fa-sm me-2"></a>
                     <a href="{% url 'delete_post' post.id %}"
-                       class="btn btn-outline-danger p-3 btn-sm fa-solid fa-trash fa-sm"></a>
+                       class="btn btn-outline-danger text-white p-3 btn-sm fa-solid fa-trash fa-sm"></a>
                   </div>
                 </div>
               {% endfor %}

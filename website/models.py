@@ -14,7 +14,7 @@ class Post(models.Model):
     STATUS = ((0, 'Draft'), (1, 'Published'))
 
     title = models.CharField(max_length=50, unique=True)  # Title
-    image = CloudinaryField('image', blank=True, null=True)  # Image
+    image = CloudinaryField('Post Image', null=True, blank=True)  # Image
     slug = models.SlugField(max_length=200, unique=True, blank=True)  # Slug
     author = models.ForeignKey(
         User,
