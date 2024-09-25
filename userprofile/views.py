@@ -21,15 +21,13 @@ def view_profile(request, username):
 def edit_profile(request):
     """Handle editing of the user's profile."""
     user_profile, created = UserProfile.objects.get_or_create(
-        user=request.user,
+        user=request.user
     )
 
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(
-            request.POST,
-            request.FILES,
-            instance=user_profile,
+            request.POST, request.FILES, instance=user_profile
         )
 
         if user_form.is_valid() and profile_form.is_valid():
@@ -37,10 +35,11 @@ def edit_profile(request):
             profile_form.save()
             messages.success(request, 'Profile updated successfully!')
             return redirect('profile_page')
-        messages.error(
-            request,
-            'There was an error updating your profile. Please try again.',
-        )
+        else:
+            messages.error(
+                request,
+                'There was an error updating your profile. Please try again.',
+            )
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=user_profile)
