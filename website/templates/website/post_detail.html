@@ -34,7 +34,7 @@
             <div class="d-flex flex-column align-items-center">
               <a href="{% url 'view_profile' post.author.username %}">
                 <img class="rounded-circle card-img-left img-post-page mb-2"
-                     src="{% if post.author.profile.profile_image %}{{ post.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                     src="{% if user.userprofile.profile_image %}{{ user.userprofile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
                      alt="{{ post.title }}" />
               </a>
               <p class="text-center mb-0">
@@ -59,9 +59,9 @@
               {% if request.user == post.author %}
                 <div class="d-flex justify-content-end my-2">
                   <a href="{% url 'edit_post' post.id %}"
-                     class="btn btn-outline-warning fa-solid fa-pen-to-square fa-sm p-3"></a>
+                     class="btn btn-outline-warning text-white fa-solid fa-pen-to-square fa-sm p-3"></a>
                   <a href="{% url 'delete_post' post.id %}"
-                     class="btn btn-outline-danger fa-solid fa-trash fa-sm p-3 ms-4"></a>
+                     class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3 ms-4"></a>
                 </div>
               {% endif %}
             </div>
@@ -91,10 +91,10 @@
               </div>
               {% for comment in comments %}
                 <div class="card flex-row mb-1 custom-card">
-                  {% if comment.author.profile.profile_image %}
+                  {% if user.userprofile.profile_image %}
                     <a href="{% url 'view_profile' comment.author.username %}">
                       <img class="rounded-circle img-post-comment card-img-left"
-                           src="{{ comment.author.profile.profile_image.url }}"
+                           src="{{ user.userprofile.profile_image.url }}"
                            alt="{{ comment.author.username }}" />
                     {% else %}
                     </a>
@@ -116,7 +116,7 @@
                     {% if request.user == comment.author %}
                       <div class="d-flex justify-content-end mt-auto">
                         <a href="{% url 'delete_comment' comment.id %}"
-                           class="btn btn-outline-danger fa-solid fa-trash fa-sm px-1 py-2"></a>
+                           class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3"></a>
                       </div>
                     {% endif %}
                   </div>
