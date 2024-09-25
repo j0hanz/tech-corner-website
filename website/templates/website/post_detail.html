@@ -30,6 +30,7 @@
       <div class="d-flex justify-content-center right-bck">
         <div class="registration-right post-detail-view">
           <div class="card flex-row custom-card mb-4">
+            <!-- Profile Image and Username Section -->
             <div class="d-flex flex-column align-items-center">
               <a href="{% if post.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' post.author.username %}{% endif %}">
                 <img class="rounded-circle card-img-left img-post-page mb-2"
@@ -40,6 +41,7 @@
                 <strong>{{ post.author }}</strong>
               </p>
             </div>
+            <!-- Post Content Section -->
             <div class="card-body">
               <h1 class="text-center mb-4">
                 {{ post.title }}
@@ -55,6 +57,7 @@
               <p class="text-white text-opacity-50 text-end mb-2">
                 {{ post.short_date }}
               </p>
+              <!-- Edit and Delete Buttons (If Author) -->
               {% if request.user == post.author %}
                 <div class="d-flex justify-content-end my-2">
                   <a href="{% url 'edit_post' post.id %}"
@@ -67,6 +70,7 @@
               {% endif %}
             </div>
           </div>
+
           <!-- Comments Section -->
           <div class="event-list">
             <div class="flex-row">
@@ -93,15 +97,18 @@
               <!-- Display Comments -->
               {% for comment in comments %}
                 <div class="card flex-row mb-1 custom-card">
-                  <a href="{% if comment.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' comment.author.username %}{% endif %}">
+                  <!-- Profile Image and Username Link -->
+                  <a href="{% if comment.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' comment.author.username %}{% endif %}"
+                     class="d-flex flex-column align-items-center">
                     <img class="rounded-circle img-post-comment card-img-left"
                          src="{% if comment.author.profile.profile_image %}{{ comment.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
                          alt="{{ comment.author.username }}" />
+                    <div class="text-center mt-2">
+                      <em>{{ comment.author }}</em>
+                    </div>
                   </a>
-                  <div class="text-center">
-                    <em>{{ comment.author }}</em>
-                  </div>
 
+                  <!-- Comment Body and Actions -->
                   <div class="card-body border border-black rounded mx-2 mb-5 p-1">
                     <p class="mx-2">
                       {{ comment.body }}
@@ -116,6 +123,7 @@
                   </div>
                 </div>
               {% endfor %}
+
             </div>
           </div>
         </div>
