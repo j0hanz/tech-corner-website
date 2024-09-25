@@ -9,30 +9,29 @@ from django.utils.translation import gettext_lazy as _
 class FavoriteTech(models.Model):
     """Model to store favorite technology types."""
 
-    TYPE_CHOICES = [
-        ('PC', _('PC')),
-        ('Mobile', _('Mobile')),
-        ('Tablet', _('Tablet')),
-        ('AI', _('AI')),
-        ('Raspberry Pi', _('Raspberry Pi')),
-        ('Networking', _('Networking')),
-        ('Other', _('Other')),
-        ('Laptop', _('Laptop')),
-        ('Smartphone', _('Smartphone')),
-        ('Desktop', _('Desktop')),
-        ('Smart Home', _('Smart Home')),
-        ('Wearable', _('Wearable')),
-        ('Gaming Console', _('Gaming Console')),
-        ('VR', _('VR')),
-        ('Drone', _('Drone')),
-        ('IoT', _('IoT')),
-        ('Cloud Computing', _('Cloud Computing')),
-        ('Cyber Security', _('Cyber Security')),
-    ]
+    class TechType(models.TextChoices):
+        PC = 'PC', _('PC')
+        MOBILE = 'Mobile', _('Mobile')
+        TABLET = 'Tablet', _('Tablet')
+        AI = 'AI', _('AI')
+        RASPBERRY_PI = 'Raspberry Pi', _('Raspberry Pi')
+        NETWORKING = 'Networking', _('Networking')
+        OTHER = 'Other', _('Other')
+        LAPTOP = 'Laptop', _('Laptop')
+        SMARTPHONE = 'Smartphone', _('Smartphone')
+        DESKTOP = 'Desktop', _('Desktop')
+        SMART_HOME = 'Smart Home', _('Smart Home')
+        WEARABLE = 'Wearable', _('Wearable')
+        GAMING_CONSOLE = 'Gaming Console', _('Gaming Console')
+        VR = 'VR', _('VR')
+        DRONE = 'Drone', _('Drone')
+        IOT = 'IoT', _('IoT')
+        CLOUD_COMPUTING = 'Cloud Computing', _('Cloud Computing')
+        CYBER_SECURITY = 'Cyber Security', _('Cyber Security')
 
     type = models.CharField(
         max_length=50,
-        choices=TYPE_CHOICES,
+        choices=TechType.choices,
         verbose_name=_('Type'),
     )
 
@@ -49,11 +48,11 @@ class UserProfile(models.Model):
     """Extends base User model to include additional fields."""
 
     user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name='userprofile'
+        User, on_delete=models.CASCADE, related_name='profile'
     )
     first_name = models.CharField(
         _('First Name'),
-        max_length=50,
+        max_length=30,
         blank=True,
     )
     last_name = models.CharField(
@@ -85,6 +84,6 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     else:
         try:
-            instance.userprofile.save()
+            instance.profile.save()
         except UserProfile.DoesNotExist:
             UserProfile.objects.create(user=instance)
