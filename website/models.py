@@ -1,26 +1,11 @@
-import datetime
-
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-from django.utils import timezone
 from django.utils.text import slugify
 
-
-def shortnaturaltime(value):
-    """Convert a datetime value into a short, human-readable format."""
-    now = timezone.now()
-    delta = now - value
-
-    if delta < datetime.timedelta(minutes=1):
-        return 'just now'
-    if delta < datetime.timedelta(hours=1):
-        return f'{int(delta.total_seconds() // 60)}m'
-    if delta < datetime.timedelta(days=1):
-        return f'{int(delta.total_seconds() // 3600)}h'
-    return f'{delta.days}d'
+from tech_corner.utils import shortnaturaltime
 
 
 class Post(models.Model):
