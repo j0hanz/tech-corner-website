@@ -98,9 +98,9 @@
                      href="{% url 'profile_page' %}"
                      title="View Profile">|<!-- Checks if the user has a profile image -->
                     {% if user.is_authenticated %}
-                      {% if user.userprofile.profile_image %}
+                      {% if user.profile.profile_image %}
                         <img class="rounded img-fluid img-nav-profile"
-                             src="{{ user.userprofile.profile_image.url }}"
+                             src="{{ user.profile.profile_image.url }}"
                              alt="Profile Image" />
                       {% else %}
                         <img class="rounded img-fluid img-nav-profile"
