@@ -62,14 +62,14 @@
           <button class="navbar-toggler navbar-dark py-1 px-2 m-0"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#navbarProfile"
-                  aria-controls="navbarProfile"
+                  data-bs-target="#navbarNav"
+                  aria-controls="navbarNav"
                   aria-expanded="false"
                   aria-label="Toggle Profile">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse"
-               id="navbarProfile">
+               id="navbarNav">
             <ul class="navbar-nav me-auto mb-0">
               <li class="nav-item">
                 <a class="nav-link"
@@ -96,7 +96,23 @@
                 <li class="nav-item">
                   <a class="nav-link pl-1"
                      href="{% url 'profile_page' %}"
-                     title="View Profile">|<i class="fa-solid fa-user px-1"></i>{{ request.user.username }}</a>
+                     title="View Profile">|<!-- Checks if the user has a profile image -->
+                    {% if user.is_authenticated %}
+                      {% if user.userprofile.profile_image %}
+                        <img class="rounded img-fluid img-nav-profile"
+                             src="{{ user.userprofile.profile_image.url }}"
+                             alt="Profile Image" />
+                      {% else %}
+                        <img class="rounded img-fluid img-nav-profile"
+                             src="{% static 'images/nobody.webp' %}"
+                             alt="Placeholder Image" />
+                      {% endif %}
+                    {% else %}
+                      <img class="rounded img-fluid img-nav-profile"
+                           src="{% static 'images/nobody.webp' %}"
+                           alt="Placeholder Image" />
+                    {% endif %}
+                  {{ request.user.username }}</a>
                 </li>
               {% else %}
                 <li class="nav-item">
