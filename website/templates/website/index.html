@@ -46,35 +46,19 @@
             <!-- Loops through each post in the posts queryset -->
             {% for post in posts %}
               <div class="card flex-row mb-3 custom-card">
-                <!-- Checks if the user has a profile image -->
-                {% if post.author.profile.profile_image %}
-                  {% if post.author == user %}
-                    <a href="{% url 'profile_page' %}">
-                    {% else %}
-                      <a href="{% url 'view_profile' post.author.username %}">
-                      {% endif %}
-                      <img class="rounded-circle card-img-left img-post"
-                           src="{{ post.author.profile.profile_image.url }}"
-                           alt="{{ post.title }}" />
-                    {% else %}
-                    </a>
+                <!-- Profile Image and Username Section -->
+                <div class="d-flex flex-column align-items-center">
+                  <a href="{% if post.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' post.author.username %}{% endif %}">
+                    <img class="rounded-circle card-img-left img-post"
+                         src="{% if post.author.profile.profile_image %}{{ post.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                         alt="{{ post.title }}" />
                   </a>
-                  {% if post.author == user %}
-                    <a href="{% url 'profile_page' %}">
-                    {% else %}
-                      <a href="{% url 'view_profile' post.author.username %}">
-                      {% endif %}
-                      <img class="rounded-circle card-img-left img-post"
-                           src="{% static 'images/nobody.webp' %}"
-                           alt="{{ post.title }}" />
-                    </a>
-                  {% endif %}
-                  <div class="text-center">
-                    <em>
-                      {{ post.author }}
-                    </em>
+                  <div class="text-center mt-2">
+                    <em>{{ post.author }}</em>
                   </div>
-                </a>
+                </div>
+
+                <!-- Post Content Section -->
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h5 class="card-title">
