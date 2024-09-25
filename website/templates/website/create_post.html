@@ -9,29 +9,44 @@
       {% csrf_token %}
 
       <div class="image-wrapper"
-           onclick="document.getElementById('image-upload').click()">
-        <img src="{% static 'images/upload.png' %}"
-             alt="Upload"
-             class="upload-icon"
-             id="preview-image" />
-        <div class="placeholder-text">
-          Click to upload an image
-        </div>
+           onclick="document.getElementById('image-upload').click()"
+           aria-label="Upload or change image">
+        {% if form.image.value %}
+          <!-- If an image is already uploaded or selected -->
+          <figure>
+            <img src="{{ form.image.value.url }}"
+                 alt="Post preview"
+                 class="img-fluid" />
+            <div class="placeholder-img">
+              Click to change the image
+            </div>
+          </figure>
+        {% else %}
+          <!-- If no image is uploaded, show the upload icon -->
+          <figure>
+            <img src="{% static 'images/upload.png' %}"
+                 alt="Upload"
+                 class="img-fluid" />
+            <div class="placeholder-img">
+              Click to upload an image
+            </div>
+          </figure>
+        {% endif %}
       </div>
 
       <input type="file"
+             name="image"
              id="image-upload"
              accept="image/*"
              class="d-none"
              onchange="previewImage(event)" />
+
       <div class="form-group my-3">
-        {{ form.title.label_tag }}
-        {{ form.title }}
+        {{ form.title.label_tag }} {{ form.title }}
       </div>
 
       <div class="form-group mb-3">
-        {{ form.body.label_tag }}
-        {{ form.body }}
+        {{ form.body.label_tag }} {{ form.body }}
       </div>
 
       <div class="d-flex justify-content-center my-4">
@@ -46,6 +61,10 @@
   </div>
 {% endblock content %}
 
+
 {% block extra_js %}
   <script src="{% static 'js/script.js' %}"></script>
+  <script>
+  function previewImage(event) {}
+  </script>
 {% endblock extra_js %}
