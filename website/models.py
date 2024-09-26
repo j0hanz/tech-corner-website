@@ -46,6 +46,10 @@ class Post(models.Model):
     def short_date(self):
         return shortnaturaltime(self.date)
 
+    @property
+    def short_updated_on(self):
+        return shortnaturaltime(self.updated_on)
+
 
 class Comment(models.Model):
     """Model for Comments."""
