@@ -256,7 +256,7 @@ nav {
 
 .comment-textarea {
   height: 80px;
-  max-width: 100%;
+  width: 100%;
   min-height: 80px;
 }
 
@@ -353,7 +353,7 @@ li {
 /* Media Queries */
 @media (max-width: 1024px) {
   .post-detail-view {
-    max-width: 95%;
+    max-width: 100%;
   }
 }
 
@@ -390,16 +390,12 @@ li {
   }
 
   .img-post-comment {
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
   }
 
   .card-body {
-    max-width: 80%;
-  }
-
-  .comment-textarea {
-    width: 80%;
+    max-width: 100%;
   }
 
   .post-detail-view {
