@@ -7,13 +7,10 @@
 {% endblock title %}
 
 {% block content %}
-
-  <div class="container">
-    <!-- Checks if there are any messages to display -->
+  <div class="container mt-5">
     {% if messages %}
       <div id="message-container"
-           class="text-center">
-        <!-- Loops through each message and displays it -->
+           class="text-center mb-4">
         {% for message in messages %}
           <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
                role="alert">
@@ -27,52 +24,54 @@
         {% endfor %}
       </div>
     {% endif %}
-  </div>
-  <div class="container">
-    <div class="text-center">
-      <div class="mt-5">
-        <!-- Checks if the user has a profile image -->
-        {% if user_profile.profile_image %}
-          <img class="rounded img-fluid img-view-profile"
-               src="{{ user_profile.profile_image.url }}"
-               alt="Profile Image" />
-        {% else %}
-          <img class="rounded img-fluid img-view-profile"
-               src="{% static 'images/nobody.webp' %}"
-               alt="Placeholder Image" />
-        {% endif %}
-        <h3 class="mb-3">
-          {{ request.user.username }}
-        </h3>
-        <p class="profile-detail mb-0">
-          {{ user.profile.first_name|default:"" }}
-          {{ user.profile.last_name|default:"" }}
-        </p>
-        <p class="profile-detail mb-3">
-          {{ request.user.email|default:"" }}
-        </p>
-        Favorite Tech:
-        <p class="profile-detail">
-          {{ user.profile.favorite_tech|default:"" }}
-        </p>
-        <div class="mt-5">
-          <a href="{% url 'edit_profile' %}"
-             class="mx-3 btn btn-outline-light btn-sm">Edit Profile</a>
-          <span>|</span>
-          <a href="{% url 'user_posts' %}"
-             class="mx-3 btn btn-outline-light btn-sm">Your Posts</a>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10 text-center">
+        <div class="profile-header mb-5">
+          {% if user_profile.profile_image %}
+            <img class="rounded-circle img-fluid img-view-profile mb-3"
+                 src="{{ user_profile.profile_image.url }}"
+                 alt="Profile Image" />
+          {% else %}
+            <img class="rounded-circle img-fluid img-view-profile mb-3"
+                 src="{% static 'images/nobody.webp' %}"
+                 alt="Placeholder Image" />
+          {% endif %}
+
+          <h2 class="mb-2">
+            {{ request.user.username }}
+          </h2>
+          <p class="profile-detail mb-1">
+            {{ user.profile.first_name|default:"" }} {{ user.profile.last_name|default:"" }}
+          </p>
+          <p class="profile-detail mb-1">
+            {{ request.user.email|default:"" }}
+          </p>
+          <p class="profile-detail mb-3">
+            Favorite Tech: {{ user.profile.favorite_tech|default:"" }}
+          </p>
+
+          <div class="action-buttons my-3">
+            <a href="{% url 'edit_profile' %}"
+               class="btn btn-dark text-white me-2">Edit Profile</a>
+            <a href="{% url 'user_posts' %}"
+               class="btn btn-dark text-white">Your Posts</a>
+          </div>
         </div>
-      </div>
-      <div class="bio-form mt-4">
-        <!-- Form for updating bio -->
-        <form method="post">
-          {% csrf_token %}
-          {{ bio_form.as_p }}
-          <button type="submit"
-                  class="mb-5 btn btn-outline-success">
-            Update
-          </button>
-        </form>
+
+        <div class="bio-form">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group mb-4">
+              {{ bio_form.bio.label_tag }}
+              {{ bio_form.bio }}
+            </div>
+            <button type="submit"
+                    class="btn btn-outline-light">
+              Update Bio
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
