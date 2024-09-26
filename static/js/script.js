@@ -41,3 +41,17 @@ function previewImage(event) {
     console.error('The selected file is not a valid image.');
   }
 }
+
+// Add event listener for form submission
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form');
+  const submitBtn = document.getElementById('submitBtn');
+  const spinner = submitBtn.querySelector('.spinner-border');
+  const btnText = submitBtn.querySelector('.btn-text');
+
+  form.addEventListener('submit', function () {
+    spinner.classList.remove('d-none');
+    btnText.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+  });
+});
