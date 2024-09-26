@@ -73,10 +73,25 @@
 
           <!-- Comments Section -->
           <div class="event-list">
-            <div class="flex-row">
-              <div class="mt-1 mb-5 text-center">
-                {% if user.is_authenticated %}
-                  <form method="post">
+            <div class="d-flex flex-column align-items-center mt-1 mb-5">
+              {% if user.is_authenticated %}
+                <!-- Profile Image and Comment Form Container -->
+                <div class="d-flex align-items-center w-100">
+                  <!-- Profile Image -->
+                  <div class="me-2 pb-4">
+                    {% if user.profile.profile_image %}
+                      <img class="rounded-circle img-post-comment card-img-left"
+                           src="{{ user.profile.profile_image.url }}"
+                           alt="{{ user.username }}" />
+                    {% else %}
+                      <img class="rounded-circle img-post-comment card-img-left"
+                           src="{% static 'images/nobody.webp' %}"
+                           alt="{{ user.username }}" />
+                    {% endif %}
+                  </div>
+                  <!-- Comment Form -->
+                  <form method="post"
+                        class="flex-grow-1">
                     {% csrf_token %}
                     {{ comment_form.as_p }}
                     <button type="submit"
@@ -84,48 +99,48 @@
                       Submit
                     </button>
                   </form>
-                {% else %}
-                  <div class="border border-warning-subtle rounded p-2">
-                    <p>
-                      You need to be signed in to post a comment.
-                    </p>
-                    <a href="{% url 'account_login' %}"
-                       class="btn btn-outline-light btn-sm">Sign In</a>
-                  </div>
-                {% endif %}
-              </div>
-              <!-- Display Comments -->
-              {% for comment in comments %}
-                <div class="card flex-row mb-1 custom-card">
-                  <!-- Profile Image and Username Link -->
-                  <a href="{% if comment.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' comment.author.username %}{% endif %}"
-                     class="d-flex flex-column align-items-center">
-                    <img class="rounded-circle img-post-comment card-img-left"
-                         src="{% if comment.author.profile.profile_image %}{{ comment.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
-                         alt="{{ comment.author.username }}" />
-                    <div class="text-center mt-2">
-                      <em>{{ comment.author }}</em>
-                    </div>
-                  </a>
-
-                  <!-- Comment Body and Actions -->
-                  <div class="card-body border border-black rounded mx-2 mb-5 p-1">
-                    <p class="mx-2">
-                      {{ comment.body }}
-                    </p>
-                    {% if request.user == comment.author %}
-                      <div class="d-flex justify-content-end mt-auto">
-                        <a href="{% url 'delete_comment' comment.id %}"
-                           class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3"
-                           aria-label="Delete comment"></a>
-                      </div>
-                    {% endif %}
-                  </div>
                 </div>
-              {% endfor %}
-
+              {% else %}
+                <div class="border border-warning-subtle rounded p-2">
+                  <p>
+                    You need to be signed in to post a comment.
+                  </p>
+                  <a href="{% url 'account_login' %}"
+                     class="btn btn-outline-light btn-sm">Sign In</a>
+                </div>
+              {% endif %}
             </div>
+            <!-- Display Comments -->
+            {% for comment in comments %}
+              <div class="card flex-row mb-1 custom-card">
+                <!-- Profile Image and Username Link -->
+                <a href="{% if comment.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' comment.author.username %}{% endif %}"
+                   class="d-flex flex-column align-items-center">
+                  <img class="rounded-circle img-post-comment card-img-left"
+                       src="{% if comment.author.profile.profile_image %}{{ comment.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                       alt="{{ comment.author.username }}" />
+                  <div class="text-center mt-2">
+                    <em>{{ comment.author }}</em>
+                  </div>
+                </a>
+
+                <!-- Comment Body and Actions -->
+                <div class="card-body border border-black rounded mx-2 mb-5 p-1">
+                  <p class="mx-2">
+                    {{ comment.body }}
+                  </p>
+                  {% if request.user == comment.author %}
+                    <div class="d-flex justify-content-end mt-auto">
+                      <a href="{% url 'delete_comment' comment.id %}"
+                         class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3"
+                         aria-label="Delete comment"></a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
           </div>
+
         </div>
       </div>
     </div>
