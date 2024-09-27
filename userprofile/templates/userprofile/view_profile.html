@@ -41,25 +41,24 @@
                src="{% static 'images/nobody.webp' %}"
                alt="{{ user.username }}" />
         {% endif %}
-        <h3 class="mb-3">
+        <h2 class="my-1">
           {{ user.username }}
-        </h3>
-        <p class="profile-detail mb-0">
+        </h2>
+        <p class="profile-detail my-1">
           {{ user.profile.first_name|default:"" }}
           {{ user.profile.last_name|default:"" }}
         </p>
-        <p class="profile-detail mb-3">
+        <p class="profile-detail my-1">
           {{ user.email|default:"" }}
         </p>
         Favorite Tech:
-        <p class="profile-detail">
+        <p class="profile-detail mt-1 mb-3">
           {{ user.profile.favorite_tech|default:"" }}
         </p>
-        <div class="card custom-card user-bio">
-          <p>
-            {{ user.profile.bio|default:"" }}
-          </p>
-        </div>
+        About me:
+        <p class="profile-detail mb-4">
+          {{ user.profile.bio|default:"" }}
+        </p>
       </div>
     </div>
   </div>
