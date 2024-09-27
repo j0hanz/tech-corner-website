@@ -8,11 +8,9 @@
 {% endblock title %}
 
 {% url 'delete_account' as delete_account_url %}
-
 {% url 'account_change_password' as change_password_url %}
 
 {% block content %}
-
   <div class="container">
     <!-- Checks if there are any messages to display -->
     {% if messages %}
@@ -33,42 +31,76 @@
         {% endfor %}
       </div>
     {% endif %}
-    <img class="img-main img-fluid"
-         src="{% static 'images/logo.webp' %}"
-         alt="Logo" />
-    <div class="text-center">
-      <h2>
-        Edit Profile
-      </h2>
-      <!-- Form for editing profile -->
-      <form method="post"
-            enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <button type="submit"
-                class="btn btn-outline-light my-5">
-          Update Profile
-        </button>
-      </form>
-      <!-- Link to change password -->
-      <h2 class="mb-3">
-        Change Password
-      </h2>
-      <a href="{% url 'account_change_password' %}"
-         class="btn btn-outline-warning my-2">Change Password</a>
-      <!-- Form for deleting account -->
-      <form action="{% url 'delete_account' %}"
-            method="get">
-        {% csrf_token %}
-        <h2 class="mb-3 mt-3">
-          Delete Account
-        </h2>
-        <button type="submit"
-                class="btn btn-outline-danger my-2">
-          Delete Account
-        </button>
-      </form>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <form method="post"
+              enctype="multipart/form-data"
+              class="mb-5">
+          {% csrf_token %}
+          <div class="container-profile-edit mb-4"
+               onclick="document.getElementById('image-upload').click()"
+               aria-label="Upload or change image">
+            {% if user_profile.profile_image %}
+              <figure class="mb-0">
+                <img src="{{ user_profile.profile_image.url }}"
+                     alt="Profile preview"
+                     class="img-fluid rounded-circle img-view-profile" />
+                <div class="placeholder-img">
+                  Click to change the image
+                </div>
+              </figure>
+            {% else %}
+              <figure class="mb-0">
+                <img src="{% static 'images/nobody.webp' %}"
+                     alt="Upload"
+                     class="img-fluid rounded-circle img-view-profile" />
+                <div class="placeholder-img">
+                  Click to upload an image
+                </div>
+              </figure>
+            {% endif %}
+          </div>
+          <input type="file"
+                 name="profile_image"
+                 id="image-upload"
+                 accept="image/*"
+                 class="d-none"
+                 onchange="previewImage(event)" />
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          <button type="submit"
+                  class="btn btn-outline-light mt-4">
+            Update Profile
+          </button>
+        </form>
+        <!-- Link to change password -->
+        <div class="text-center mb-5">
+          <h2 class="mb-3">
+            Change Password
+          </h2>
+          <a href="{% url 'account_change_password' %}"
+             class="btn btn-outline-warning">Change Password</a>
+        </div>
+        <!-- Form for deleting account -->
+        <div class="text-center">
+          <h2 class="mb-3">
+            Delete Account
+          </h2>
+          <form action="{% url 'delete_account' %}"
+                method="get">
+            {% csrf_token %}
+            <button type="submit"
+                    class="btn btn-outline-danger">
+              Delete Account
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock content %}
+
+{% block extra_js %}
+  <script src="{% static 'js/script.js' %}"></script>
+{% endblock extra_js %}
