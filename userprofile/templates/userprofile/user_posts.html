@@ -71,8 +71,20 @@
                 </div>
               {% endfor %}
             {% else %}
-              <!-- ... (keep the existing "no posts" message) ... -->
+              <div class="text-center py-5">
+                <h3 class="mb-4">
+                  You haven't created any posts yet.
+                </h3>
+                <p class="mb-4">
+                  Share your tech insights with the community!
+                </p>
+                <a href="{% url 'create_post' %}"
+                   class="btn button-animation">
+                  <i class="fa-solid fa-plus me-2"></i>Create Your First Post
+                </a>
+              </div>
             {% endif %}
+
           </div>
         </div>
       </div>
