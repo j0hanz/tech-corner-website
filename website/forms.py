@@ -40,13 +40,14 @@ class PostForm(forms.ModelForm):
 class EditPostForm(forms.ModelForm):
     """Form for editing an existing post."""
 
-    image = forms.ImageField(required=False, label='Image')
+    widget = (forms.FileInput(attrs={'class': 'form-control-file'}),)
     body = forms.CharField(
         widget=forms.Textarea(
             attrs={
                 'rows': 7,
                 'cols': 32,
                 'placeholder': 'Edit your post here...',
+                'class': 'form-control',
             },
         ),
         label='Body',
