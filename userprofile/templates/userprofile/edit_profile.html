@@ -12,16 +12,13 @@
 
 {% block content %}
   <div class="container">
-    <!-- Checks if there are any messages to display -->
     {% if messages %}
       <div id="message-container"
            class="text-center">
-        <!-- Loops through each message and displays it -->
         {% for message in messages %}
           <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
                role="alert">
             {{ message }}
-            <!-- Displays the message text -->
             <button type="button"
                     class="btn-close"
                     data-bs-dismiss="alert"
@@ -38,6 +35,8 @@
               enctype="multipart/form-data"
               class="mb-5">
           {% csrf_token %}
+          {{ user_form.non_field_errors }}
+          {{ profile_form.non_field_errors }}
           <div class="container-profile-edit mb-4"
                onclick="document.getElementById('image-upload').click()"
                aria-label="Upload or change image">
@@ -67,14 +66,28 @@
                  accept="image/*"
                  class="d-none"
                  onchange="previewImage(event)" />
-          {{ user_form.as_p }}
-          {{ profile_form.as_p }}
+          {{ profile_form.profile_image.errors }}
+          {% for field in user_form %}
+            <div class="form-group mb-3">
+              {{ field.label_tag }}
+              {{ field }}
+              {{ field.errors }}
+            </div>
+          {% endfor %}
+          {% for field in profile_form %}
+            {% if field.name != 'profile_image' %}
+              <div class="form-group mb-3">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+              </div>
+            {% endif %}
+          {% endfor %}
           <button type="submit"
                   class="btn btn-outline-light mt-4">
             Update Profile
           </button>
         </form>
-        <!-- Link to change password -->
         <div class="text-center mb-5">
           <h2 class="mb-3">
             Change Password
@@ -82,7 +95,6 @@
           <a href="{% url 'account_change_password' %}"
              class="btn btn-outline-warning">Change Password</a>
         </div>
-        <!-- Form for deleting account -->
         <div class="text-center">
           <h2 class="mb-3">
             Delete Account

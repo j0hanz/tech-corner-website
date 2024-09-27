@@ -502,7 +502,7 @@ label[for='id_profile_image'] {
   }
 
   .card-body {
-    max-width: 100%;
+    max-width: 85%;
   }
 
   .post-detail-view {
