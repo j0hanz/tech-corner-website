@@ -68,11 +68,11 @@
             method="post">
         {% csrf_token %}
         <button type="submit"
-                class="btn btn-outline-danger mx-4">
-          Yes, Delete
+                class="btn btn-outline-danger mx-4 text-white">
+          Delete
         </button>
         <a href="{% url 'post_detail' comment.post.slug %}"
-           class="btn btn-outline-success mx-4">Cancel</a>
+           class="btn btn-outline-success mx-4 text-white">Cancel</a>
       </form>
     </div>
   </div>
