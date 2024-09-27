@@ -22,7 +22,9 @@ function previewImage(event) {
     const reader = new FileReader();
 
     reader.onload = function (e) {
-      const imageWrapper = document.querySelector('.image-wrapper');
+      const imageWrapper =
+        document.querySelector('.image-wrapper') ||
+        document.querySelector('.container-profile-edit');
       let output = imageWrapper.querySelector('img');
 
       // Create an img element if not already present
@@ -46,12 +48,15 @@ function previewImage(event) {
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('form');
   const submitBtn = document.getElementById('submitBtn');
-  const spinner = submitBtn.querySelector('.spinner-border');
-  const btnText = submitBtn.querySelector('.btn-text');
 
-  form.addEventListener('submit', function () {
-    spinner.classList.remove('d-none');
-    btnText.textContent = 'Submitting...';
-    submitBtn.disabled = true;
-  });
+  if (form && submitBtn) {
+    const spinner = submitBtn.querySelector('.spinner-border');
+    const btnText = submitBtn.querySelector('.btn-text');
+
+    form.addEventListener('submit', function () {
+      spinner.classList.remove('d-none');
+      btnText.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+    });
+  }
 });
