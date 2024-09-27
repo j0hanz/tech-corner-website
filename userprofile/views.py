@@ -47,7 +47,11 @@ def edit_profile(request):
     return render(
         request,
         'userprofile/edit_profile.html',
-        {'user_form': user_form, 'profile_form': profile_form},
+        {
+            'user_form': user_form,
+            'profile_form': profile_form,
+            'user_profile': user_profile,
+        },
     )
 
 
