@@ -1,63 +1,66 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load static %}
 
 {% block head_title %}
-{% trans "Sign Out" %}
-{% endblock %}
+  {% trans "Sign Out" %}
+{% endblock head_title %}
 
 {% block content %}
 
-<div class="container">
-  <!-- Checks if there are any messages to display -->
-  {% if messages %}
-  <div id="message-container" class="text-center">
-    <!-- Loops through each message and displays it -->
-    {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      {{ message }}
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
-</div>
-<div class="container">
-  <img class="img-main img-fluid" src="/static/images/logo.webp" />
-  <div class="text-center">
-    <h3>{% trans "Sign Out" %}</h3>
-    <p class="pt-3">
-      {% trans 'Are you sure you want to sign out?' %}
-    </p>
-  </div>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-4 p-5">
-        <form method="post" action="{% url 'account_logout' %}">
-          {% csrf_token %}
-          {% if redirect_field_value %}
-          <input
-            type="hidden"
-            name="{{ redirect_field_name }}"
-            value="{{ redirect_field_value }}"
-          />
-          {% endif %}
-          <div class="d-flex justify-content-center pt-3">
-            <button class="btn btn-outline-warning" type="submit">
-              {% trans 'Sign Out' %}
+    <!-- Checks if there are any messages to display -->
+    {% if messages %}
+      <div id="message-container"
+           class="text-center">
+        <!-- Loops through each message and displays it -->
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+               role="alert">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
             </button>
           </div>
-        </form>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="container">
+    <img class="img-main img-fluid"
+         src="{% static 'images/logo.webp' %}"
+         alt="Logo" />
+    <div class="text-center">
+      <h3>
+        {% trans "Sign Out" %}
+      </h3>
+      <p class="pt-3">
+        {% trans "Are you sure you want to sign out?" %}
+      </p>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 p-5">
+          <form method="post"
+                action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+              <input type="hidden"
+                     name="{{ redirect_field_name }}"
+                     value="{{ redirect_field_value }}" />
+            {% endif %}
+            <div class="d-flex justify-content-center pt-3">
+              <button class="btn btn-outline-warning"
+                      type="submit">
+                {% trans "Sign Out" %}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-{% endblock %}
+{% endblock content %}

@@ -2,7 +2,7 @@
 /* Body */
 body {
   color: #ffffff;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background: linear-gradient(0deg, #171515, #0c3736, #171515);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -78,28 +78,151 @@ nav {
   width: 18rem;
 }
 
+.container-profile-edit {
+  max-width: 17rem;
+  margin: 0 auto;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.container-profile-edit:hover {
+  border-color: #ffffff99;
+  box-shadow: 0 0 0 0.02rem #ffffff33;
+  opacity: 1;
+}
+
+.container-profile-edit img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
 /* Images */
+.container-image {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Placeholder for image upload */
+.placeholder-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  background-color: rgba(63, 62, 62, 0.7);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  max-width: 90%;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 300px;
+  border: 2px solid #ffffff4d;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.image-wrapper:hover {
+  border-color: #ffffff99;
+  box-shadow: 0 0 0 0.02rem #ffffff33;
+  opacity: 1;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.upload-icon {
+  width: 125px;
+  height: 125px;
+}
+
 .img-post {
   width: 125px;
   height: 125px;
+  object-fit: cover;
   margin-top: 20px;
   border-style: solid;
   border-color: #171515;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-view {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.img-post-content {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.img-nav-profile {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .img-post-page {
-  width: 80px;
-  height: 80px;
-  margin-top: 70px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-top: 80px;
   border-style: solid;
   border-color: #171515;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .img-view-profile {
   width: 150px;
   height: 150px;
+  object-fit: cover;
   border-style: solid;
   border-color: #171515;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .img-main {
@@ -118,18 +241,39 @@ nav {
 .img-post-comment {
   width: 60px;
   height: 60px;
+  object-fit: cover;
   border-style: solid;
   border-color: #171515;
+  transition: transform 0.3s ease;
+}
+
+.img-post:hover,
+.img-post-page:hover,
+.img-post-comment:hover {
+  transform: scale(1.05);
 }
 
 .post-detail-view {
-  max-width: 50%;
+  max-width: 100%;
+  width: 700px;
+  object-fit: cover;
 }
 
 .comment-textarea {
   height: 80px;
-  max-width: 100%;
+  width: 100%;
   min-height: 80px;
+}
+
+.placeholder-text {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.11);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 /* Forms */
@@ -138,24 +282,63 @@ form {
   text-align: center;
 }
 
+.form-control {
+  width: 100%;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #f8f9fa;
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  background-color: #3a3f4460;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  outline: none;
+  color: #f8f9fa;
+}
+
+.form-control::placeholder {
+  color: #ffffff80;
+}
+
 textarea,
 input,
 select {
+  width: 17rem;
+  max-width: 100%;
+  height: auto;
   background-color: transparent;
-  border-style: solid 2px;
-  border-radius: 7px;
-  padding: 3px;
-  border-color: #171515;
+  border: 1px solid #ffffff80;
+  padding: 5px;
+  border-radius: 5px;
   color: #ffffff;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  background-color: #3a3f4460;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-color: #ffffff;
+  outline: none;
+}
+
+textarea::placeholder,
+input::placeholder,
+select::placeholder {
+  color: #ffffff80;
 }
 
 /* Credit: 
 https://stackoverflow.com/questions/23719520/css-for-select-option-to-be-transparent-background
 */
 select option {
-  background-color: #171515;
+  background-color: #3a3f4460;
+  color: #ffffff;
 }
-
 /* List items */
 li {
   list-style-type: none;
@@ -166,6 +349,74 @@ li {
 /* Help Text */
 .helptext {
   display: none;
+}
+
+/* custom button */
+.button-animation {
+  padding: 0.4em 1.6em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-animation:before {
+  content: '';
+  background: linear-gradient(
+    45deg,
+    #171515,
+    #0c3736,
+    #495057,
+    #3a3f44,
+    #9b9a9a,
+    #171515,
+    #0c3736,
+    #495057,
+    #171515
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-animation 20s linear infinite;
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-animation {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-animation:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 
 /* IDs */
@@ -184,15 +435,18 @@ li {
 #id_last_name,
 #id_favorite_tech {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
+/* Hide specific label */
+label[for='id_profile_image'] {
+  display: none;
+}
+
 #id_profile_image {
-  margin-top: 20px;
-  width: 12rem;
-  color: #9b9a9a;
+  display: none;
 }
 
 #message-container {
@@ -206,7 +460,7 @@ li {
 /* Media Queries */
 @media (max-width: 1024px) {
   .post-detail-view {
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 
@@ -229,9 +483,8 @@ li {
   }
 
   .img-post-page {
-    width: 60px;
-    height: 60px;
-    margin-top: 60px;
+    width: 50px;
+    height: 50px;
   }
 
   .img-main {
@@ -244,17 +497,14 @@ li {
   }
 
   .img-post-comment {
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
   }
 
   .card-body {
-    max-width: 80%;
+    max-width: 100%;
   }
 
-  .comment-textarea {
-    width: 80%;
-  }
   .post-detail-view {
     max-width: 100%;
   }

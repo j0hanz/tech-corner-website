@@ -1,50 +1,93 @@
 {% extends "base.html" %}
 
-{% block title %}
-Create New Post
-{% endblock %}
+{% load static %}
 
 {% block content %}
-
-<div class="container">
   <!-- Checks if there are any messages to display -->
   {% if messages %}
-  <div id="message-container" class="text-center">
-    <!-- Loops through each message and displays it -->
-    {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      {{ message }}
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
+    <div id="message-container"
+         class="text-center">
+      <!-- Loops through each message and displays it -->
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+             role="alert">
+          {{ message }}
+          <!-- Displays the message text -->
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close">
+          </button>
+        </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
   {% endif %}
-</div>
-<div class="container">
-  <img class="img-main img-fluid" src="/static/images/logo.webp" />
-  <div class="text-center">
-    <h2 class="mb-3">
-      Create New Post
-    </h2>
-    <!-- Form for creating a new post -->
-    <form method="POST" enctype="multipart/form-data">
+  <div class="container-image">
+    <form method="post"
+          enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-outline-success mx-4">
-        Submit
-      </button>
-      <a class="btn btn-outline-warning mx-4" href="{% url 'index' %}">
-        Cancel
-      </a>
+
+      <div class="image-wrapper"
+           onclick="document.getElementById('image-upload').click()"
+           aria-label="Upload or change image">
+        {% if form.image.value %}
+          <!-- If an image is already uploaded or selected -->
+          <figure>
+            <img src="{{ form.image.value.url }}"
+                 alt="Post preview"
+                 class="img-fluid" />
+            <div class="placeholder-img">
+              Click to change the image
+            </div>
+          </figure>
+        {% else %}
+          <!-- If no image is uploaded, show the upload icon -->
+          <figure>
+            <img src="{% static 'images/upload.png' %}"
+                 alt="Upload"
+                 class="img-fluid" />
+            <div class="placeholder-img">
+              Click to upload an image
+            </div>
+          </figure>
+        {% endif %}
+      </div>
+
+      <input type="file"
+             name="image"
+             id="image-upload"
+             accept="image/*"
+             class="d-none"
+             onchange="previewImage(event)" />
+
+      <div class="form-group my-3">
+        {{ form.title.label_tag }} {{ form.title }}
+      </div>
+
+      <div class="form-group mb-3">
+        {{ form.body.label_tag }} {{ form.body }}
+      </div>
+
+      <div class="d-flex justify-content-between my-4">
+        <button type="submit"
+                class="btn btn-outline-success"
+                id="submitBtn">
+          <span class="spinner-border spinner-border-sm d-none"
+                role="status"
+                aria-hidden="true"></span>
+          <span class="btn-text">Submit</span>
+        </button>
+        <a class="btn btn-outline-warning"
+           href="{% url 'index' %}">Cancel</a>
+      </div>
     </form>
   </div>
-</div>
-{% endblock %}
+{% endblock content %}
+
+
+{% block extra_js %}
+  <script src="{% static 'js/script.js' %}"></script>
+  <script>
+  function previewImage(event) {}
+  </script>
+{% endblock extra_js %}

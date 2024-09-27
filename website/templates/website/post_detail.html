@@ -1,151 +1,148 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
-{{ post.title }}
-{% endblock %}
+  {{ post.title }}
+{% endblock title %}
 
 {% block content %}
-
-<div class="container">
-  {% if messages %}
-  <div id="message-container" class="text-center">
-    {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      {{ message }}
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 d-flex justify-content-center right-bck">
-      <div class="registration-right post-detail-view">
-        <div class="card flex-row custom-card mb-4">
-          <!-- Checks if the user has a profile image -->
-          {% if post.author.profile.profile_image %}
-          <a href="{% url 'view_profile' post.author.username %}">
-            <img
-              class="rounded-circle card-img-left img-post-page"
-              src="{{ post.author.profile.profile_image.url }}"
-              alt="{{ post.title }}"
-            />
-          </a>
-          {% else %}
-          <a href="{% url 'view_profile' post.author.username %}">
-            <img
-              class="rounded-circle card-img-left img-post-page"
-              src="/static/images/nobody.webp"
-              alt="Placeholder Image"
-            />
-          </a>
-          {% endif %}
-          <div class="card-body">
-            <h1 class="text-center">
-              {{ post.title }}
-            </h1>
-            <p class="mb-3 mt-3">
-              {{ post.body }}
-            </p>
-            <p class="text-light text-opacity-75 text-end">
-              <strong>
-                Written by {{ post.author }}
-              </strong>
-            </p>
-            <p class="text-white text-opacity-25 text-end">
-              Published on {{ post.date }}
-            </p>
-            {% if request.user == post.author %}
-            <div class="d-flex justify-content-end mb-1">
-              <a
-                href="{% url 'edit_post' post.id %}"
-                class="btn btn-outline-warning fa-solid fa-pen-to-square fa-sm px-1 py-2 mx-3"
-              ></a>
-              <a
-                href="{% url 'delete_post' post.id %}"
-                class="btn btn-outline-danger fa-solid fa-trash fa-sm px-1 py-2"
-              ></a>
-            </div>
-            {% endif %}
+  <div class="container">
+    {% if messages %}
+      <div id="message-container"
+           class="text-center">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+               role="alert">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
+            </button>
           </div>
-        </div>
-        <!--Comments-->
-        <div class="event-list">
-          <div class="flex-row">
-            <div class="mt-1 mb-5 text-center">
-              {% if user.is_authenticated %}
-              <form method="post">
-                {% csrf_token %}
-                {{ comment_form.as_p }}
-                <button type="submit" class="btn btn-outline-success btn-sm">
-                  Submit
-                </button>
-              </form>
-              {% else %}
-              <div class="border border-warning-subtle rounded p-2">
-                <p>
-                  You need to be signed in to post a comment.
-                </p>
-                <a
-                  href="{% url 'account_login' %}"
-                  class="btn btn-outline-light btn-sm"
-                  >Sign In</a
-                >
-              </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center right-bck">
+        <div class="registration-right post-detail-view">
+          <div class="card flex-row custom-card mb-4">
+            <!-- Profile Image and Username Section -->
+            <div class="d-flex flex-column align-items-center">
+              <a href="{% if post.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' post.author.username %}{% endif %}">
+                <img class="rounded-circle card-img-left img-post-page mb-2"
+                     src="{% if post.author.profile.profile_image %}{{ post.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                     alt="{{ post.author.username }}" />
+              </a>
+              <p class="text-center mb-0">
+                <strong>{{ post.author }}</strong>
+              </p>
+            </div>
+            <!-- Post Content Section -->
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h1 class="text-center mb-4">
+                {{ post.title }}
+              </h1>
+              {% if post.image %}
+                <img src="{{ post.image.url }}"
+                     alt="{{ post.title }}"
+                     class="img-fluid mb-4 img-post-content" />
+              {% endif %}
+              <p class="mb-4">
+                {{ post.body }}
+              </p>
+              <p class="text-white text-opacity-50 text-end mb-2">
+                {{ post.short_date }}
+              </p>
+              <!-- Edit and Delete Buttons (If Author) -->
+              {% if request.user == post.author %}
+                <div class="d-flex justify-content-end my-2">
+                  <a href="{% url 'edit_post' post.id %}"
+                     class="btn btn-outline-warning text-white fa-solid fa-pen-to-square fa-sm p-3"
+                     aria-label="Edit post"></a>
+                  <a href="{% url 'delete_post' post.id %}"
+                     class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3 ms-4"
+                     aria-label="Delete post"></a>
+                </div>
               {% endif %}
             </div>
-            {% for comment in comments %}
-            <div class="card flex-row mb-1 custom-card">
-              {% if comment.author.profile.profile_image %}
-              <a href="{% url 'view_profile' comment.author.username %}">
-                <img
-                  class="rounded-circle img-post-comment card-img-left"
-                  src="{{ comment.author.profile.profile_image.url }}"
-                  alt="{{ comment.author.username }}"
-                />
-                {% else %}
-              </a>
-              <a href="{% url 'view_profile' comment.author.username %}">
-                <img
-                  class="rounded-circle img-post-comment card-img-left"
-                  src="/static/images/nobody.webp"
-                  alt="Placeholder Image"
-                />
-                {% endif %}
-                <div class="text-center">
-                  <em>
-                    {{ comment.author }}
-                  </em>
+          </div>
+
+          <!-- Comments Section -->
+          <div class="event-list">
+            <div class="d-flex flex-column align-items-center mt-1 mb-5">
+              {% if user.is_authenticated %}
+                <!-- Profile Image and Comment Form Container -->
+                <div class="d-flex align-items-center w-100">
+                  <!-- Profile Image -->
+                  <div class="me-2 pb-4">
+                    {% if user.profile.profile_image %}
+                      <img class="rounded-circle img-post-comment card-img-left"
+                           src="{{ user.profile.profile_image.url }}"
+                           alt="{{ user.username }}" />
+                    {% else %}
+                      <img class="rounded-circle img-post-comment card-img-left"
+                           src="{% static 'images/nobody.webp' %}"
+                           alt="{{ user.username }}" />
+                    {% endif %}
+                  </div>
+                  <!-- Comment Form -->
+                  <form method="post"
+                        class="flex-grow-1">
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <button type="submit"
+                            class="btn btn-outline-success btn-sm">
+                      Submit
+                    </button>
+                  </form>
                 </div>
-              </a>
-              <div class="card-body border border-black rounded mx-2 mb-5 p-1">
-                <p class="mx-2">
-                  {{ comment.body }}
-                </p>
-                {% if request.user == comment.author %}
-                <div class="d-flex justify-content-end mt-auto">
-                  <a
-                    href="{% url 'delete_comment' comment.id %}"
-                    class="btn btn-outline-danger fa-solid fa-trash fa-sm px-1 py-2"
-                  ></a>
+              {% else %}
+                <div class="border border-warning-subtle rounded p-3 text-center">
+                  <p>
+                    You need to be signed in to post a comment.
+                  </p>
+                  <a href="{% url 'account_login' %}"
+                     class="btn button-animation btn-sm">Sign In</a>
                 </div>
-                {% endif %}
-              </div>
+              {% endif %}
             </div>
+            <!-- Display Comments -->
+            {% for comment in comments %}
+              <div class="card flex-row mb-1 custom-card">
+                <!-- Profile Image and Username Link -->
+                <a href="{% if comment.author == user %}{% url 'profile_page' %}{% else %}{% url 'view_profile' comment.author.username %}{% endif %}"
+                   class="d-flex flex-column align-items-center">
+                  <img class="rounded-circle img-post-comment card-img-left"
+                       src="{% if comment.author.profile.profile_image %}{{ comment.author.profile.profile_image.url }}{% else %}{% static 'images/nobody.webp' %}{% endif %}"
+                       alt="{{ comment.author.username }}" />
+                  <div class="text-center mt-2">
+                    <em>{{ comment.author }}</em>
+                  </div>
+                </a>
+
+                <!-- Comment Body and Actions -->
+                <div class="card-body border border-black rounded mx-2 mb-5 p-1">
+                  <p class="mx-2">
+                    {{ comment.body }}
+                  </p>
+                  {% if request.user == comment.author %}
+                    <div class="d-flex justify-content-end mt-auto">
+                      <a href="{% url 'delete_comment' comment.id %}"
+                         class="btn btn-outline-danger text-white fa-solid fa-trash fa-sm p-3"
+                         aria-label="Delete comment"></a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
             {% endfor %}
           </div>
+
         </div>
       </div>
     </div>
   </div>
-</div>
-{% endblock %}
+{% endblock content %}
