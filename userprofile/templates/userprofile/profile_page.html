@@ -38,17 +38,21 @@
                  alt="Placeholder Image" />
           {% endif %}
 
-          <h2 class="mb-2">
+          <h2 class="my-1">
             {{ request.user.username }}
           </h2>
-          <p class="profile-detail mb-1">
+          <p class="profile-detail my-1">
             {{ user.profile.first_name|default:"" }} {{ user.profile.last_name|default:"" }}
           </p>
-          <p class="profile-detail mb-1">
+          <p class="profile-detail my-1">
             {{ request.user.email|default:"" }}
           </p>
-          <p class="profile-detail mb-3">
+          <p class="profile-detail mt-1 mb-3">
             Favorite Tech: {{ user.profile.favorite_tech|default:"" }}
+          </p>
+
+          <p class="profile-detail mb-4">
+            {{ user.profile.bio|default:"" }}
           </p>
 
           <div class="action-buttons my-3">
